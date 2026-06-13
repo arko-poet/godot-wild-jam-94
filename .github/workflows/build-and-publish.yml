@@ -31,11 +31,6 @@ on:
   push:
     branches:
       - release
-  release:
-    types: [published]
-    branches:
-      - release
-  workflow_dispatch:
 
 permissions:
   # Allow release asset uploads
@@ -60,7 +55,7 @@ jobs:
       image: barichello/godot-ci:${{ vars.GODOT_VERSION }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           lfs: true
 
@@ -97,7 +92,7 @@ jobs:
           file: build/${{ env.EXPORT_NAME }}-web.zip
 
       - name: Upload Artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: web
           path: build/web
@@ -109,7 +104,7 @@ jobs:
       image: barichello/godot-ci:${{ vars.GODOT_VERSION }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           lfs: true
 
@@ -146,7 +141,7 @@ jobs:
           file: build/${{ env.EXPORT_NAME }}-windows.zip
 
       - name: Upload Artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: windows
           path: build/${{ env.EXPORT_NAME }}-windows.zip
@@ -158,7 +153,7 @@ jobs:
       image: barichello/godot-ci:${{ vars.GODOT_VERSION }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           lfs: true
 
@@ -195,7 +190,7 @@ jobs:
           file: build/${{ env.EXPORT_NAME }}-linux.zip
 
       - name: Upload Artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: linux
           path: build/${{ env.EXPORT_NAME }}-linux.zip
@@ -207,7 +202,7 @@ jobs:
 #      image: barichello/godot-ci:${{ vars.GODOT_VERSION }}
 #    steps:
 #      - name: Checkout
-#        uses: actions/checkout@v4
+#        uses: actions/checkout@v6
 #        with:
 #          lfs: true
 #
@@ -232,7 +227,7 @@ jobs:
 #          file: build/mac/${{ env.EXPORT_NAME }}-mac.zip
 #
 #      - name: Upload Artifact
-#        uses: actions/upload-artifact@v4
+#        uses: actions/upload-artifact@v7
 #        with:
 #          name: mac
 #          path: build/mac

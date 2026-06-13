@@ -33,10 +33,7 @@ enabled=PackedStringArray("res://addons/maaacks_game_template/plugin.cfg")
 [file_customization]
 
 folder_colors={
-"res://game/art/": "yellow",
-"res://game/audio/": "orange",
-"res://game/scenes/": "green",
-"res://game/scripts/": "blue"
+"res://game/": "red"
 }
 
 [internationalization]

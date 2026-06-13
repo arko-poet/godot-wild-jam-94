@@ -28,8 +28,13 @@
 name: "Build and Deploy to Itch.io"
 
 on:
+  push:
+    branches:
+      - release
   release:
     types: [published]
+    branches:
+      - release
   workflow_dispatch:
 
 permissions:

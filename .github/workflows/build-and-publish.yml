@@ -239,7 +239,7 @@ jobs:
 
   deploy-to-itch:
     name: Deploy to Itch.io
-    needs: [export-web, export-windows, export-linux, export-mac]
+    needs: [export-web, export-windows, export-linux]
     runs-on: ubuntu-24.04
     env:
       BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }} # Create this SECRET on Github

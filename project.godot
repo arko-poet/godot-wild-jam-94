@@ -1,9 +1,17 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
 config_version=5
 
 [application]
 
 config/name="godot-wild-jam-94"
-run/main_scene="res://addons/maaacks_game_template/examples/scenes/opening/opening.tscn"
+run/main_scene="res://template/scenes/opening/opening.tscn"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -22,6 +30,15 @@ ProjectUISoundController="*uid://cc37235kj4384"
 
 enabled=PackedStringArray("res://addons/maaacks_game_template/plugin.cfg")
 
+[file_customization]
+
+folder_colors={
+"res://game/art/": "yellow",
+"res://game/audio/": "orange",
+"res://game/scenes/": "green",
+"res://game/scripts/": "blue"
+}
+
 [internationalization]
 
 locale/translations=PackedStringArray("res://addons/maaacks_game_template/base/translations/menus_translations.en.translation", "res://addons/maaacks_game_template/base/translations/menus_translations.fr.translation")
@@ -31,6 +48,7 @@ locale/translations=PackedStringArray("res://addons/maaacks_game_template/base/t
 disable_install_audio_busses=true
 disable_update_check=false
 disable_install_wizard=true
+copy_path="res://template/"
 
 [physics]
 

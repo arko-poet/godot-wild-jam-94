@@ -281,6 +281,6 @@ jobs:
         run: |
           ./butler push builds/linux ${{ env.ITCH_USERNAME }}/${{ env.ITCH_GAME }}:linux --userversion "${{ steps.version.outputs.version }}"
 
-      - name: Upload to Itch.io - macOS
-        run: |
-          ./butler push builds/mac ${{ env.ITCH_USERNAME }}/${{ env.ITCH_GAME }}:mac --userversion "${{ steps.version.outputs.version }}"
+     # - name: Upload to Itch.io - macOS
+     #   run: |
+     #     ./butler push builds/mac ${{ env.ITCH_USERNAME }}/${{ env.ITCH_GAME }}:mac --userversion "${{ steps.version.outputs.version }}"

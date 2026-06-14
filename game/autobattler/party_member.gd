@@ -34,5 +34,3 @@ func handle_death() -> void:
 	print("died")
 	self.visible = false
 	pass
-
-

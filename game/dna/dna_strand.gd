@@ -17,46 +17,35 @@ func combine_strands(incoming_strand: DNAStrand, position: int, mutation_allowed
 	assert(position < bases.size())
 	assert(incoming_strand.bases.size() + position > 0)
 
-	var incoming_strand_index: int
-	if position < 0:
-		incoming_strand_index = position * -1
-	else:
-		incoming_strand_index = 0
+	#var incoming_strand_index: int
+	#if position < 0:
+		#incoming_strand_index = position * -1
+	#else:
+		#incoming_strand_index = 0
 	
 	var new_bases: Array[DNABase]
 	for base_index in bases.size():
+		var incoming_strand_index = base_index - position
 		var base = bases[base_index]
 		
-		# Conservation
-		if incoming_strand_index > base_index or incoming_strand_index >= incoming_strand.bases.size(): 
-			new_bases.append(base)
-		elif position < incoming_strand.bases.size():
+		if incoming_strand_index < incoming_strand.bases.size() and incoming_strand_index >= 0 and base_index >= position:
 			var incoming_base = incoming_strand.bases[incoming_strand_index]
 			# Evolution
 			if base.is_matching(incoming_base):
 				base.value += incoming_base.value
-				new_bases.append(base)
 			# Mutation
 			elif mutation_allowed:
 				if randf() < 0.5:
 					incoming_base.value -= base.value
 					base = incoming_base
-					new_bases.append(base)
 				else:
 					base.value -= incoming_base.value
-			# Conservation
-			else:
-				new_bases.append(base)
-		else:
-			new_bases.append(base)
 		
 		new_bases.append(base)
-		if incoming_strand_index == base_index:
-			incoming_strand_index += 1
 	
 	# Growth
-	if incoming_strand_index < incoming_strand.bases.size():
-		new_bases.append(incoming_strand.bases[incoming_strand_index])
+	if position + incoming_strand.bases.size() > bases.size():
+		new_bases.append(incoming_strand.bases[position + bases.size() - incoming_strand.bases.size()])
 	
 	# Rejection
 	# Remaining bases in incroming strand get ignored

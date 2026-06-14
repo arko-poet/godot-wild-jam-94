@@ -34,7 +34,7 @@ func _test_one() -> void:
 
 	assert(strand_a.bases[0].value == 4)
 	assert(strand_a.bases[0].attribute == DNABase.Attribute.HEALTH)
-	assert(strand_a.bases[0].shape == DNABase.Shape.PointyPlug)
+	assert(strand_a.bases[0].shape == DNABase.Shape.RoundSocket)
 
 	assert(strand_a.bases[1].value == 6)
 	assert(strand_a.bases[1].attribute == DNABase.Attribute.DAMAGE)
@@ -46,7 +46,7 @@ func _test_one() -> void:
 
 	assert(strand_a.bases[3].value == 4 or strand_a.bases[3].value == -4)
 	assert(strand_a.bases[3].attribute == DNABase.Attribute.HEALTH or strand_a.bases[3].attribute ==  DNABase.Attribute.SPEED)
-	assert(strand_a.bases[3].shape == DNABase.Shape.PointyPlug or strand_a.bases[3].shape == DNABase.Shape.RoundSocket)
+	assert(strand_a.bases[3].shape == DNABase.Shape.PointySocket or strand_a.bases[3].shape == DNABase.Shape.RoundSocket)
 
 	assert(strand_a.bases[4].value == 4)
 	assert(strand_a.bases[4].attribute == DNABase.Attribute.SPEED)

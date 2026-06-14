@@ -51,3 +51,11 @@ func combine_strands(incoming_strand: DNAStrand, position: int, mutation_allowed
 	# Remaining bases in incroming strand get ignored
 			
 	bases = new_bases
+
+
+func get_attribute_sum(attribute: DNABase.Attribute) -> int:
+	var sum := 0
+	for base in bases:
+		if base.attribute == attribute:
+			sum += base.value
+	return sum

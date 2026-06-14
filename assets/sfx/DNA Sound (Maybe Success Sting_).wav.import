@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://nk6m7qdt4odg"
+path="res://.godot/imported/DNA Sound (Maybe Success Sting_).wav-c75afd1c8192bdb1415369113aa57984.sample"
+
+[deps]
+
+source_file="res://assets/sfx/DNA Sound (Maybe Success Sting_).wav"
+dest_files=["res://.godot/imported/DNA Sound (Maybe Success Sting_).wav-c75afd1c8192bdb1415369113aa57984.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

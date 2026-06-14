@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://c8dbelvuy4e1u"]
+
+[ext_resource type="Script" uid="uid://rpm7c5xxa2yy" path="res://game/dna/test/test_dna_combination.gd" id="1_vyg7i"]
+
+[node name="TestDNACombination" type="Node" unique_id=135383897]
+script = ExtResource("1_vyg7i")

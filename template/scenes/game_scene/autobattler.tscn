@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://xbyb0yn562sc"]
+
+[ext_resource type="Script" uid="uid://mdkjx4ml57oa" path="res://template/scenes/game_scene/autobattler.gd" id="1_jy7pd"]
+[ext_resource type="Script" uid="uid://swrcuneeb85r" path="res://template/scenes/game_scene/party_member.gd" id="1_u2val"]
+
+[node name="Autobattler" type="Node" unique_id=698912908]
+script = ExtResource("1_jy7pd")
+metadata/_custom_type_script = "uid://mdkjx4ml57oa"
+
+[node name="AllyPartyMembers" type="VBoxContainer" parent="." unique_id=1682667592]
+unique_name_in_owner = true
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PartyMember" type="Sprite2D" parent="AllyPartyMembers" unique_id=643962579]
+script = ExtResource("1_u2val")
+metadata/_custom_type_script = "uid://swrcuneeb85r"
+
+[node name="EnemyPartyMembers" type="VBoxContainer" parent="." unique_id=279544811]
+unique_name_in_owner = true
+anchors_preset = -1
+anchor_left = 0.99700004
+anchor_top = -0.002
+anchor_right = 0.99700004
+anchor_bottom = -0.002
+offset_left = -42.544067
+offset_top = 0.296
+offset_right = 0.45593262
+offset_bottom = 40.296
+
+[node name="PartyMember" type="Sprite2D" parent="EnemyPartyMembers" unique_id=848216452]
+script = ExtResource("1_u2val")
+metadata/_custom_type_script = "uid://swrcuneeb85r"

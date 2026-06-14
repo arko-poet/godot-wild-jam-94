@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://mdkjx4ml57oa" path="res://template/scenes/game_scene/autobattler.gd" id="1_jy7pd"]
 [ext_resource type="Script" uid="uid://swrcuneeb85r" path="res://template/scenes/game_scene/party_member.gd" id="1_u2val"]
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="2_rwqe7"]
 
 [node name="Autobattler" type="Node" unique_id=698912908]
 script = ExtResource("1_jy7pd")
@@ -13,7 +14,11 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="PartyMember" type="Sprite2D" parent="AllyPartyMembers" unique_id=643962579]
+texture = ExtResource("2_rwqe7")
 script = ExtResource("1_u2val")
+MAX_SPEED = 3
+MAX_HEALTH = 5
+MAX_STRENGTH = 6
 metadata/_custom_type_script = "uid://swrcuneeb85r"
 
 [node name="EnemyPartyMembers" type="VBoxContainer" parent="." unique_id=279544811]
@@ -29,5 +34,9 @@ offset_right = 0.45593262
 offset_bottom = 40.296
 
 [node name="PartyMember" type="Sprite2D" parent="EnemyPartyMembers" unique_id=848216452]
+texture = ExtResource("2_rwqe7")
 script = ExtResource("1_u2val")
+MAX_SPEED = 2
+MAX_HEALTH = 3
+MAX_STRENGTH = 1
 metadata/_custom_type_script = "uid://swrcuneeb85r"

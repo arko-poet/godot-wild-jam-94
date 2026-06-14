@@ -14,17 +14,24 @@ func _ready() -> void:
 	pass
 
 func do_turn() -> void:
+	print("doing turn")
+	print(target_player)
 	target_player.take_dmg(strength)
+	print("speed")
+	print(speed)
 	pass
 
 func take_dmg(dmg: int) -> void:
 	health -= dmg
+	print("took damage")
+	print(health)
 	if health <= 0:
 		handle_death()
 	pass
 
 func handle_death() -> void:
 	dead = true
+	print("died")
 	self.visible = false
 	pass
 

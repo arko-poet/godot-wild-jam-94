@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://xbyb0yn562sc"]
 
-[ext_resource type="Script" uid="uid://mdkjx4ml57oa" path="res://template/scenes/game_scene/autobattler.gd" id="1_jy7pd"]
-[ext_resource type="Script" uid="uid://swrcuneeb85r" path="res://template/scenes/game_scene/party_member.gd" id="1_u2val"]
+[ext_resource type="Script" uid="uid://mdkjx4ml57oa" path="res://game/scenes/autobattler.gd" id="1_jy7pd"]
+[ext_resource type="Script" uid="uid://swrcuneeb85r" path="res://game/scenes/party_member.gd" id="1_u2val"]
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="2_rwqe7"]
 
 [node name="Autobattler" type="Node" unique_id=698912908]

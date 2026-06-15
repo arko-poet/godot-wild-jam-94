@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://b2st48hbyrc6u"]
+
+[node name="TitleBar" type="Control" unique_id=93397008]
+custom_minimum_size = Vector2(0, 25)
+layout_direction = 2
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+
+[node name="TimeControls" type="HBoxContainer" parent="." unique_id=1363188190]
+custom_minimum_size = Vector2(0, 40)
+layout_direction = 2
+layout_mode = 0
+offset_right = 56.0
+offset_bottom = 40.0
+
+[node name="PauseButton" type="Button" parent="TimeControls" unique_id=1280858297]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Pause"
+
+[node name="1SpeedButton" type="Button" parent="TimeControls" unique_id=372072723]
+unique_name_in_owner = true
+layout_mode = 2
+text = "1x"
+
+[node name="2SpeedButton" type="Button" parent="TimeControls" unique_id=692242581]
+unique_name_in_owner = true
+layout_mode = 2
+text = "2x"
+
+[node name="4SpeedButton" type="Button" parent="TimeControls" unique_id=1049175039]
+unique_name_in_owner = true
+layout_mode = 2
+text = "4x"
+
+[node name="Title" type="RichTextLabel" parent="." unique_id=1334822929]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -12.5
+offset_right = 50.0
+offset_bottom = 12.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.9979592, 0.98816514)
+text = "Battle"
+scroll_active = false
+autowrap_trim_flags = 0
+horizontal_alignment = 1
+
+[node name="MenuButton" type="MenuButton" parent="." unique_id=1662896386]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -53.0
+offset_bottom = 31.0
+grow_horizontal = 0
+text = "Menu"

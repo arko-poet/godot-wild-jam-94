@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://mdkjx4ml57oa" path="res://game/autobattler/autobattler.gd" id="1_jy7pd"]
 [ext_resource type="Script" uid="uid://swrcuneeb85r" path="res://game/autobattler/party_member.gd" id="1_u2val"]
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="2_rwqe7"]
+[ext_resource type="PackedScene" uid="uid://b2st48hbyrc6u" path="res://game/ui/title_bar.tscn" id="4_5a0st"]
 [ext_resource type="PackedScene" uid="uid://cs45qvk88kylk" path="res://game/autobattler/stats/stats.tscn" id="4_dyrrl"]
 
 [sub_resource type="Gradient" id="Gradient_dyrrl"]
@@ -88,71 +89,8 @@ texture_progress = SubResource("GradientTexture2D_5a0st")
 
 [node name="Overlay" type="CanvasLayer" parent="." unique_id=1406174705]
 
-[node name="Container" type="Control" parent="Overlay" unique_id=1703896682]
-custom_minimum_size = Vector2(0, 25)
-layout_direction = 2
-layout_mode = 3
-anchors_preset = 10
-anchor_right = 1.0
-grow_horizontal = 2
-
-[node name="TitleBar" type="HBoxContainer" parent="Overlay/Container" unique_id=889503770]
-custom_minimum_size = Vector2(0, 40)
-layout_direction = 2
-layout_mode = 0
-offset_right = 56.0
-offset_bottom = 40.0
-
-[node name="PauseButton" type="Button" parent="Overlay/Container/TitleBar" unique_id=1920896716]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Pause"
-
-[node name="1SpeedButton" type="Button" parent="Overlay/Container/TitleBar" unique_id=1973630983]
-unique_name_in_owner = true
-layout_mode = 2
-text = "1x"
-
-[node name="2SpeedButton" type="Button" parent="Overlay/Container/TitleBar" unique_id=2007808883]
-unique_name_in_owner = true
-layout_mode = 2
-text = "2x"
-
-[node name="4SpeedButton" type="Button" parent="Overlay/Container/TitleBar" unique_id=1945841029]
-unique_name_in_owner = true
-layout_mode = 2
-text = "4x"
-
-[node name="Title" type="RichTextLabel" parent="Overlay/Container" unique_id=1913722729]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -50.0
-offset_top = -12.5
-offset_right = 50.0
-offset_bottom = 12.5
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.9979592, 0.98816514)
-text = "Battle"
-scroll_active = false
-autowrap_trim_flags = 0
-horizontal_alignment = 1
-
-[node name="MenuButton" type="MenuButton" parent="Overlay/Container" unique_id=1874775373]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -53.0
-offset_bottom = 31.0
-grow_horizontal = 0
-text = "Menu"
+[node name="TitleBar" parent="Overlay" unique_id=93397008 instance=ExtResource("4_5a0st")]
+offset_bottom = 25.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Overlay" unique_id=425034488]
 custom_minimum_size = Vector2(0, 120)

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://xbyb0yn562sc"]
 
-[ext_resource type="Script" uid="uid://mdkjx4ml57oa" path="res://game/scenes/autobattler.gd" id="1_jy7pd"]
-[ext_resource type="Script" uid="uid://swrcuneeb85r" path="res://game/scenes/party_member.gd" id="1_u2val"]
+[ext_resource type="Script" uid="uid://mdkjx4ml57oa" path="res://game/autobattler/autobattler.gd" id="1_jy7pd"]
+[ext_resource type="Script" uid="uid://swrcuneeb85r" path="res://game/autobattler/party_member.gd" id="1_u2val"]
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="2_rwqe7"]
 
 [node name="Autobattler" type="Node" unique_id=698912908]
@@ -10,10 +10,18 @@ metadata/_custom_type_script = "uid://mdkjx4ml57oa"
 
 [node name="AllyPartyMembers" type="VBoxContainer" parent="." unique_id=1682667592]
 unique_name_in_owner = true
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 97.0
+offset_top = -71.5
+offset_right = 225.0
+offset_bottom = 56.5
+grow_vertical = 2
 
-[node name="PartyMember" type="Sprite2D" parent="AllyPartyMembers" unique_id=643962579]
+[node name="PartyMember" type="TextureRect" parent="AllyPartyMembers" unique_id=651945514]
+physics_interpolation_mode = 0
+layout_mode = 2
 texture = ExtResource("2_rwqe7")
 script = ExtResource("1_u2val")
 MAX_SPEED = 3
@@ -21,22 +29,128 @@ MAX_HEALTH = 5
 MAX_STRENGTH = 6
 metadata/_custom_type_script = "uid://swrcuneeb85r"
 
+[node name="TextureProgressBar" type="TextureProgressBar" parent="AllyPartyMembers/PartyMember" unique_id=460974049]
+layout_mode = 0
+offset_left = 42.0
+offset_top = 161.0
+offset_right = 82.0
+offset_bottom = 201.0
+
 [node name="EnemyPartyMembers" type="VBoxContainer" parent="." unique_id=279544811]
 unique_name_in_owner = true
 anchors_preset = -1
-anchor_left = 0.99700004
-anchor_top = -0.002
-anchor_right = 0.99700004
-anchor_bottom = -0.002
-offset_left = -42.544067
-offset_top = 0.296
-offset_right = 0.45593262
-offset_bottom = 40.296
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -184.0
+offset_top = -65.500015
+offset_right = -56.0
+offset_bottom = 62.5
 
-[node name="PartyMember" type="Sprite2D" parent="EnemyPartyMembers" unique_id=848216452]
+[node name="PartyMember" type="TextureRect" parent="EnemyPartyMembers" unique_id=510439422]
+physics_interpolation_mode = 0
+layout_mode = 2
 texture = ExtResource("2_rwqe7")
 script = ExtResource("1_u2val")
 MAX_SPEED = 2
 MAX_HEALTH = 3
 MAX_STRENGTH = 1
 metadata/_custom_type_script = "uid://swrcuneeb85r"
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="EnemyPartyMembers/PartyMember" unique_id=428122797]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 152.00002
+offset_right = 85.0
+offset_bottom = 192.00002
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=864222603]
+
+[node name="Overlay" type="CanvasLayer" parent="." unique_id=1406174705]
+
+[node name="Container" type="Control" parent="Overlay" unique_id=1703896682]
+custom_minimum_size = Vector2(0, 25)
+layout_direction = 2
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+
+[node name="TitleBar" type="HBoxContainer" parent="Overlay/Container" unique_id=889503770]
+custom_minimum_size = Vector2(0, 40)
+layout_direction = 2
+layout_mode = 0
+offset_right = 56.0
+offset_bottom = 40.0
+
+[node name="PauseButton" type="Button" parent="Overlay/Container/TitleBar" unique_id=1920896716]
+layout_mode = 2
+text = "Pause"
+
+[node name="1SpeedButton" type="Button" parent="Overlay/Container/TitleBar" unique_id=1973630983]
+layout_mode = 2
+text = "1x"
+
+[node name="2SpeedButton2" type="Button" parent="Overlay/Container/TitleBar" unique_id=2007808883]
+layout_mode = 2
+text = "2x"
+
+[node name="4SpeedButton" type="Button" parent="Overlay/Container/TitleBar" unique_id=1945841029]
+layout_mode = 2
+text = "4x"
+
+[node name="MenuButton" type="MenuButton" parent="Overlay/Container/TitleBar" unique_id=2095118799]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Overlay/Container" unique_id=1913722729]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -12.5
+offset_right = 50.0
+offset_bottom = 12.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.9979592, 0.98816514)
+text = "Battle"
+scroll_active = false
+autowrap_trim_flags = 0
+horizontal_alignment = 1
+
+[node name="MenuButton" type="MenuButton" parent="Overlay/Container" unique_id=1874775373]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -53.0
+offset_bottom = 31.0
+grow_horizontal = 0
+text = "Menu"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Overlay" unique_id=425034488]
+custom_minimum_size = Vector2(0, 150)
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="AllyStats" type="VBoxContainer" parent="Overlay/HBoxContainer" unique_id=1445248872]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="CombatLog" type="Label" parent="Overlay/HBoxContainer" unique_id=1306234163]
+custom_minimum_size = Vector2(500, 200)
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="EnemyStats" type="VBoxContainer" parent="Overlay/HBoxContainer" unique_id=154660340]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+alignment = 2

@@ -1,8 +1,9 @@
-class_name PartyMember extends Sprite2D
+class_name PartyMember extends TextureRect
 
 @export var MAX_SPEED: int
 @export var MAX_HEALTH: int
 @export var MAX_STRENGTH: int
+@export var member_name: String
 
 @onready var speed = MAX_SPEED
 @onready var health = MAX_HEALTH

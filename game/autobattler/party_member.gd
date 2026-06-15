@@ -1,36 +1,44 @@
-class_name PartyMember extends Sprite2D
+class_name PartyMember extends TextureRect
 
 @export var MAX_SPEED: int
 @export var MAX_HEALTH: int
 @export var MAX_STRENGTH: int
+@export var member_name: String
 
-@onready var speed = MAX_SPEED
-@onready var health = MAX_HEALTH
-@onready var strength = MAX_STRENGTH
+@onready var speed: int = MAX_SPEED
+@onready var health: int = MAX_HEALTH
+@onready var strength: int = MAX_STRENGTH
+@onready var hp_bar = $HPBar
 var target_player: PartyMember
 var dead: bool = false
 
 func _ready() -> void:
+	hp_bar.max_value = MAX_HEALTH
+	hp_bar.value = health
 	pass
 
-func do_turn() -> void:
+func do_turn(combat_log: RichTextLabel, target_stats: Stats) -> void:
 	print("doing turn")
-	print(target_player)
-	target_player.take_dmg(strength)
-	print("speed")
-	print(speed)
+	var combat_text = "{0} Does {1} [color=orange][b]DAMAGE[/b][/color]".format([member_name, strength])
+
+	combat_log.append_text(combat_text)
+	combat_log.newline()
+	target_player.take_dmg(strength, combat_log, target_stats)
 	pass
 
-func take_dmg(dmg: int) -> void:
+func take_dmg(dmg: int, combat_log: RichTextLabel, target_stats: Stats) -> void:
 	health -= dmg
 	print("took damage")
-	print(health)
+	target_stats.update_HP(health)
+	hp_bar.value = health
 	if health <= 0:
-		handle_death()
+		handle_death(combat_log)
 	pass
 
-func handle_death() -> void:
+func handle_death(combat_log: RichTextLabel) -> void:
 	dead = true
+	combat_log.append_text("{0} [color=red][b]DIES[/b][/color]".format([member_name]))
+	combat_log.newline()
 	print("died")
-	self.visible = false
+	#self.visible = false
 	pass

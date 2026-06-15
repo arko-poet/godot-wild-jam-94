@@ -1,0 +1,134 @@
+[gd_scene format=3 uid="uid://f6xl71xi08us"]
+
+[ext_resource type="Script" uid="uid://bkwopoaotwutv" path="res://game/dna/mutation_screen/mutation_screen.gd" id="1_wpbrl"]
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="2_2vdyd"]
+
+[node name="MutationScreen" type="Node" unique_id=825821701]
+script = ExtResource("1_wpbrl")
+
+[node name="World" type="Node2D" parent="." unique_id=807716502]
+
+[node name="PlayerCreature" type="Sprite2D" parent="World" unique_id=1197867678]
+position = Vector2(135, 126)
+texture = ExtResource("2_2vdyd")
+
+[node name="Corpse" type="Sprite2D" parent="World" unique_id=1892625927]
+position = Vector2(863, 115)
+texture = ExtResource("2_2vdyd")
+
+[node name="UILayer" type="CanvasLayer" parent="." unique_id=474475790]
+
+[node name="UI" type="Control" parent="UILayer" unique_id=354190658]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="ConfirmMutationButton" type="Button" parent="UILayer/UI" unique_id=133493580]
+layout_mode = 0
+offset_left = 375.0
+offset_top = 495.0
+offset_right = 479.0
+offset_bottom = 519.0
+text = "MUTATE"
+
+[node name="SkipMutationButton" type="Button" parent="UILayer/UI" unique_id=778146235]
+layout_mode = 0
+offset_left = 531.0
+offset_top = 497.0
+offset_right = 603.0
+offset_bottom = 521.0
+text = "SKIP"
+
+[node name="ShiftStrandUpButton" type="Button" parent="UILayer/UI" unique_id=269502958]
+layout_mode = 0
+offset_left = 584.0
+offset_top = 70.0
+offset_right = 672.0
+offset_bottom = 110.0
+text = "SHIFT
+UP"
+
+[node name="ShiftStrandDownButton" type="Button" parent="UILayer/UI" unique_id=597588599]
+layout_mode = 0
+offset_left = 583.0
+offset_top = 401.0
+offset_right = 686.0
+offset_bottom = 441.0
+text = "SHIFT
+DOWN"
+
+[node name="StatsPanelPlaceholder" type="Panel" parent="UILayer/UI" unique_id=2009348878]
+layout_mode = 0
+offset_left = 53.0
+offset_top = 322.0
+offset_right = 260.0
+offset_bottom = 501.0
+
+[node name="Label" type="Label" parent="UILayer/UI/StatsPanelPlaceholder" unique_id=948533166]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "STATS:
+
+HP: 14
+ATK: 13
+SPD: 4"
+
+[node name="TopPanelPlaceholder" type="Panel" parent="UILayer/UI" unique_id=1801435406]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="UILayer/UI/TopPanelPlaceholder" unique_id=947273261]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -8.0
+offset_right = 64.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "MUTATION"
+
+[node name="GeneticsPanel" type="Panel" parent="UILayer/UI" unique_id=513794142]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -236.0
+offset_top = -301.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="UILayer/UI/GeneticsPanel" unique_id=1126939969]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "   GENETICS
+
+MATCH = ADD
+..."
+
+[connection signal="pressed" from="UILayer/UI/SkipMutationButton" to="." method="_on_skip_mutation_button_pressed"]
+[connection signal="pressed" from="UILayer/UI/ShiftStrandUpButton" to="." method="_on_shift_strand_up_button_pressed"]
+[connection signal="pressed" from="UILayer/UI/ShiftStrandDownButton" to="." method="_on_shift_strand_down_button_pressed"]

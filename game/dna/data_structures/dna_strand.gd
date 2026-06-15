@@ -1,5 +1,7 @@
 class_name DNAStrand extends RefCounted
 
+signal strand_mutated
+
 var bases: Array[DNABase]
 
 ## modifies the bases of this DNAStrand by the incoming_strand
@@ -53,6 +55,7 @@ func combine_strands(
 	# Remaining bases in incoming strand get ignored
 			
 	bases = new_bases
+	strand_mutated.emit()
 
 
 func get_attribute_sum(attribute: DNABase.Attribute) -> int:

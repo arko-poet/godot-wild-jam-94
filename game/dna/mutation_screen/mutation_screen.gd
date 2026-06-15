@@ -5,8 +5,8 @@ signal mutation_finished
 @onready var player_creature: Sprite2D = $World/PlayerCreature
 @onready var corpse: Sprite2D = $World/Corpse
 
-@onready var strand_a_drawing: DnaStrandDrawing = $World/StrandADrawing
-@onready var strand_b_drawing: DnaStrandDrawing = $World/StrandBDrawing
+@onready var left_strand_drawing: DnaStrandDrawing = $World/LeftStrandDrawing
+@onready var right_strand_drawing: DnaStrandDrawing = $World/RightStrandDrawing
 
 @onready var mutation_h_box: HBoxContainer = $UILayer/UI/MutationHBox
 @onready var confirm_mutation_button: Button = $UILayer/UI/MutationHBox/ConfirmMutationButton
@@ -17,18 +17,28 @@ signal mutation_finished
 
 @onready var next_battle_button: Button = $UILayer/UI/NextBattleButton
 
+var left_strand: DNAStrand
+var right_strand: DNAStrand
+
 
 ## TODO change parameters to get creature objects - for adding sprites etc.
-## strandA -> player creature's strand that will change
-## strandB -> slain creature strand that will affect strandA
-func load_dna_strands(strandA: DNAStrand, strandB: DNAStrand) -> void:
-	strand_a_drawing.strand = strandA
-	strand_b_drawing.strand = strandB
-	strand_b_drawing.shift = 0
+## p_left_strand -> player creature's strand that will change
+## p_right_strand -> slain creature strand that will affect strandA
+func load_dna_strands(p_left_strand: DNAStrand, p_right_strand: DNAStrand) -> void:
+	left_strand = p_left_strand
+	right_strand = p_right_strand
+	
+	left_strand_drawing.strand = left_strand
+	right_strand_drawing.strand = right_strand
+	left_strand_drawing.queue_redraw()
+	right_strand_drawing.shift = 0
+	
+	next_battle_button.hide()
+	mutation_h_box.show()
 
 
 func _on_confirm_mutation_button_pressed() -> void:
-	strand_a_drawing.strand.combine_strands(strand_b_drawing.strand, strand_b_drawing.shift)
+	left_strand.combine_strands(right_strand, right_strand_drawing.shift)
 	mutation_h_box.hide()
 	next_battle_button.show()
 
@@ -39,13 +49,13 @@ func _on_skip_mutation_button_pressed() -> void:
 
 
 func _on_shift_strand_up_button_pressed() -> void:
-	strand_b_drawing.shift -= 1
+	right_strand_drawing.shift -= 1
 
 
 func _on_shift_strand_down_button_pressed() -> void:
-	strand_b_drawing.shift += 1
+	right_strand_drawing.shift += 1
 
 
 func _on_next_battle_button_pressed() -> void:
 	mutation_finished.emit()
-	print("NEXT BATTLE REQUEST")
+	print("MUTATION FINISHED, NEXT BATTLE REQUESTED")

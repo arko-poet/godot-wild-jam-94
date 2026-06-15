@@ -17,10 +17,10 @@ texture = ExtResource("2_2vdyd")
 position = Vector2(832, 128)
 texture = ExtResource("2_2vdyd")
 
-[node name="StrandADrawing" parent="World" unique_id=1142906006 instance=ExtResource("3_cneda")]
+[node name="LeftStrandDrawing" parent="World" unique_id=1142906006 instance=ExtResource("3_cneda")]
 position = Vector2(330, 64)
 
-[node name="StrandBDrawing" parent="World" unique_id=165283845 instance=ExtResource("3_cneda")]
+[node name="RightStrandDrawing" parent="World" unique_id=165283845 instance=ExtResource("3_cneda")]
 position = Vector2(540, 64)
 is_left = false
 

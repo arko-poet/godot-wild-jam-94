@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bkwopoaotwutv" path="res://game/dna/mutation_screen/mutation_screen.gd" id="1_wpbrl"]
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="2_2vdyd"]
+[ext_resource type="PackedScene" uid="uid://criksgr4si05m" path="res://game/dna/dna_strand_drawing/DNAStrandDrawing.tscn" id="3_cneda"]
 
 [node name="MutationScreen" type="Node" unique_id=825821701]
 script = ExtResource("1_wpbrl")
@@ -15,6 +16,13 @@ texture = ExtResource("2_2vdyd")
 [node name="Corpse" type="Sprite2D" parent="World" unique_id=1892625927]
 position = Vector2(863, 115)
 texture = ExtResource("2_2vdyd")
+
+[node name="StrandADrawing" parent="World" unique_id=1142906006 instance=ExtResource("3_cneda")]
+position = Vector2(360, 64)
+
+[node name="StrandBDrawing" parent="World" unique_id=165283845 instance=ExtResource("3_cneda")]
+position = Vector2(560, 64)
+is_left = false
 
 [node name="UILayer" type="CanvasLayer" parent="." unique_id=474475790]
 

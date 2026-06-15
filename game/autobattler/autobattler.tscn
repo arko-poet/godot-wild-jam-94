@@ -5,6 +5,14 @@
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="2_rwqe7"]
 [ext_resource type="PackedScene" uid="uid://cs45qvk88kylk" path="res://game/autobattler/stats/stats.tscn" id="4_dyrrl"]
 
+[sub_resource type="Gradient" id="Gradient_dyrrl"]
+colors = PackedColorArray(0, 0, 0, 1, 0.49865687, 0.9260818, 3.85046e-07, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5a0st"]
+gradient = SubResource("Gradient_dyrrl")
+width = 256
+height = 20
+
 [node name="Autobattler" type="Node" unique_id=698912908]
 script = ExtResource("1_jy7pd")
 metadata/_custom_type_script = "uid://mdkjx4ml57oa"
@@ -14,10 +22,10 @@ unique_name_in_owner = true
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 97.0
-offset_top = -71.5
-offset_right = 225.0
-offset_bottom = 56.5
+offset_left = 86.0
+offset_top = -146.0
+offset_right = 214.0
+offset_bottom = -18.0
 grow_vertical = 2
 
 [node name="PartyMember" type="TextureRect" parent="AllyPartyMembers" unique_id=651945514]
@@ -27,16 +35,20 @@ texture = ExtResource("2_rwqe7")
 script = ExtResource("1_u2val")
 MAX_SPEED = 3
 MAX_HEALTH = 5
-MAX_STRENGTH = 6
+MAX_STRENGTH = 2
 member_name = "Turtle"
 metadata/_custom_type_script = "uid://swrcuneeb85r"
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="AllyPartyMembers/PartyMember" unique_id=460974049]
+[node name="HPBar" type="TextureProgressBar" parent="AllyPartyMembers/PartyMember" unique_id=1825288634]
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 0
-offset_left = 42.0
-offset_top = 161.0
-offset_right = 82.0
-offset_bottom = 201.0
+offset_left = -14.0
+offset_top = 138.00002
+offset_right = 242.0
+offset_bottom = 202.00002
+scale = Vector2(0.78880936, 1)
+value = 100.0
+texture_progress = SubResource("GradientTexture2D_5a0st")
 
 [node name="EnemyPartyMembers" type="VBoxContainer" parent="." unique_id=279544811]
 unique_name_in_owner = true
@@ -45,10 +57,10 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -184.0
-offset_top = -65.500015
-offset_right = -56.0
-offset_bottom = 62.5
+offset_left = -157.0
+offset_top = -135.0
+offset_right = -29.0
+offset_bottom = -7.0
 
 [node name="PartyMember" type="TextureRect" parent="EnemyPartyMembers" unique_id=510439422]
 physics_interpolation_mode = 0
@@ -61,12 +73,16 @@ MAX_STRENGTH = 1
 member_name = "Enemy"
 metadata/_custom_type_script = "uid://swrcuneeb85r"
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="EnemyPartyMembers/PartyMember" unique_id=428122797]
+[node name="HPBar" type="TextureProgressBar" parent="EnemyPartyMembers/PartyMember" unique_id=428122797]
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 0
-offset_left = 45.0
-offset_top = 152.00002
-offset_right = 85.0
-offset_bottom = 192.00002
+offset_left = -46.0
+offset_top = 135.00002
+offset_right = 210.0
+offset_bottom = 199.00002
+scale = Vector2(0.78880936, 1)
+value = 100.0
+texture_progress = SubResource("GradientTexture2D_5a0st")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=864222603]
 
@@ -139,7 +155,7 @@ grow_horizontal = 0
 text = "Menu"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Overlay" unique_id=425034488]
-custom_minimum_size = Vector2(0, 150)
+custom_minimum_size = Vector2(0, 120)
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0

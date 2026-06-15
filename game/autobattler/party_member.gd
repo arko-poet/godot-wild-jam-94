@@ -8,10 +8,13 @@ class_name PartyMember extends TextureRect
 @onready var speed: int = MAX_SPEED
 @onready var health: int = MAX_HEALTH
 @onready var strength: int = MAX_STRENGTH
+@onready var hp_bar = $HPBar
 var target_player: PartyMember
 var dead: bool = false
 
 func _ready() -> void:
+	hp_bar.max_value = MAX_HEALTH
+	hp_bar.value = health
 	pass
 
 func do_turn(combat_log: RichTextLabel, target_stats: Stats) -> void:
@@ -27,6 +30,7 @@ func take_dmg(dmg: int, combat_log: RichTextLabel, target_stats: Stats) -> void:
 	health -= dmg
 	print("took damage")
 	target_stats.update_HP(health)
+	hp_bar.value = health
 	if health <= 0:
 		handle_death(combat_log)
 	pass

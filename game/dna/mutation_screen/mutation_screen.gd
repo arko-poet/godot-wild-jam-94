@@ -7,7 +7,6 @@ signal mutation_finished
 @onready var strand_a_drawing: DnaStrandDrawing = $World/StrandADrawing
 @onready var strand_b_drawing: DnaStrandDrawing = $World/StrandBDrawing
 
-
 @onready var confirm_mutation_button: Button = $UILayer/UI/ConfirmMutationButton
 @onready var skip_mutation_button: Button = $UILayer/UI/SkipMutationButton
 @onready var shift_strand_up_button: Button = $UILayer/UI/ShiftStrandUpButton

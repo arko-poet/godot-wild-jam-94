@@ -10,6 +10,7 @@ const DNABaseDrawingScene := preload("res://game/dna/dna_base_drawing/dna_base_d
 var strand: DNAStrand:
 	set(value):
 		strand = value
+		strand.strand_mutated.connect(_on_strand_mutated)
 		create_bases()
 		draw_bases()
 		queue_redraw()
@@ -61,3 +62,9 @@ func draw_bases() -> void:
 		if base_position.y >= 0 and base_index < Strands.MAX_STRAND_LENGTH - shift:
 			base.show()
 		base_position.y += DNA_BASE_HEIGHT + DNA_STRAND_SPACING
+
+
+func _on_strand_mutated() -> void:
+	create_bases()
+	draw_bases()
+	queue_redraw()

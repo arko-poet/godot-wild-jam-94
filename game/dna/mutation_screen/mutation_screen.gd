@@ -42,7 +42,7 @@ func load_dna_strands(p_left_strand: DNAStrand, p_right_strand: DNAStrand) -> vo
 
 
 func _on_confirm_mutation_button_pressed() -> void:
-	left_strand.combine_strands(right_strand, right_strand_drawing.shift)
+	left_strand.combine_strands(right_strand, right_strand_drawing.shift, true)
 	mutation_h_box.hide()
 	next_battle_button.show()
 

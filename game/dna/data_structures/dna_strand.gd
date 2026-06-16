@@ -23,7 +23,7 @@ func combine_strands(
 		incoming_strand: DNAStrand, position: int, mutation_allowed: bool = false
 ) -> void:
 	assert(incoming_strand.bases.size() > 0)
-	assert(position < bases.size())
+	assert(position < Strands.MAX_STRAND_LENGTH)
 	assert(incoming_strand.bases.size() + position > 0)
 	
 	var new_bases: Array[DNABase]
@@ -52,7 +52,7 @@ func combine_strands(
 	
 	# Growth
 	if position + incoming_strand.bases.size() > bases.size():
-		var growth_index = position + bases.size() - incoming_strand.bases.size()
+		var growth_index = bases.size() - position
 		var growth_base := incoming_strand.bases[growth_index]
 		new_bases.append(growth_base)
 	

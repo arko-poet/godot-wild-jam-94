@@ -4,7 +4,7 @@ enum Shape {
 	RoundSocket,  # --(
 	RoundPlug,    # --)
 	PointySocket, # --<
-	PointyPlug     # -->
+	PointyPlug    # -->
 }
 ## TODO might may make more sense to define Attribute elsewhere
 enum Attribute {HEALTH, DAMAGE, SPEED} 

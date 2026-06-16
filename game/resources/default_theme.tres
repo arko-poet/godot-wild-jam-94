@@ -1,0 +1,23 @@
+[gd_resource type="Theme" format=3 uid="uid://bkmkuk4tw7y3d"]
+
+[ext_resource type="Texture2D" uid="uid://bic0o0s51d2cp" path="res://assets/art/AssetsDNAScreen_x2/MutationAndSkipButton.png" id="1_15wtr"]
+[ext_resource type="Texture2D" uid="uid://d3jo8pvgwfp72" path="res://assets/art/AssetsDNAScreen_x2/AttributesWindow.png" id="2_1kr7f"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1kr7f"]
+texture = ExtResource("1_15wtr")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_klq0r"]
+texture = ExtResource("2_1kr7f")
+texture_margin_left = 24.0
+texture_margin_top = 24.0
+texture_margin_right = 24.0
+texture_margin_bottom = 24.0
+
+[resource]
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/styles/normal = SubResource("StyleBoxTexture_1kr7f")
+Panel/styles/panel = SubResource("StyleBoxTexture_klq0r")

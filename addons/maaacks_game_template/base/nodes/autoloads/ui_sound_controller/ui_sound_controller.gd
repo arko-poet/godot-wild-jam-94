@@ -163,7 +163,7 @@ func _connect_stream_player(node : Node, stream_player : AudioStreamPlayer, sign
 		node.connect(signal_name, callable.bind(stream_player))
 
 func connect_ui_sounds(node: Node) -> void:
-	if node is Button:
+	if node is Button or node is TextureButton:
 		_connect_stream_player(node, button_hovered_player, &"mouse_entered", _play_stream)
 		_connect_stream_player(node, button_focused_player, &"focus_entered", _play_stream)
 		_connect_stream_player(node, button_pressed_player, &"pressed", _play_stream)

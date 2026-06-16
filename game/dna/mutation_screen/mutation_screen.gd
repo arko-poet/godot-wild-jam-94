@@ -12,8 +12,8 @@ signal mutation_finished
 @onready var confirm_mutation_button: Button = $UILayer/UI/MutationHBox/ConfirmMutationButton
 @onready var skip_mutation_button: Button = $UILayer/UI/MutationHBox/SkipMutationButton
 
-@onready var shift_strand_up_button: Button = $UILayer/UI/ShiftStrandUpButton
-@onready var shift_strand_down_button: Button = $UILayer/UI/ShiftStrandDownButton
+@onready var shift_strand_up_button: TextureButton = $UILayer/UI/ShiftStrandUpButton
+@onready var shift_strand_down_button: TextureButton = $UILayer/UI/ShiftStrandDownButton
 
 @onready var next_battle_button: Button = $UILayer/UI/NextBattleButton
 

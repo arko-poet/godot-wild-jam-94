@@ -1,10 +1,11 @@
 [gd_scene format=3 uid="uid://f6xl71xi08us"]
 
 [ext_resource type="Script" uid="uid://bkwopoaotwutv" path="res://game/dna/mutation_screen/mutation_screen.gd" id="1_wpbrl"]
-[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="2_2vdyd"]
 [ext_resource type="Texture2D" uid="uid://1m23pleb14vw" path="res://assets/art/AssetsDNAScreen_x2/DNAScreenBackground.png" id="2_mq6fl"]
 [ext_resource type="PackedScene" uid="uid://criksgr4si05m" path="res://game/dna/dna_strand_drawing/DNAStrandDrawing.tscn" id="3_cneda"]
 [ext_resource type="Texture2D" uid="uid://dneihqdyyv2sb" path="res://assets/art/AssetsDNAScreen_x2/DNAScreenExample.png" id="3_kxiwm"]
+[ext_resource type="Texture2D" uid="uid://d0c3oei755jvb" path="res://assets/art/AssetsArchibald_x2/ArchibaldStand.png" id="3_t0w3q"]
+[ext_resource type="Texture2D" uid="uid://bafs47ipwdqis" path="res://assets/art/AssetsSalamander_x2/SalamanderStand.png" id="4_4vgib"]
 [ext_resource type="Texture2D" uid="uid://dae4xywvlp37p" path="res://assets/art/AssetsDNAScreen_x2/ScrollBarButton.png" id="4_hqnmp"]
 [ext_resource type="PackedScene" uid="uid://b2st48hbyrc6u" path="res://game/ui/title_bar.tscn" id="5_gh0k7"]
 [ext_resource type="PackedScene" uid="uid://cs45qvk88kylk" path="res://game/autobattler/stats/stats.tscn" id="6_jn8ej"]
@@ -20,12 +21,12 @@ centered = false
 metadata/_edit_lock_ = true
 
 [node name="PlayerCreature" type="Sprite2D" parent="World" unique_id=1197867678]
-position = Vector2(128, 128)
-texture = ExtResource("2_2vdyd")
+position = Vector2(176, 170)
+texture = ExtResource("3_t0w3q")
 
 [node name="Corpse" type="Sprite2D" parent="World" unique_id=1892625927]
-position = Vector2(832, 128)
-texture = ExtResource("2_2vdyd")
+position = Vector2(774, 168)
+texture = ExtResource("4_4vgib")
 
 [node name="LeftStrandDrawing" parent="World" unique_id=1142906006 instance=ExtResource("3_cneda")]
 position = Vector2(380, 98)

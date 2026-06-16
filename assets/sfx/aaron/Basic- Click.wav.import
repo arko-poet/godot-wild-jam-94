@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dalpd8nyqu6qc"
+path="res://.godot/imported/Basic- Click.wav-2b0ba900213515f556bd8f6d48d3ea67.sample"
+
+[deps]
+
+source_file="res://assets/sfx/aaron/Basic- Click.wav"
+dest_files=["res://.godot/imported/Basic- Click.wav-2b0ba900213515f556bd8f6d48d3ea67.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

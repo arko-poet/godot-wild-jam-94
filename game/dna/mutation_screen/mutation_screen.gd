@@ -19,6 +19,10 @@ signal mutation_finished
 
 var left_strand: DNAStrand
 var right_strand: DNAStrand
+var player_stats: Stats
+var enemy_stats: Stats
+
+
 
 
 ## TODO change parameters to get creature objects - for adding sprites etc.

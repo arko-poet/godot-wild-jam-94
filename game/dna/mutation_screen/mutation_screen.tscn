@@ -2,13 +2,26 @@
 
 [ext_resource type="Script" uid="uid://bkwopoaotwutv" path="res://game/dna/mutation_screen/mutation_screen.gd" id="1_wpbrl"]
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="2_2vdyd"]
+[ext_resource type="Texture2D" uid="uid://1m23pleb14vw" path="res://assets/art/AssetsDNAScreen_x2/DNAScreenBackground.png" id="2_mq6fl"]
 [ext_resource type="PackedScene" uid="uid://criksgr4si05m" path="res://game/dna/dna_strand_drawing/DNAStrandDrawing.tscn" id="3_cneda"]
+[ext_resource type="Texture2D" uid="uid://dneihqdyyv2sb" path="res://assets/art/AssetsDNAScreen_x2/DNAScreenExample.png" id="3_kxiwm"]
 [ext_resource type="Texture2D" uid="uid://dae4xywvlp37p" path="res://assets/art/AssetsDNAScreen_x2/ScrollBarButton.png" id="4_hqnmp"]
 
 [node name="MutationScreen" type="Node" unique_id=825821701]
 script = ExtResource("1_wpbrl")
 
 [node name="World" type="Node2D" parent="." unique_id=807716502]
+
+[node name="Background" type="Sprite2D" parent="World" unique_id=686570157]
+texture = ExtResource("2_mq6fl")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="Mockup" type="Sprite2D" parent="World" unique_id=1429357353]
+modulate = Color(1, 1, 1, 0.38431373)
+texture = ExtResource("3_kxiwm")
+centered = false
+metadata/_edit_lock_ = true
 
 [node name="PlayerCreature" type="Sprite2D" parent="World" unique_id=1197867678]
 position = Vector2(128, 128)
@@ -19,10 +32,10 @@ position = Vector2(832, 128)
 texture = ExtResource("2_2vdyd")
 
 [node name="LeftStrandDrawing" parent="World" unique_id=1142906006 instance=ExtResource("3_cneda")]
-position = Vector2(330, 64)
+position = Vector2(380, 98)
 
 [node name="RightStrandDrawing" parent="World" unique_id=165283845 instance=ExtResource("3_cneda")]
-position = Vector2(540, 64)
+position = Vector2(576, 98)
 is_left = false
 
 [node name="UILayer" type="CanvasLayer" parent="." unique_id=474475790]
@@ -38,18 +51,18 @@ metadata/_edit_lock_ = true
 
 [node name="ShiftStrandUpButton" type="TextureButton" parent="UILayer/UI" unique_id=1447901884]
 layout_mode = 0
-offset_left = 584.0
-offset_top = 70.0
-offset_right = 672.0
-offset_bottom = 110.0
+offset_left = 589.0
+offset_top = 98.0
+offset_right = 613.0
+offset_bottom = 120.0
 texture_normal = ExtResource("4_hqnmp")
 
 [node name="ShiftStrandDownButton" type="TextureButton" parent="UILayer/UI" unique_id=15969249]
 layout_mode = 0
-offset_left = 583.0
-offset_top = 401.0
-offset_right = 686.0
-offset_bottom = 441.0
+offset_left = 586.0
+offset_top = 376.0
+offset_right = 610.0
+offset_bottom = 398.0
 texture_normal = ExtResource("4_hqnmp")
 flip_v = true
 
@@ -58,10 +71,10 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 8.0
-offset_top = -186.0
-offset_right = 215.0
-offset_bottom = -7.0
+offset_left = 52.0
+offset_top = -269.0
+offset_right = 285.0
+offset_bottom = -75.0
 grow_vertical = 0
 
 [node name="Label" type="Label" parent="UILayer/UI/StatsPanelPlaceholder" unique_id=948533166]
@@ -79,26 +92,16 @@ HP: 14
 ATK: 13
 SPD: 4"
 
-[node name="TopPanelPlaceholder" type="Panel" parent="UILayer/UI" unique_id=1801435406]
-custom_minimum_size = Vector2(0, 16)
+[node name="Label" type="Label" parent="UILayer/UI" unique_id=947273261]
 layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-grow_horizontal = 2
-
-[node name="Label" type="Label" parent="UILayer/UI/TopPanelPlaceholder" unique_id=947273261]
-layout_mode = 1
-anchors_preset = 8
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
 offset_left = -64.0
-offset_top = -8.0
+offset_top = 17.0
 offset_right = 64.0
-offset_bottom = 8.0
+offset_bottom = 33.0
 grow_horizontal = 2
-grow_vertical = 2
 text = "MUTATION"
 
 [node name="GeneticsPanel" type="Panel" parent="UILayer/UI" unique_id=513794142]
@@ -108,10 +111,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -240.0
-offset_top = -305.0
-offset_right = -8.0
-offset_bottom = -8.0
+offset_left = -301.0
+offset_top = -268.0
+offset_right = -40.0
+offset_bottom = -74.0
 grow_horizontal = 0
 grow_vertical = 0
 
@@ -129,19 +132,21 @@ MATCH = ADD
 
 [node name="CreatureDNALabel" type="Label" parent="UILayer/UI" unique_id=889126279]
 layout_mode = 0
-offset_left = 114.0
-offset_top = 233.0
-offset_right = 290.0
-offset_bottom = 268.0
+offset_left = 316.0
+offset_top = 67.0
+offset_right = 448.0
+offset_bottom = 94.0
+theme_override_font_sizes/font_size = 12
 text = "Archibald's
 DNA Strand"
 
 [node name="CorpseDNALabel" type="Label" parent="UILayer/UI" unique_id=713229461]
 layout_mode = 0
-offset_left = 558.0
-offset_top = 212.0
-offset_right = 750.0
-offset_bottom = 247.0
+offset_left = 506.0
+offset_top = 66.0
+offset_right = 650.0
+offset_bottom = 93.0
+theme_override_font_sizes/font_size = 12
 text = "Salamander's
 DNA Strand"
 

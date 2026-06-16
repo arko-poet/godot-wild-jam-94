@@ -42,7 +42,10 @@ func _draw() -> void:
 
 
 func create_bases() -> void:
+	for drawing in strand_base_drawings:
+		drawing.queue_free()
 	strand_base_drawings.clear()
+	
 	for base in strand.bases:
 		var base_drawing: DNABaseDrawing = DNABaseDrawingScene.instantiate()
 		add_child(base_drawing)

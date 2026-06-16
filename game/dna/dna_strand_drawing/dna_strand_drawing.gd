@@ -7,7 +7,12 @@ const STRAND_WIDTH := 4
 
 const DNABaseDrawingScene := preload("res://game/dna/dna_base_drawing/dna_base_drawing.tscn")
 
-var strand: DNAStrand
+var strand: DNAStrand:
+	set(value):
+		strand = value
+		create_bases()
+		draw_bases()
+		queue_redraw()
 var shift: int: ## how to shift the strand up and down
 	set(value):
 		shift = value
@@ -18,13 +23,9 @@ var strand_base_drawings: Array[DNABaseDrawing]
 @export var is_left := true ## is it the strand on the left or on the right on the mutation  screen
 
 
-func _ready() -> void:
-	_test_strand() # TODO delete after testing
-
-
 func _draw() -> void:
 	# draw DNA line
-	var strand_height = (DNA_BASE_HEIGHT + DNA_STRAND_SPACING) * strand.bases.size() + DNA_STRAND_SPACING
+	var strand_height = (DNA_BASE_HEIGHT + DNA_STRAND_SPACING) * Strands.MAX_STRAND_LENGTH + DNA_STRAND_SPACING
 	draw_line(Vector2.ZERO, Vector2(0, strand_height), Color.BLACK, STRAND_WIDTH)
 	
 
@@ -48,7 +49,6 @@ func create_bases() -> void:
 		strand_base_drawings.append(base_drawing)
 
 
-
 func draw_bases() -> void:
 	var base_position := Vector2(STRAND_WIDTH, shift * (DNA_BASE_HEIGHT + DNA_STRAND_SPACING) + DNA_STRAND_SPACING)
 	if not is_left:
@@ -58,18 +58,6 @@ func draw_bases() -> void:
 		base.change_alignement(is_left)
 		base.hide()
 		base.position = base_position
-		if base_position.y >= 0 and base_index < strand_base_drawings.size() - shift:
+		if base_position.y >= 0 and base_index < Strands.MAX_STRAND_LENGTH - shift:
 			base.show()
 		base_position.y += DNA_BASE_HEIGHT + DNA_STRAND_SPACING
-
-
-func _test_strand() -> void:
-	strand = DNAStrand.new()
-	for i in 8:
-		var shape := randi() % DNABase.Shape.size()
-		var attribute := randi() % DNABase.Attribute.size()
-		var value := -99 + randi() % 199
-		strand.bases.append(DNABase.new(shape, attribute, value))
-	queue_redraw()
-	create_bases()
-	draw_bases()

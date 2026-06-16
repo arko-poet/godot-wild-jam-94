@@ -21,6 +21,11 @@ var left_strand: DNAStrand
 var right_strand: DNAStrand
 
 
+func _ready() -> void:
+	# TEST to be deleted
+	load_dna_strands(Strands.get_random_strand(), Strands.get_random_strand())
+
+
 ## TODO change parameters to get creature objects - for adding sprites etc.
 ## p_left_strand -> player creature's strand that will change
 ## p_right_strand -> slain creature strand that will affect strandA
@@ -30,7 +35,6 @@ func load_dna_strands(p_left_strand: DNAStrand, p_right_strand: DNAStrand) -> vo
 	
 	left_strand_drawing.strand = left_strand
 	right_strand_drawing.strand = right_strand
-	left_strand_drawing.queue_redraw()
 	right_strand_drawing.shift = 0
 	
 	next_battle_button.hide()

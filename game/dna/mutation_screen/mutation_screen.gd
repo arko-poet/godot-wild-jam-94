@@ -12,13 +12,18 @@ signal mutation_finished
 @onready var confirm_mutation_button: Button = $UILayer/UI/MutationHBox/ConfirmMutationButton
 @onready var skip_mutation_button: Button = $UILayer/UI/MutationHBox/SkipMutationButton
 
-@onready var shift_strand_up_button: Button = $UILayer/UI/ShiftStrandUpButton
-@onready var shift_strand_down_button: Button = $UILayer/UI/ShiftStrandDownButton
+@onready var shift_strand_up_button: TextureButton = $UILayer/UI/ShiftStrandUpButton
+@onready var shift_strand_down_button: TextureButton = $UILayer/UI/ShiftStrandDownButton
 
 @onready var next_battle_button: Button = $UILayer/UI/NextBattleButton
 
 var left_strand: DNAStrand
 var right_strand: DNAStrand
+
+
+func _ready() -> void:
+	# TEST to be deleted
+	load_dna_strands(Strands.get_random_strand(), Strands.get_random_strand())
 
 
 ## TODO change parameters to get creature objects - for adding sprites etc.
@@ -30,7 +35,6 @@ func load_dna_strands(p_left_strand: DNAStrand, p_right_strand: DNAStrand) -> vo
 	
 	left_strand_drawing.strand = left_strand
 	right_strand_drawing.strand = right_strand
-	left_strand_drawing.queue_redraw()
 	right_strand_drawing.shift = 0
 	
 	next_battle_button.hide()
@@ -38,7 +42,7 @@ func load_dna_strands(p_left_strand: DNAStrand, p_right_strand: DNAStrand) -> vo
 
 
 func _on_confirm_mutation_button_pressed() -> void:
-	left_strand.combine_strands(right_strand, right_strand_drawing.shift)
+	left_strand.combine_strands(right_strand, right_strand_drawing.shift, true)
 	mutation_h_box.hide()
 	next_battle_button.show()
 

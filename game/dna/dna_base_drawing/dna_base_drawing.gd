@@ -25,10 +25,10 @@ func set_dna_base(base: DNABase, aligned_left := true) -> void:
 	label.text = "%s" % base.value
 	_update_texture(base)
 	
-	change_alignement(aligned_left)
+	set_alignement(aligned_left)
 
 
-func change_alignement(aligned_left := true) -> void:
+func set_alignement(aligned_left := true) -> void:
 	if aligned_left:
 		label.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
 	else:
@@ -38,4 +38,7 @@ func change_alignement(aligned_left := true) -> void:
 
 
 func _update_texture(base: DNABase) -> void:
-	texture = load(DNA_ELEMENTS_PATH % [DNA_COLOR_MAPPING[base.attribute], DNA_SHAPE_MAPPING[base.shape], DNA_PLUG_SOCKET_MAPPING[base.shape]])
+	var attribute := DNA_COLOR_MAPPING[base.attribute]
+	var shape1 := DNA_SHAPE_MAPPING[base.shape]
+	var shape2 := DNA_PLUG_SOCKET_MAPPING[base.shape]
+	texture = load(DNA_ELEMENTS_PATH % [attribute, shape1, shape2])

@@ -11,14 +11,14 @@ var strand: DNAStrand:
 	set(value):
 		strand = value
 		strand.strand_mutated.connect(_on_strand_mutated)
-		create_bases()
-		draw_bases()
+		_create_bases()
+		_draw_bases()
 		queue_redraw()
 var shift: int: ## how to shift the strand up and down
 	set(value):
 		shift = value
 		queue_redraw()
-		draw_bases()
+		_draw_bases()
 var strand_base_drawings: Array[DNABaseDrawing]
 
 @export var is_left := true ## is it the strand on the left or on the right on the mutation  screen
@@ -26,7 +26,10 @@ var strand_base_drawings: Array[DNABaseDrawing]
 
 func _draw() -> void:
 	# draw DNA line
-	var strand_height = (DNA_BASE_HEIGHT + DNA_STRAND_SPACING) * Strands.MAX_STRAND_LENGTH + DNA_STRAND_SPACING
+	var strand_height = (
+		(DNA_BASE_HEIGHT + DNA_STRAND_SPACING) * Strands.MAX_STRAND_LENGTH
+		+ DNA_STRAND_SPACING
+	)
 	draw_line(Vector2.ZERO, Vector2(0, strand_height), Color.BLACK, STRAND_WIDTH)
 	
 
@@ -41,7 +44,7 @@ func _draw() -> void:
 		#base_position.y += DNA_BASE_SHAPE.y + DNA_STRAND_SPACING
 
 
-func create_bases() -> void:
+func _create_bases() -> void:
 	for drawing in strand_base_drawings:
 		drawing.queue_free()
 	strand_base_drawings.clear()
@@ -53,13 +56,15 @@ func create_bases() -> void:
 		strand_base_drawings.append(base_drawing)
 
 
-func draw_bases() -> void:
-	var base_position := Vector2(STRAND_WIDTH, shift * (DNA_BASE_HEIGHT + DNA_STRAND_SPACING) + DNA_STRAND_SPACING)
+func _draw_bases() -> void:
+	var base_position := (
+		Vector2(STRAND_WIDTH, shift * (DNA_BASE_HEIGHT + DNA_STRAND_SPACING) + DNA_STRAND_SPACING)
+	)
 	if not is_left:
 		base_position.x = base_position.x * -1 - DNA_BASE_SHAPE.x
 	for base_index in strand_base_drawings.size():
 		var base := strand_base_drawings[base_index]
-		base.change_alignement(is_left)
+		base.set_alignement(is_left)
 		base.hide()
 		base.position = base_position
 		if base_position.y >= 0 and base_index < Strands.MAX_STRAND_LENGTH - shift:
@@ -68,6 +73,6 @@ func draw_bases() -> void:
 
 
 func _on_strand_mutated() -> void:
-	create_bases()
-	draw_bases()
+	_create_bases()
+	_draw_bases()
 	queue_redraw()

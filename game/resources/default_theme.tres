@@ -1,0 +1,14 @@
+[gd_resource type="Theme" format=3 uid="uid://bkmkuk4tw7y3d"]
+
+[ext_resource type="Texture2D" uid="uid://bic0o0s51d2cp" path="res://assets/art/AssetsDNAScreen_x2/MutationAndSkipButton.png" id="1_15wtr"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1kr7f"]
+texture = ExtResource("1_15wtr")
+texture_margin_left = 12.0
+texture_margin_top = 12.0
+texture_margin_right = 12.0
+texture_margin_bottom = 12.0
+
+[resource]
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/styles/normal = SubResource("StyleBoxTexture_1kr7f")

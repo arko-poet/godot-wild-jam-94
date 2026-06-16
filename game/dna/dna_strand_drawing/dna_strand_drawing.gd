@@ -5,7 +5,7 @@ const DNA_BASE_HEIGHT := 23
 const DNA_BASE_SHAPE := Vector2(63, 23)
 const STRAND_WIDTH := 4
 
-const DNAStrandDrawingScene := preload("res://game/dna/dna_base_drawing/dna_base_drawing.tscn")
+const DNABaseDrawingScene := preload("res://game/dna/dna_base_drawing/dna_base_drawing.tscn")
 
 var strand: DNAStrand
 var shift: int: ## how to shift the strand up and down
@@ -42,9 +42,11 @@ func _draw() -> void:
 func create_bases() -> void:
 	strand_base_drawings.clear()
 	for base in strand.bases:
-		var strand_drawing := DNAStrandDrawingScene.instantiate()
-		strand_base_drawings.append(strand_drawing)
-		add_child(strand_drawing)
+		var base_drawing: DNABaseDrawing = DNABaseDrawingScene.instantiate()
+		add_child(base_drawing)
+		base_drawing.set_dna_base(base)
+		strand_base_drawings.append(base_drawing)
+
 
 
 func draw_bases() -> void:
@@ -64,7 +66,10 @@ func draw_bases() -> void:
 func _test_strand() -> void:
 	strand = DNAStrand.new()
 	for i in 8:
-		strand.bases.append(DNABase.new(DNABase.Shape.RoundSocket, DNABase.Attribute.HEALTH, STRAND_WIDTH))
+		var shape := randi() % DNABase.Shape.size()
+		var attribute := randi() % DNABase.Attribute.size()
+		var value := -99 + randi() % 199
+		strand.bases.append(DNABase.new(shape, attribute, value))
 	queue_redraw()
 	create_bases()
 	draw_bases()

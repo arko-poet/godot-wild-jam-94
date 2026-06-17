@@ -34,9 +34,9 @@ physics_interpolation_mode = 0
 layout_mode = 2
 texture = ExtResource("2_rwqe7")
 script = ExtResource("1_u2val")
-MAX_SPEED = 3
-MAX_HEALTH = 5
-MAX_STRENGTH = 2
+BASE_SPEED = 2
+BASE_HEALTH = 3
+BASE_STRENGTH = 2
 member_name = "Turtle"
 metadata/_custom_type_script = "uid://swrcuneeb85r"
 
@@ -68,9 +68,9 @@ physics_interpolation_mode = 0
 layout_mode = 2
 texture = ExtResource("2_rwqe7")
 script = ExtResource("1_u2val")
-MAX_SPEED = 2
-MAX_HEALTH = 3
-MAX_STRENGTH = 1
+BASE_SPEED = 1
+BASE_HEALTH = 2
+BASE_STRENGTH = 3
 member_name = "Enemy"
 metadata/_custom_type_script = "uid://swrcuneeb85r"
 

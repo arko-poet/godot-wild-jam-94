@@ -25,7 +25,7 @@ func _ready() -> void:
 	enemy_stats.init_stats(enemy_party[0].stats, enemy_party[0].member_name)
 
 	_auto_battle()
-	autobattle_finished.emit(ally_party[0])
+	autobattle_finished.emit()
 
 func _auto_battle() -> void:
 	while not enemy_party.is_empty() and not ally_party.is_empty():

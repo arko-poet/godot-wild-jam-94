@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://civ1nslmi56tm"]
+
+[ext_resource type="PackedScene" uid="uid://xbyb0yn562sc" path="res://game/autobattler/autobattler.tscn" id="1_dx3fx"]
+[ext_resource type="Script" uid="uid://1rbnuu461x6w" path="res://game/game_controller.gd" id="1_eb65f"]
+[ext_resource type="PackedScene" uid="uid://f6xl71xi08us" path="res://game/dna/mutation_screen/mutation_screen.tscn" id="2_eb65f"]
+
+[node name="GameController" type="Control" unique_id=1264771156]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_eb65f")
+
+[node name="Autobattler" parent="." unique_id=698912908 instance=ExtResource("1_dx3fx")]
+unique_name_in_owner = true
+
+[node name="MutationScreen" parent="." unique_id=825821701 instance=ExtResource("2_eb65f")]
+unique_name_in_owner = true

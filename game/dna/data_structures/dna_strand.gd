@@ -3,11 +3,6 @@ class_name DNAStrand extends RefCounted
 signal strand_mutated
 
 var bases: Array[DNABase]
-var stats: Stats
-
-func _init(incoming_stats: Stats):
-	stats = incoming_stats
-
 
 ## modifies the bases of this DNAStrand by the incoming_strand
 ##

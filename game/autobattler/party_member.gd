@@ -1,3 +1,4 @@
+## DEPRECATED replaced by creature.gd and appropriate UI components in autobattler.tscn
 class_name PartyMember extends TextureRect
 
 @export var BASE_SPEED: int

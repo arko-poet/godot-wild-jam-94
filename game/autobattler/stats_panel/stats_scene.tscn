@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cs45qvk88kylk"]
 
-[ext_resource type="Script" uid="uid://ikgd7i14t8sy" path="res://game/autobattler/stats/stats_scene.gd" id="1_ngn7l"]
+[ext_resource type="Script" uid="uid://ikgd7i14t8sy" path="res://game/autobattler/stats_panel/stats_scene.gd" id="1_ngn7l"]
 
 [node name="StatsScene" type="VBoxContainer" unique_id=869396702]
 anchors_preset = 15

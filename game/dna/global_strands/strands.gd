@@ -14,3 +14,30 @@ static func get_random_strand() -> DNAStrand:
 		var value := MIN_BASE_VALUE + randi() % (-1 * MIN_BASE_VALUE + MAX_BASE_VALUE)
 		strand.bases.append(DNABase.new(shape, attribute, value))
 	return strand
+
+
+static func get_demo_strand() -> DNAStrand:
+	var strand := DNAStrand.new()
+	
+	var shape := DNABase.Shape.RoundSocket
+	var attribute := DNABase.Attribute.HEALTH
+	var value := 5
+	strand.bases.append(DNABase.new(shape, attribute, value))
+	
+	shape = DNABase.Shape.RoundPlug
+	attribute = DNABase.Attribute.DAMAGE
+	value = 1
+	strand.bases.append(DNABase.new(shape, attribute, value))
+	
+	shape = DNABase.Shape.PointySocket
+	attribute = DNABase.Attribute.SPEED
+	value = 1
+	strand.bases.append(DNABase.new(shape, attribute, value))
+	
+	shape = DNABase.Shape.PointyPlug
+	attribute = DNABase.Attribute.HEALTH
+	value = -2
+	
+	strand.bases.append(DNABase.new(shape, attribute, value))
+		
+	return strand

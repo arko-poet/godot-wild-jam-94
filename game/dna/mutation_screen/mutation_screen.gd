@@ -1,4 +1,4 @@
-extends Node
+class_name MutationScreen extends Node
 
 signal mutation_finished
 
@@ -21,9 +21,6 @@ var left_strand: DNAStrand
 var right_strand: DNAStrand
 
 
-func _ready() -> void:
-	# TEST to be deleted
-	load_dna_strands(Strands.get_random_strand(), Strands.get_random_strand())
 
 
 ## TODO change parameters to get creature objects - for adding sprites etc.

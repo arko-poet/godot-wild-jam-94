@@ -1,16 +1,16 @@
 [gd_scene format=3 uid="uid://xbyb0yn562sc"]
 
 [ext_resource type="Script" uid="uid://mdkjx4ml57oa" path="res://game/autobattler/autobattler.gd" id="1_jy7pd"]
-[ext_resource type="Script" uid="uid://swrcuneeb85r" path="res://game/autobattler/party_member.gd" id="1_u2val"]
+[ext_resource type="Script" uid="uid://swrcuneeb85r" path="res://game/autobattler/health_bar/health_bar.gd" id="1_u2val"]
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://assets/icons/icon.svg" id="2_rwqe7"]
 [ext_resource type="PackedScene" uid="uid://b2st48hbyrc6u" path="res://game/ui/title_bar.tscn" id="4_5a0st"]
 [ext_resource type="PackedScene" uid="uid://cs45qvk88kylk" path="res://game/autobattler/stats_container/stats_container.tscn" id="4_dyrrl"]
 
-[sub_resource type="Gradient" id="Gradient_dyrrl"]
+[sub_resource type="Gradient" id="Gradient_5a0st"]
 colors = PackedColorArray(0, 0, 0, 1, 0.49865687, 0.9260818, 3.85046e-07, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_5a0st"]
-gradient = SubResource("Gradient_dyrrl")
+gradient = SubResource("Gradient_5a0st")
 width = 256
 height = 20
 
@@ -34,10 +34,6 @@ physics_interpolation_mode = 0
 layout_mode = 2
 texture = ExtResource("2_rwqe7")
 script = ExtResource("1_u2val")
-BASE_SPEED = 1
-BASE_HEALTH = 100
-BASE_STRENGTH = 10
-member_name = "Turtle"
 metadata/_custom_type_script = "uid://swrcuneeb85r"
 
 [node name="HPBar" type="TextureProgressBar" parent="AllyPartyMembers/PartyMember" unique_id=1825288634]
@@ -68,10 +64,6 @@ physics_interpolation_mode = 0
 layout_mode = 2
 texture = ExtResource("2_rwqe7")
 script = ExtResource("1_u2val")
-BASE_SPEED = 1
-BASE_HEALTH = 50
-BASE_STRENGTH = 3
-member_name = "Enemy"
 metadata/_custom_type_script = "uid://swrcuneeb85r"
 
 [node name="HPBar" type="TextureProgressBar" parent="EnemyPartyMembers/PartyMember" unique_id=428122797]

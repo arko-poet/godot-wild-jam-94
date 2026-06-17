@@ -1,6 +1,7 @@
 class_name Creature extends RefCounted
 
 signal health_changed
+signal stats_changed
 signal died
 
 ## used for loading appropariate textures/animations
@@ -51,6 +52,7 @@ func _init(p_name: String, p_dna_strand: DNAStrand, p_species := Species.SALAMAN
 
 func _on_strand_mutated() -> void:
 	_update_stats()
+	stats_changed.emit()
 
 
 func _update_stats() -> void:

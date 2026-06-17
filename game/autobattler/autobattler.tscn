@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://swrcuneeb85r" path="res://game/autobattler/party_member.gd" id="1_u2val"]
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://assets/icons/icon.svg" id="2_rwqe7"]
 [ext_resource type="PackedScene" uid="uid://b2st48hbyrc6u" path="res://game/ui/title_bar.tscn" id="4_5a0st"]
-[ext_resource type="PackedScene" uid="uid://cs45qvk88kylk" path="res://game/autobattler/stats_panel/stats_scene.tscn" id="4_dyrrl"]
+[ext_resource type="PackedScene" uid="uid://cs45qvk88kylk" path="res://game/autobattler/stats_container/stats_container.tscn" id="4_dyrrl"]
 
 [sub_resource type="Gradient" id="Gradient_dyrrl"]
 colors = PackedColorArray(0, 0, 0, 1, 0.49865687, 0.9260818, 3.85046e-07, 1)

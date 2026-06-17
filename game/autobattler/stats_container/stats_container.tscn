@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cs45qvk88kylk"]
 
-[ext_resource type="Script" uid="uid://ikgd7i14t8sy" path="res://game/autobattler/stats_panel/stats_scene.gd" id="1_ngn7l"]
+[ext_resource type="Script" uid="uid://ikgd7i14t8sy" path="res://game/autobattler/stats_container/stats_container.gd" id="1_m7wcy"]
 
 [node name="StatsScene" type="VBoxContainer" unique_id=869396702]
 anchors_preset = 15
@@ -8,7 +8,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_ngn7l")
+script = ExtResource("1_m7wcy")
 metadata/_custom_type_script = "uid://ikgd7i14t8sy"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1806958525]
@@ -17,6 +17,7 @@ layout_mode = 2
 [node name="Name" type="Label" parent="VBoxContainer" unique_id=2037585208]
 unique_name_in_owner = true
 layout_mode = 2
+text = "ARCHIBALD"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1588948504]
 layout_mode = 2
@@ -30,7 +31,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/DAMAGE" unique_id=1262123293]
 layout_mode = 2
-text = "DAMAGE"
+text = "DAMAGE:"
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer/DAMAGE" unique_id=183201264]
 layout_mode = 2
@@ -40,13 +41,14 @@ unique_name_in_owner = true
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
+text = "67"
 
 [node name="HP" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1141406182]
 layout_mode = 2
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/HP" unique_id=119970023]
 layout_mode = 2
-text = "HP"
+text = "HEALTH:"
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer/HP" unique_id=597545973]
 layout_mode = 2
@@ -56,13 +58,14 @@ unique_name_in_owner = true
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
+text = "67"
 
 [node name="SPEED" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1389745524]
 layout_mode = 2
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/SPEED" unique_id=92519039]
 layout_mode = 2
-text = "SPEED"
+text = "SPEED:"
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer/SPEED" unique_id=1720779464]
 layout_mode = 2
@@ -72,7 +75,4 @@ unique_name_in_owner = true
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
-
-[node name="DNATexture" type="TextureRect" parent="VBoxContainer/HBoxContainer" unique_id=1534436670]
-layout_mode = 2
-size_flags_horizontal = 10
+text = "67"

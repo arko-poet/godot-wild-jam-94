@@ -9,16 +9,11 @@
 [ext_resource type="Texture2D" uid="uid://dae4xywvlp37p" path="res://assets/art/AssetsDNAScreen_x2/ScrollBarButton.png" id="4_hqnmp"]
 [ext_resource type="PackedScene" uid="uid://b2st48hbyrc6u" path="res://game/ui/title_bar.tscn" id="5_gh0k7"]
 [ext_resource type="PackedScene" uid="uid://cs45qvk88kylk" path="res://game/autobattler/stats/stats_scene.tscn" id="6_jn8ej"]
-[ext_resource type="PackedScene" uid="uid://bkcsjsk2ciff" path="res://addons/maaacks_game_template/base/nodes/music_players/background_music_player.tscn" id="10_530fl"]
 [ext_resource type="Texture2D" uid="uid://csdwsagm4vtas" path="res://assets/art/AssetsDNAScreen_x2/ScrollBarButtonPressed.png" id="10_ed4yt"]
 [ext_resource type="Texture2D" uid="uid://dv062o56rxxee" path="res://assets/art/AssetsDNAScreen_x2/ScrollBarButtonHover.png" id="11_hcndt"]
-[ext_resource type="AudioStream" uid="uid://n3cxkpnewlv1" path="res://assets/music/DnaScreen_BPM110_L58B_LOOP.mp3" id="11_ohfry"]
 
 [node name="MutationScreen" type="Node" unique_id=825821701]
 script = ExtResource("1_wpbrl")
-
-[node name="BackgroundMusicPlayer" parent="." unique_id=1446051342 instance=ExtResource("10_530fl")]
-stream = ExtResource("11_ohfry")
 
 [node name="World" type="Node2D" parent="." unique_id=807716502]
 

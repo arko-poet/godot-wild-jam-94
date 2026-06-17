@@ -44,7 +44,7 @@ level_won_scene = ExtResource("8_cyydn")
 
 [node name="SceneLister" type="Node" parent="LevelManager" unique_id=673614733]
 script = ExtResource("9_pq3d5")
-files = Array[String](["res://template/scenes/game_scene/levels/level_1.tscn", "res://template/scenes/game_scene/levels/level_2.tscn", "res://template/scenes/game_scene/levels/level_3.tscn"])
+files = Array[String](["res://game/autobattler/autobattler.tscn", "res://game/dna/mutation_screen/mutation_screen.tscn"])
 directory = "res://template/scenes/game_scene/levels"
 
 [node name="LevelLoadingScreen" parent="." unique_id=816430938 instance=ExtResource("10_uyaad")]

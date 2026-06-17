@@ -18,16 +18,40 @@ func find_party_members(parent: Node, pattern: String) -> Array[PartyMember]:
 @onready var ally_stats: StatsScene = %AllyStats
 @onready var enemy_stats: StatsScene = %EnemyStats
 
+@onready var overlay: CanvasLayer = $Overlay
+var party_member: PartyMember
+
 func _ready() -> void:
 	print("party members in turn order")
 	print(turn_order.size())
-	ally_stats.init_stats(ally_party[0].stats, ally_party[0].member_name)
+
 	enemy_stats.init_stats(enemy_party[0].stats, enemy_party[0].member_name)
 
-	_auto_battle()
-	autobattle_finished.emit()
 
-func _auto_battle() -> void:
+## TODO game controller will have to create enemies and pass them here
+#func set_creatures(ally: PartyMember, enemy: PartyMember = null) -> void:
+	#ally_party.append(ally)
+	#ally_stats.init_stats(ally_party[0].stats, ally_party[0].member_name)
+	#party_member = ally
+
+
+## shows/hides scene DEPRECATED
+#func switch_scene(on := true) -> void:
+	#for child in get_children():
+		#if child is Control:
+			#if on:
+				#child.show()
+			#else:
+				#child.hide()
+	#for child in overlay.get_children():
+		#if child is Control:
+			#if on:
+				#child.show()
+			#else:
+				#child.hide()
+
+
+func auto_battle() -> void:
 	while not enemy_party.is_empty() and not ally_party.is_empty():
 		for party_member in turn_order:
 			if party_member.dead:
@@ -52,6 +76,8 @@ func _auto_battle() -> void:
 					turn_order.erase(target_player)
 					continue
 
-
 			party_member.target_player = target_player
+			await get_tree().create_timer(1.0).timeout # TODO band aid to be remove
 			party_member.do_turn(%CombatLog)
+			
+	autobattle_finished.emit()

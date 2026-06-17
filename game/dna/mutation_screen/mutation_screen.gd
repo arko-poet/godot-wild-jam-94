@@ -2,6 +2,10 @@ class_name MutationScreen extends Node
 
 signal mutation_finished
 
+@onready var world: Node2D = $World
+@onready var ui: Control = $UILayer/UI
+@onready var background_music_player: AudioStreamPlayer = $BackgroundMusicPlayer
+
 @onready var player_creature: Sprite2D = $World/PlayerCreature
 @onready var corpse: Sprite2D = $World/Corpse
 
@@ -21,8 +25,6 @@ var left_strand: DNAStrand
 var right_strand: DNAStrand
 
 
-
-
 ## TODO change parameters to get creature objects - for adding sprites etc.
 ## p_left_strand -> player creature's strand that will change
 ## p_right_strand -> slain creature strand that will affect strandA
@@ -36,6 +38,16 @@ func load_dna_strands(p_left_strand: DNAStrand, p_right_strand: DNAStrand) -> vo
 	
 	next_battle_button.hide()
 	mutation_h_box.show()
+
+
+## shows/hides scene
+func switch_scene(on := true) -> void:
+	if on:
+		world.show()
+		ui.show()
+	else:
+		world.hide()
+		ui.hide()
 
 
 func _on_confirm_mutation_button_pressed() -> void:

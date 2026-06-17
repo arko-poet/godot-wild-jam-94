@@ -13,7 +13,7 @@ config_version=5
 config/name="godot-wild-jam-94"
 run/main_scene="res://template/scenes/opening/opening.tscn"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://jieiat134ace"
 
 [audio]
 

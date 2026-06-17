@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cwxqt7yistwnp" path="res://template/scenes/windows/main_menu_options_window.tscn" id="3_tsej0"]
 [ext_resource type="PackedScene" uid="uid://bqytevqmhx3sh" path="res://template/scenes/windows/main_menu_credits_window.tscn" id="4_b321b"]
 [ext_resource type="PackedScene" uid="uid://cwt4p3bufkke5" path="res://addons/maaacks_game_template/base/nodes/windows/confirmation_overlaid_window.tscn" id="5_dm2ih"]
-[ext_resource type="AudioStream" uid="uid://n3cxkpnewlv1" path="res://assets/music/DnaScreen_BPM110_L58B_LOOP.mp3" id="5_p7afn"]
+[ext_resource type="AudioStream" uid="uid://bgv1ibv0adar" path="res://assets/music/MainMenu_BPM70_L35B_LOOP.mp3" id="5_p7afn"]
 
 [sub_resource type="Animation" id="1"]
 resource_name = "Intro"

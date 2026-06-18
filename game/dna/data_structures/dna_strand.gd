@@ -19,7 +19,7 @@ func combine_strands(
 ) -> void:
 	assert(incoming_strand.bases.size() > 0)
 	assert(position < Strands.MAX_STRAND_LENGTH)
-	assert(incoming_strand.bases.size() + position > 0)
+	#assert(incoming_strand.bases.size() + position > 0)
 	
 	var new_bases: Array[DNABase]
 	for base_index in bases.size():

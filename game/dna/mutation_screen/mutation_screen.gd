@@ -68,7 +68,7 @@ func _on_shift_strand_up_button_pressed() -> void:
 
 
 func _on_shift_strand_down_button_pressed() -> void:
-	right_strand_drawing.shift += 1
+	right_strand_drawing.shift = min(right_strand_drawing.shift + 1, left_strand.bases.size())
 
 
 func _on_next_battle_button_pressed() -> void:

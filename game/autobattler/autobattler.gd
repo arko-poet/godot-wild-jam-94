@@ -27,6 +27,8 @@ var combat_on := false
 @onready var world: Node2D = $World
 @onready var ui: Control = $Overlay/UI
 
+@onready var title_bar: TitleBar = $Overlay/UI/TitleBar
+
 
 func set_creatures(p_ally: Creature, p_enemy: Creature) -> void:
 	ally = p_ally

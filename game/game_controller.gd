@@ -42,6 +42,8 @@ func _initiate_autobattler():
 	
 	mutation_screen.switch_scene(false)
 	autobattler.switch_scene(true)
+	
+	autobattler.title_bar.title = "BATTLE #%s" % level
 
 	# TODO replace placeholder with enemy progression
 	var placeholder_enemy := Creature.new("Salamander", DNAStrand.new(), Creature.Species.SALAMANDER, 45 + level * 5 , 5 + level, 3 + level)

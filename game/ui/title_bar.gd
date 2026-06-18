@@ -1,13 +1,13 @@
-extends Control
+class_name TitleBar extends Control
 
 @export var title: String:
 	set(value):
 		title = value
-		if title_label:
-			title_label.text = value
+		if _title_label:
+			_title_label.text = value
 
 
-@onready var title_label: Label = %TitleLabel
+@onready var _title_label: Label = %TitleLabel
 
 
 func _ready() -> void:

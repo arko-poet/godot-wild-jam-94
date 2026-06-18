@@ -1,4 +1,4 @@
-class_name StatsContainer extends VBoxContainer
+class_name StatsContainer extends Panel
 
 @onready var NameLabel = %Name
 @onready var DamageValueLabel = %DamageValue

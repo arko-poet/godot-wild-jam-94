@@ -9,7 +9,8 @@ class_name StatsContainer extends Panel
 var creature: Creature:
 	set(value):
 		creature = value
-		creature.stats_changed.connect(_update_stats)
+		if not creature.stats_changed.is_connected(_update_stats):
+			creature.stats_changed.connect(_update_stats)
 		_update_stats()
 
 

@@ -73,21 +73,17 @@ texture_pressed = ExtResource("10_ed4yt")
 texture_hover = ExtResource("11_hcndt")
 flip_v = true
 
-[node name="StatsPanelPlaceholder" type="Panel" parent="UILayer/UI" unique_id=2009348878]
+[node name="Stats" parent="UILayer/UI" unique_id=136696486 instance=ExtResource("6_jn8ej")]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
-anchor_bottom = 1.0
+anchor_right = 0.0
 offset_left = 52.0
-offset_top = -269.0
-offset_right = 285.0
-offset_bottom = -75.0
+offset_top = -268.0
+offset_right = 314.0
+offset_bottom = -76.0
+grow_horizontal = 1
 grow_vertical = 0
-
-[node name="Stats" parent="UILayer/UI/StatsPanelPlaceholder" unique_id=136696486 instance=ExtResource("6_jn8ej")]
-layout_mode = 1
-offset_left = 7.0
-offset_right = 7.0
 
 [node name="Label" type="Label" parent="UILayer/UI" unique_id=947273261]
 layout_mode = 1

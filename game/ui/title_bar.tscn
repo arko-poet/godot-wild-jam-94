@@ -9,6 +9,7 @@ anchor_right = 1.0
 grow_horizontal = 2
 
 [node name="TimeControls" type="HBoxContainer" parent="." unique_id=1363188190]
+visible = false
 custom_minimum_size = Vector2(0, 40)
 layout_direction = 2
 layout_mode = 0

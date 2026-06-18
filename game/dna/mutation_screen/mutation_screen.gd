@@ -20,7 +20,7 @@ signal mutation_finished
 
 @onready var next_battle_button: Button = $UILayer/UI/NextBattleButton
 
-@onready var stats: StatsContainer = $UILayer/UI/StatsPanelPlaceholder/Stats
+@onready var stats: StatsContainer = $UILayer/UI/Stats
 
 
 var left_strand: DNAStrand

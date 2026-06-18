@@ -111,17 +111,39 @@ offset_bottom = -74.0
 grow_horizontal = 0
 grow_vertical = 0
 
-[node name="Label" type="Label" parent="UILayer/UI/GeneticsPanel" unique_id=1126939969]
+[node name="Title" type="Label" parent="UILayer/UI/GeneticsPanel" unique_id=1126939969]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 12.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "   GENETICS
+text = "GENETICS
+"
+horizontal_alignment = 1
 
-MATCH = ADD
-..."
+[node name="Instructions" type="Label" parent="UILayer/UI/GeneticsPanel" unique_id=1758958244]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 32.0
+offset_right = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "DNA Base Color:
+*corresponds to stats
+
+DNA Base Shape:
+*Match = add stats
+*Mismatch = randomise
+
+1 DNA Base can be added in each mutation up to 8"
+autowrap_mode = 2
 
 [node name="CreatureDNALabel" type="Label" parent="UILayer/UI" unique_id=889126279]
 layout_mode = 0

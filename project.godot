@@ -11,9 +11,11 @@ config_version=5
 [application]
 
 config/name="godot-wild-jam-94"
+config/version="0.1.0"
+config/tags=PackedStringArray("jam")
 run/main_scene="res://template/scenes/opening/opening.tscn"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://jieiat134ace"
 
 [audio]
 
@@ -26,6 +28,13 @@ SceneLoader="*uid://cbwmrnp0af35y"
 ProjectMusicController="*uid://r5t485lr3p7t"
 ProjectUISoundController="*uid://cc37235kj4384"
 
+[display]
+
+window/size/viewport_width=960
+window/size/viewport_height=540
+window/stretch/mode="viewport"
+window/stretch/scale_mode="integer"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/maaacks_game_template/plugin.cfg")
@@ -33,11 +42,15 @@ enabled=PackedStringArray("res://addons/maaacks_game_template/plugin.cfg")
 [file_customization]
 
 folder_colors={
-"res://game/art/": "yellow",
-"res://game/audio/": "orange",
-"res://game/scenes/": "green",
-"res://game/scripts/": "blue"
+"res://assets/": "teal",
+"res://game/": "red"
 }
+
+[gui]
+
+common/snap_controls_to_pixels=false
+theme/custom="uid://bkmkuk4tw7y3d"
+theme/custom_font="uid://7hyo8btaaxj4"
 
 [internationalization]
 
@@ -56,4 +69,7 @@ copy_path="res://template/"
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
+2d/snap/snap_2d_transforms_to_pixel=true
+2d/snap/snap_2d_vertices_to_pixel=true

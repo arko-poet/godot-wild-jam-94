@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://criksgr4si05m"]
+
+[ext_resource type="Script" uid="uid://nw0m2nmcw7vv" path="res://game/dna/dna_strand_drawing/dna_strand_drawing.gd" id="1_e8sxs"]
+
+[node name="DnaStrandDrawing" type="Node2D" unique_id=1142906006]
+script = ExtResource("1_e8sxs")

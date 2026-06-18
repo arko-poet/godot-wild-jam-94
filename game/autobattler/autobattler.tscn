@@ -1,0 +1,146 @@
+[gd_scene format=3 uid="uid://xbyb0yn562sc"]
+
+[ext_resource type="Script" uid="uid://mdkjx4ml57oa" path="res://game/autobattler/autobattler.gd" id="1_jy7pd"]
+[ext_resource type="Texture2D" uid="uid://jieiat134ace" path="res://assets/icons/archibald.png" id="2_l5a88"]
+[ext_resource type="Texture2D" uid="uid://de7nyq7d7p17x" path="res://assets/art/AssetsBattleScreen_x2/BattleScreenBackground.png" id="2_ulewg"]
+[ext_resource type="Texture2D" uid="uid://bafs47ipwdqis" path="res://assets/art/AssetsSalamander_x2/SalamanderStand.png" id="3_acxmb"]
+[ext_resource type="PackedScene" uid="uid://bt6gyi2jqsqsr" path="res://game/autobattler/health_bar/health_bar.tscn" id="3_dyrrl"]
+[ext_resource type="PackedScene" uid="uid://b2st48hbyrc6u" path="res://game/ui/title_bar.tscn" id="4_5a0st"]
+[ext_resource type="PackedScene" uid="uid://cs45qvk88kylk" path="res://game/autobattler/stats_container/stats_container.tscn" id="4_dyrrl"]
+[ext_resource type="Texture2D" uid="uid://d0mw4hwanlf2x" path="res://assets/art/AssetsBattleScreen_x2/BattleScreenExampale.png" id="9_w0o5f"]
+
+[node name="Autobattler" type="Node" unique_id=698912908]
+script = ExtResource("1_jy7pd")
+metadata/_custom_type_script = "uid://mdkjx4ml57oa"
+metadata/_edit_horizontal_guides_ = [320.0]
+
+[node name="World" type="Node2D" parent="." unique_id=1847079979]
+
+[node name="Background" type="Sprite2D" parent="World" unique_id=1174231645]
+texture = ExtResource("2_ulewg")
+centered = false
+
+[node name="AllySprite" type="Sprite2D" parent="World" unique_id=420356443]
+unique_name_in_owner = true
+position = Vector2(242, 205)
+texture = ExtResource("2_l5a88")
+
+[node name="EnemySprite" type="Sprite2D" parent="World" unique_id=1020363359]
+unique_name_in_owner = true
+position = Vector2(724, 184)
+texture = ExtResource("3_acxmb")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=864222603]
+
+[node name="Overlay" type="CanvasLayer" parent="." unique_id=1406174705]
+
+[node name="UI" type="Control" parent="Overlay" unique_id=138873780]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="TitleBar" parent="Overlay/UI" unique_id=93397008 instance=ExtResource("4_5a0st")]
+layout_mode = 1
+offset_left = 10.0
+offset_top = 16.0
+offset_right = -11.0
+offset_bottom = 41.0
+title = "BATTLE"
+
+[node name="AllyHealthBar" parent="Overlay/UI" unique_id=2131367494 instance=ExtResource("3_dyrrl")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 116.0
+offset_top = 16.0
+offset_right = 372.0
+offset_bottom = 66.0
+grow_vertical = 2
+
+[node name="EnemyHealthBar" parent="Overlay/UI" unique_id=2045444748 instance=ExtResource("3_dyrrl")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -359.0
+offset_top = 16.0
+offset_right = -103.0
+offset_bottom = 66.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="CombatLogLabel" type="Label" parent="Overlay/UI" unique_id=446896736]
+layout_mode = 0
+offset_left = 312.0
+offset_top = 314.0
+offset_right = 648.0
+offset_bottom = 327.0
+theme_override_font_sizes/font_size = 13
+text = "Combat Log"
+horizontal_alignment = 1
+
+[node name="CombatLogPanel" type="Panel" parent="Overlay/UI" unique_id=1141226150]
+layout_mode = 0
+offset_left = 312.0
+offset_top = 332.0
+offset_right = 648.0
+offset_bottom = 524.0
+
+[node name="CombatLog" type="RichTextLabel" parent="Overlay/UI/CombatLogPanel" unique_id=148362637]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = 12.0
+offset_right = -15.0
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 11
+bbcode_enabled = true
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="AllyStats" parent="Overlay/UI" unique_id=869396702 instance=ExtResource("4_dyrrl")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_right = 0.0
+offset_left = 34.0
+offset_top = -208.0
+offset_right = 296.0
+offset_bottom = -16.0
+grow_horizontal = 1
+grow_vertical = 0
+
+[node name="EnemyStats" parent="Overlay/UI" unique_id=1851350877 instance=ExtResource("4_dyrrl")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+offset_left = -296.0
+offset_top = -208.0
+offset_right = -34.0
+offset_bottom = -16.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="TextureRect" type="Sprite2D" parent="Overlay/UI" unique_id=1585856138]
+visible = false
+modulate = Color(1, 1, 1, 0.47058824)
+texture = ExtResource("9_w0o5f")
+centered = false
+metadata/_edit_lock_ = true

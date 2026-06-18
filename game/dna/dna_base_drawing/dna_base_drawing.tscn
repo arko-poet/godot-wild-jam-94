@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://d8ka4hbpq13v"]
+
+[ext_resource type="Script" uid="uid://dcojlwq8yj7cl" path="res://game/dna/dna_base_drawing/dna_base_drawing.gd" id="1_u1k1j"]
+[ext_resource type="Texture2D" uid="uid://ted4e65vcp44" path="res://assets/art/AssetsDNAScreen_x2/DNAelements/GreenDNA_1_1.png" id="2_fwjwg"]
+
+[node name="DnaBaseDrawing" type="Sprite2D" unique_id=474367976]
+texture = ExtResource("2_fwjwg")
+centered = false
+script = ExtResource("1_u1k1j")
+
+[node name="Label" type="Label" parent="." unique_id=164728898]
+offset_left = 2.0
+offset_right = 62.0
+offset_bottom = 25.0
+theme_override_font_sizes/font_size = 13
+text = "+67"
+vertical_alignment = 1

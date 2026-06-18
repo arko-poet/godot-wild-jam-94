@@ -1,3 +1,4 @@
+## DEPRECATED - creature.gd has these properties instead
 class_name Stats extends Object
 
 var STRENGTH: int

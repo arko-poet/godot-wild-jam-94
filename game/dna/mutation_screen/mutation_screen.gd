@@ -4,7 +4,6 @@ signal mutation_finished
 
 @onready var world: Node2D = $World
 @onready var ui: Control = $UILayer/UI
-@onready var background_music_player: AudioStreamPlayer = $BackgroundMusicPlayer
 
 @onready var player_creature: Sprite2D = $World/PlayerCreature
 @onready var corpse: Sprite2D = $World/Corpse
@@ -20,6 +19,9 @@ signal mutation_finished
 @onready var shift_strand_down_button: TextureButton = $UILayer/UI/ShiftStrandDownButton
 
 @onready var next_battle_button: Button = $UILayer/UI/NextBattleButton
+
+@onready var stats: StatsContainer = $UILayer/UI/StatsPanelPlaceholder/Stats
+
 
 var left_strand: DNAStrand
 var right_strand: DNAStrand

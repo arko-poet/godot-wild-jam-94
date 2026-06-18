@@ -1,0 +1,30 @@
+class_name StatsContainer extends VBoxContainer
+
+@onready var NameLabel = %Name
+@onready var DamageValueLabel = %DamageValue
+@onready var HPValueLabel = %HPValue
+@onready var SpeedValueLabel = %SpeedValue
+
+
+var creature: Creature:
+	set(value):
+		creature = value
+		creature.stats_changed.connect(_update_stats)
+		_update_stats()
+
+
+func _update_stats() -> void:
+	NameLabel = creature.name
+	DamageValueLabel.text = str(creature.damage)
+	HPValueLabel.text = str(creature.health)
+	SpeedValueLabel.text = str(creature.speed)
+
+
+#func update_hp(new_hp: int) -> void:
+	#HPValueLabel.text = str(new_hp)
+#	
+#func update_dmg(new_dmg: int) -> void:
+	#DamageValueLabel.text = str(new_dmg) 
+#
+#func update_speed(new_speed: int) -> void:
+	#SpeedValueLabel.text = str(new_speed) 

@@ -27,13 +27,17 @@ var combat_on := false
 @onready var world: Node2D = $World
 @onready var ui: Control = $Overlay/UI
 
+@onready var title_bar: TitleBar = $Overlay/UI/TitleBar
+
 
 func set_creatures(p_ally: Creature, p_enemy: Creature) -> void:
 	ally = p_ally
 	enemy = p_enemy
 	
-	ally.died.connect(_on_ally_died)
-	enemy.died.connect(_on_enemy_died)
+	if not ally.died.is_connected(_on_ally_died):
+		ally.died.connect(_on_ally_died)
+	if not enemy.died.is_connected(_on_ally_died):
+		enemy.died.connect(_on_enemy_died)
 	
 	ally_sprite.texture = load(CREATURE_SPRITES[ally.species])
 	enemy_sprite.texture = load(CREATURE_SPRITES[enemy.species])

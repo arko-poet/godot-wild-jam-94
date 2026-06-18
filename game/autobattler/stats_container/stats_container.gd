@@ -9,12 +9,13 @@ class_name StatsContainer extends Panel
 var creature: Creature:
 	set(value):
 		creature = value
-		creature.stats_changed.connect(_update_stats)
+		if not creature.stats_changed.is_connected(_update_stats):
+			creature.stats_changed.connect(_update_stats)
 		_update_stats()
 
 
 func _update_stats() -> void:
-	NameLabel = creature.name
+	NameLabel.text = creature.name
 	DamageValueLabel.text = str(creature.damage)
 	HPValueLabel.text = str(creature.health)
 	SpeedValueLabel.text = str(creature.speed)

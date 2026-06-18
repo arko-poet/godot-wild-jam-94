@@ -49,8 +49,12 @@ grow_vertical = 2
 metadata/_edit_lock_ = true
 
 [node name="TitleBar" parent="UILayer/UI" unique_id=93397008 instance=ExtResource("5_gh0k7")]
-visible = false
 layout_mode = 1
+offset_left = 12.0
+offset_top = 16.0
+offset_right = -12.0
+offset_bottom = 41.0
+title = "MUTATION"
 
 [node name="ShiftStrandUpButton" type="TextureButton" parent="UILayer/UI" unique_id=1447901884]
 layout_mode = 0
@@ -85,18 +89,6 @@ offset_bottom = -76.0
 grow_horizontal = 1
 grow_vertical = 0
 
-[node name="Label" type="Label" parent="UILayer/UI" unique_id=947273261]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -64.0
-offset_top = 17.0
-offset_right = 64.0
-offset_bottom = 33.0
-grow_horizontal = 2
-text = "MUTATION"
-
 [node name="GeneticsPanel" type="Panel" parent="UILayer/UI" unique_id=513794142]
 layout_mode = 1
 anchors_preset = 3
@@ -111,17 +103,39 @@ offset_bottom = -74.0
 grow_horizontal = 0
 grow_vertical = 0
 
-[node name="Label" type="Label" parent="UILayer/UI/GeneticsPanel" unique_id=1126939969]
+[node name="Title" type="Label" parent="UILayer/UI/GeneticsPanel" unique_id=1126939969]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 12.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "   GENETICS
+text = "GENETICS
+"
+horizontal_alignment = 1
 
-MATCH = ADD
-..."
+[node name="Instructions" type="Label" parent="UILayer/UI/GeneticsPanel" unique_id=1758958244]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 32.0
+offset_right = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "DNA Base Color:
+*corresponds to stats
+
+DNA Base Shape:
+*Match = add stats
+*Mismatch = ???
+
+1 DNA Base can be added in each mutation up to 8"
+autowrap_mode = 2
 
 [node name="CreatureDNALabel" type="Label" parent="UILayer/UI" unique_id=889126279]
 layout_mode = 0

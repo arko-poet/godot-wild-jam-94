@@ -5,7 +5,8 @@ class_name CreatureDisplay extends TextureProgressBar
 var creature: Creature:
 	set(value):
 		creature = value
-		creature.health_changed.connect(_update_health)
+		if not creature.health_changed.is_connected(_update_health):
+			creature.health_changed.connect(_update_health)
 		_update_health()
 
 

@@ -10,7 +10,8 @@ const DNABaseDrawingScene := preload("res://game/dna/dna_base_drawing/dna_base_d
 var strand: DNAStrand:
 	set(value):
 		strand = value
-		strand.strand_mutated.connect(_on_strand_mutated)
+		if not strand.strand_mutated.is_connected(_on_strand_mutated):
+			strand.strand_mutated.connect(_on_strand_mutated)
 		_create_bases()
 		_draw_bases()
 		queue_redraw()

@@ -7,6 +7,8 @@ const AutobattlerScene := preload("res://game/autobattler/autobattler.tscn")
 
 var archibald: Creature
 
+var level := 1
+
 @onready var autobattler: Autobattler = $Autobattler
 @onready var mutation_screen: MutationScreen = %MutationScreen
 
@@ -29,7 +31,7 @@ func _initiate_mutation():
 	mutation_screen.switch_scene(true)
 	
 	mutation_screen.load_dna_strands(
-		archibald.dna_strand, Strands.get_demo_strand()
+		archibald.dna_strand, Strands.get_demo_strand(level)
 	)
 
 	mutation_screen.switch_scene(true)
@@ -40,9 +42,11 @@ func _initiate_autobattler():
 	
 	mutation_screen.switch_scene(false)
 	autobattler.switch_scene(true)
+	
+	autobattler.title_bar.title = "BATTLE #%s" % level
 
 	# TODO replace placeholder with enemy progression
-	var placeholder_enemy := Creature.new("Salamander", DNAStrand.new(), Creature.Species.SALAMANDER, 50, 5, 3)
+	var placeholder_enemy := Creature.new("Salamander", DNAStrand.new(), Creature.Species.SALAMANDER, 45 + level * 5 , 5 + level, 3 + level)
 	autobattler.set_creatures(archibald, placeholder_enemy)
 	autobattler.auto_battle()
 
@@ -63,3 +67,4 @@ func _on_autobattler_player_won() -> void:
 	win_stringer_player.play()
 	await win_stringer_player.finished
 	_initiate_mutation()
+	level += 1

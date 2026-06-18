@@ -5,24 +5,28 @@ const AUTOBATTLE_MUSIC := preload("res://assets/music/DnaScreenPhase2_WO_Xylopho
 
 const AutobattlerScene := preload("res://game/autobattler/autobattler.tscn")
 
-var archibald: PartyMember
-var autobattler: Autobattler
+var archibald: Creature
 
+@onready var autobattler: Autobattler = $Autobattler
 @onready var mutation_screen: MutationScreen = %MutationScreen
+
 @onready var win_stringer_player: AudioStreamPlayer = $WinStringerPlayer
-@onready var lose_stringer: AudioStreamPlayer = $LoseStringer
+@onready var lose_stringer_player: AudioStreamPlayer = $LoseStringerPlayer
 
 
 func _ready() -> void:
-	archibald = PartyMember.new()
+	archibald = Creature.new("Archibald", DNAStrand.new(), Creature.Species.TURTLE)
+	mutation_screen.stats.creature = archibald
 	
+	print(autobattler.ui)
 	_initiate_autobattler()
 
 
 func _initiate_mutation():
 	ProjectMusicController.play_stream(MUTATION_MUSIC)
 
-	autobattler.queue_free()
+	autobattler.switch_scene(false)
+	mutation_screen.switch_scene(true)
 	
 	mutation_screen.load_dna_strands(
 		archibald.dna_strand, Strands.get_demo_strand()
@@ -35,12 +39,11 @@ func _initiate_autobattler():
 	ProjectMusicController.play_stream(AUTOBATTLE_MUSIC)
 	
 	mutation_screen.switch_scene(false)
+	autobattler.switch_scene(true)
 
-	autobattler = AutobattlerScene.instantiate()
-	autobattler.autobattle_finished.connect(_on_battle_finished)
-	add_child(autobattler)
-	#autobattler.set_creatures(archibald)
-	
+	# TODO replace placeholder with enemy progression
+	var placeholder_enemy := Creature.new("Salamander", DNAStrand.new(), Creature.Species.SALAMANDER, 50, 5, 3)
+	autobattler.set_creatures(archibald, placeholder_enemy)
 	autobattler.auto_battle()
 
 
@@ -48,7 +51,14 @@ func _on_mutation_screen_mutation_finished() -> void:
 	_initiate_autobattler()
 
 
-func _on_battle_finished() -> void:
+func _on_autobattler_player_lost() -> void:
+	ProjectMusicController.music_stream_player.stream_paused = true
+	lose_stringer_player.play()
+	await lose_stringer_player.finished
+	get_tree().reload_current_scene()
+
+
+func _on_autobattler_player_won() -> void:
 	ProjectMusicController.music_stream_player.stream_paused = true
 	win_stringer_player.play()
 	await win_stringer_player.finished

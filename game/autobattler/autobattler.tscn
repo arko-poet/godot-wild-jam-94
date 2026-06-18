@@ -1,117 +1,93 @@
 [gd_scene format=3 uid="uid://xbyb0yn562sc"]
 
 [ext_resource type="Script" uid="uid://mdkjx4ml57oa" path="res://game/autobattler/autobattler.gd" id="1_jy7pd"]
-[ext_resource type="Script" uid="uid://swrcuneeb85r" path="res://game/autobattler/health_bar/health_bar.gd" id="1_u2val"]
-[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://assets/icons/icon.svg" id="2_rwqe7"]
+[ext_resource type="Texture2D" uid="uid://jieiat134ace" path="res://assets/icons/archibald.png" id="2_l5a88"]
+[ext_resource type="Texture2D" uid="uid://bafs47ipwdqis" path="res://assets/art/AssetsSalamander_x2/SalamanderStand.png" id="3_acxmb"]
+[ext_resource type="PackedScene" uid="uid://bt6gyi2jqsqsr" path="res://game/autobattler/health_bar/health_bar.tscn" id="3_dyrrl"]
 [ext_resource type="PackedScene" uid="uid://b2st48hbyrc6u" path="res://game/ui/title_bar.tscn" id="4_5a0st"]
 [ext_resource type="PackedScene" uid="uid://cs45qvk88kylk" path="res://game/autobattler/stats_container/stats_container.tscn" id="4_dyrrl"]
-
-[sub_resource type="Gradient" id="Gradient_5a0st"]
-colors = PackedColorArray(0, 0, 0, 1, 0.49865687, 0.9260818, 3.85046e-07, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_5a0st"]
-gradient = SubResource("Gradient_5a0st")
-width = 256
-height = 20
 
 [node name="Autobattler" type="Node" unique_id=698912908]
 script = ExtResource("1_jy7pd")
 metadata/_custom_type_script = "uid://mdkjx4ml57oa"
 
-[node name="AllyPartyMembers" type="VBoxContainer" parent="." unique_id=1682667592]
+[node name="World" type="Node2D" parent="." unique_id=1847079979]
+
+[node name="AllySprite" type="Sprite2D" parent="World" unique_id=420356443]
 unique_name_in_owner = true
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 86.0
-offset_top = -146.0
-offset_right = 214.0
-offset_bottom = -18.0
-grow_vertical = 2
+position = Vector2(128, 177)
+texture = ExtResource("2_l5a88")
 
-[node name="PartyMember" type="TextureRect" parent="AllyPartyMembers" unique_id=651945514]
-physics_interpolation_mode = 0
-layout_mode = 2
-texture = ExtResource("2_rwqe7")
-script = ExtResource("1_u2val")
-metadata/_custom_type_script = "uid://swrcuneeb85r"
-
-[node name="HPBar" type="TextureProgressBar" parent="AllyPartyMembers/PartyMember" unique_id=1825288634]
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 0
-offset_left = -14.0
-offset_top = 138.00002
-offset_right = 242.0
-offset_bottom = 202.00002
-scale = Vector2(0.78880936, 1)
-value = 100.0
-texture_progress = SubResource("GradientTexture2D_5a0st")
-
-[node name="EnemyPartyMembers" type="VBoxContainer" parent="." unique_id=279544811]
+[node name="EnemySprite" type="Sprite2D" parent="World" unique_id=1020363359]
 unique_name_in_owner = true
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -157.0
-offset_top = -135.0
-offset_right = -29.0
-offset_bottom = -7.0
-
-[node name="PartyMember" type="TextureRect" parent="EnemyPartyMembers" unique_id=510439422]
-physics_interpolation_mode = 0
-layout_mode = 2
-texture = ExtResource("2_rwqe7")
-script = ExtResource("1_u2val")
-metadata/_custom_type_script = "uid://swrcuneeb85r"
-
-[node name="HPBar" type="TextureProgressBar" parent="EnemyPartyMembers/PartyMember" unique_id=428122797]
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 0
-offset_left = -46.0
-offset_top = 135.00002
-offset_right = 210.0
-offset_bottom = 199.00002
-scale = Vector2(0.78880936, 1)
-value = 100.0
-texture_progress = SubResource("GradientTexture2D_5a0st")
+position = Vector2(799, 160)
+texture = ExtResource("3_acxmb")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=864222603]
 
 [node name="Overlay" type="CanvasLayer" parent="." unique_id=1406174705]
 
-[node name="TitleBar" parent="Overlay" unique_id=93397008 instance=ExtResource("4_5a0st")]
-offset_bottom = 25.0
+[node name="UI" type="Control" parent="Overlay" unique_id=138873780]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Overlay" unique_id=425034488]
+[node name="TitleBar" parent="Overlay/UI" unique_id=93397008 instance=ExtResource("4_5a0st")]
+layout_mode = 1
+
+[node name="AllyHealthBar" parent="Overlay/UI" unique_id=2131367494 instance=ExtResource("3_dyrrl")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 4
+anchor_left = 0.0
+anchor_right = 0.0
+offset_left = 0.0
+offset_top = -25.0
+offset_right = 256.0
+offset_bottom = 25.0
+grow_horizontal = 1
+
+[node name="EnemyHealthBar" parent="Overlay/UI" unique_id=2045444748 instance=ExtResource("3_dyrrl")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -256.0
+offset_top = -25.0
+offset_right = 0.0
+offset_bottom = 25.0
+grow_horizontal = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Overlay/UI" unique_id=425034488]
 custom_minimum_size = Vector2(0, 120)
+layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -1.0
-offset_top = -200.0
-offset_right = 147.0
+offset_top = -76.0
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(0.8682546, 0.9878049)
 
-[node name="AllyStats" parent="Overlay/HBoxContainer" unique_id=136696486 instance=ExtResource("4_dyrrl")]
+[node name="AllyStats" parent="Overlay/UI/HBoxContainer" unique_id=869396702 instance=ExtResource("4_dyrrl")]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Overlay/HBoxContainer" unique_id=625608242]
+[node name="VBoxContainer" type="VBoxContainer" parent="Overlay/UI/HBoxContainer" unique_id=625608242]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="Overlay/HBoxContainer/VBoxContainer" unique_id=446896736]
+[node name="Label" type="Label" parent="Overlay/UI/HBoxContainer/VBoxContainer" unique_id=446896736]
 layout_mode = 2
 text = "Combat Log"
 horizontal_alignment = 1
 
-[node name="CombatLog" type="RichTextLabel" parent="Overlay/HBoxContainer/VBoxContainer" unique_id=148362637]
+[node name="CombatLog" type="RichTextLabel" parent="Overlay/UI/HBoxContainer/VBoxContainer" unique_id=148362637]
 unique_name_in_owner = true
 layout_mode = 2
 bbcode_enabled = true
@@ -119,7 +95,6 @@ fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 3
 
-[node name="EnemyStats" parent="Overlay/HBoxContainer" unique_id=1361431359 instance=ExtResource("4_dyrrl")]
+[node name="EnemyStats" parent="Overlay/UI/HBoxContainer" unique_id=1851350877 instance=ExtResource("4_dyrrl")]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 10

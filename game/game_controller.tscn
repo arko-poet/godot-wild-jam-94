@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://1rbnuu461x6w" path="res://game/game_controller.gd" id="1_eb65f"]
 [ext_resource type="PackedScene" uid="uid://f6xl71xi08us" path="res://game/dna/mutation_screen/mutation_screen.tscn" id="2_eb65f"]
 [ext_resource type="PackedScene" uid="uid://bkcsjsk2ciff" path="res://addons/maaacks_game_template/base/nodes/music_players/background_music_player.tscn" id="3_5517d"]
+[ext_resource type="PackedScene" uid="uid://xbyb0yn562sc" path="res://game/autobattler/autobattler.tscn" id="3_rmbjm"]
 [ext_resource type="AudioStream" uid="uid://ckaubppyffia2" path="res://assets/music/DnaScreenPhase2_WO_Xylophone.mp3" id="4_4kcpm"]
 [ext_resource type="AudioStream" uid="uid://btgx7ajnd2dra" path="res://assets/music/WinStinger_BPM110_ONESHOT.mp3" id="5_4kcpm"]
 [ext_resource type="AudioStream" uid="uid://dbkfjrg83o4ha" path="res://assets/music/LoseStinger_BPM110_ONESHOT.mp3" id="6_rmbjm"]
@@ -13,13 +14,17 @@ script = ExtResource("1_eb65f")
 [node name="MutationScreen" parent="." unique_id=825821701 instance=ExtResource("2_eb65f")]
 unique_name_in_owner = true
 
+[node name="Autobattler" parent="." unique_id=698912908 instance=ExtResource("3_rmbjm")]
+
 [node name="BackgroundMusicPlayer" parent="." unique_id=1446051342 instance=ExtResource("3_5517d")]
 stream = ExtResource("4_4kcpm")
 
 [node name="WinStringerPlayer" type="AudioStreamPlayer" parent="." unique_id=2115155579]
 stream = ExtResource("5_4kcpm")
 
-[node name="LoseStringer" type="AudioStreamPlayer" parent="." unique_id=1078021841]
+[node name="LoseStringerPlayer" type="AudioStreamPlayer" parent="." unique_id=1078021841]
 stream = ExtResource("6_rmbjm")
 
 [connection signal="mutation_finished" from="MutationScreen" to="." method="_on_mutation_screen_mutation_finished"]
+[connection signal="player_lost" from="Autobattler" to="." method="_on_autobattler_player_lost"]
+[connection signal="player_won" from="Autobattler" to="." method="_on_autobattler_player_won"]

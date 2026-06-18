@@ -5,13 +5,12 @@ class_name StatsContainer extends VBoxContainer
 @onready var HPValueLabel = %HPValue
 @onready var SpeedValueLabel = %SpeedValue
 
-var creature: Creature
 
-
-func set_creature(p_creature: Creature) -> void:
-	creature = p_creature
-	creature.stats_changed.connect(_update_stats)
-	_update_stats()
+var creature: Creature:
+	set(value):
+		creature = value
+		creature.stats_changed.connect(_update_stats)
+		_update_stats()
 
 
 func _update_stats() -> void:

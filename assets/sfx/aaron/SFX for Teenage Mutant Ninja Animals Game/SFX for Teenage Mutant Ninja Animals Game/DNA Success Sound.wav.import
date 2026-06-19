@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dao1da01b772k"
+path="res://.godot/imported/DNA Success Sound.wav-a04ef57d7361c8a7f8267d94a9e5a69a.sample"
+
+[deps]
+
+source_file="res://assets/sfx/aaron/SFX for Teenage Mutant Ninja Animals Game/SFX for Teenage Mutant Ninja Animals Game/DNA Success Sound.wav"
+dest_files=["res://.godot/imported/DNA Success Sound.wav-a04ef57d7361c8a7f8267d94a9e5a69a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

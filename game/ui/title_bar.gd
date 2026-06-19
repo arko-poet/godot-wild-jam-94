@@ -19,4 +19,3 @@ func _ready() -> void:
 
 func _on_menu_button_pressed():
 	main_menu.emit()
-

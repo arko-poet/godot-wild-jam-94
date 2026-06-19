@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://clwbw6p6nlemm"
+path="res://.godot/imported/Archibald I Gunshot 2.wav-b565cac50fc591df9594feff9fc06db3.sample"
+
+[deps]
+
+source_file="res://assets/sfx/aaron/SFX for Teenage Mutant Ninja Animals Game/SFX for Teenage Mutant Ninja Animals Game/General Battle Sounds/Archibald I Gunshot 2.wav"
+dest_files=["res://.godot/imported/Archibald I Gunshot 2.wav-b565cac50fc591df9594feff9fc06db3.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

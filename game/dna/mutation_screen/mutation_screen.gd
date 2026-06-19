@@ -23,6 +23,7 @@ const DNA_LABEL_TEXT := "%s's"
 @onready var next_battle_button: Button = $UILayer/UI/NextBattleButton
 
 @onready var stats: StatsContainer = $UILayer/UI/Stats
+var mutation_hints: Array[Label] = []
 
 @onready var creature_dna_label: Label = $UILayer/UI/CreatureDNALabel
 @onready var corpse_dna_label: Label = $UILayer/UI/CorpseDNALabel
@@ -33,8 +34,14 @@ var enemy: Creature
 var left_strand: DNAStrand
 var right_strand: DNAStrand
 
+func _ready() -> void:
+	mutation_hints.assign(%MutationHints.find_children("Label?", "Label"))
+
+
 
 func set_creatures(p_ally: Creature, p_enemy: Creature, level: int) -> void:
+	for label in mutation_hints:
+		label.text = ""
 	ally = p_ally
 	enemy = p_enemy
 	
@@ -56,6 +63,7 @@ func set_creatures(p_ally: Creature, p_enemy: Creature, level: int) -> void:
 	
 	next_battle_button.hide()
 	mutation_h_box.show()
+	left_strand.combine_strands(right_strand, right_strand_drawing.shift, true, mutation_hints)
 
 
 ## shows/hides scene
@@ -81,10 +89,12 @@ func _on_skip_mutation_button_pressed() -> void:
 
 func _on_shift_strand_up_button_pressed() -> void:
 	right_strand_drawing.shift -= 1
+	left_strand.combine_strands(right_strand, right_strand_drawing.shift, true, mutation_hints)
 
 
 func _on_shift_strand_down_button_pressed() -> void:
 	right_strand_drawing.shift = min(right_strand_drawing.shift + 1, left_strand.bases.size())
+	left_strand.combine_strands(right_strand, right_strand_drawing.shift, true, mutation_hints)
 
 
 func _on_next_battle_button_pressed() -> void:

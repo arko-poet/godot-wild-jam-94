@@ -80,14 +80,21 @@ func switch_scene(on := true) -> void:
 func auto_battle() -> void:
 	combat_on = true
 	while combat_on:
-		if ally.speed > enemy.speed:
-			await _do_turn(ally)
-			if combat_on:
-				await _do_turn(enemy)
-		else:
-			await _do_turn(enemy)
-			if combat_on:
+		print(get_tree().paused)
+		if not get_tree().paused:
+			if ally.speed > enemy.speed:
 				await _do_turn(ally)
+				if combat_on:
+					await _do_turn(enemy)
+			else:
+				await _do_turn(enemy)
+				if combat_on:
+					await _do_turn(ally)
+
+		else:
+			await get_tree().create_timer(1.0).timeout # Necessary for this pausing loop, otherwise will freeze up game. Need to refactor for better way
+
+
 
 
 #func auto_battle() -> void:

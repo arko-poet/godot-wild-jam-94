@@ -30,6 +30,7 @@ func _ready() -> void:
 
 
 func _initiate_mutation():
+	autobattler.win_screen.visible = false
 	ProjectMusicController.play_stream(MUTATION_MUSIC)
 
 	autobattler.switch_scene(false)
@@ -59,6 +60,7 @@ func _on_mutation_screen_mutation_finished() -> void:
 
 
 func _on_autobattler_player_lost() -> void:
+	autobattler.win_screen.visible = false
 	ProjectMusicController.music_stream_player.stream_paused = true
 	lose_stringer_player.play()
 	await lose_stringer_player.finished

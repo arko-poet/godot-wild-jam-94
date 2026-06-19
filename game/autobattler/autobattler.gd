@@ -7,6 +7,7 @@ const CREATURE_SPRITES := {
 	Creature.Species.TURTLE0: "res://assets/art/AssetsArchibald_x2/ArchibaldStand.png",
 	Creature.Species.SALAMANDER: "res://assets/art/AssetsSalamander_x2/SalamanderStand.png"
 }
+const DAMAGE_VARIANCE := 0.2
 
 var ally: Creature
 var enemy: Creature
@@ -87,13 +88,11 @@ func auto_battle() -> void:
 			if ally.speed > enemy.speed:
 				for i in ceil(float(ally.speed) / float(enemy.speed)):
 					await _do_turn(ally)
-				if combat_on:
-					await _do_turn(enemy)
+				await _do_turn(enemy)
 			else:
 				for i in ceil(float(enemy.speed) / float(ally.speed)):
 					await _do_turn(enemy)
-				if combat_on:
-					await _do_turn(ally)
+				await _do_turn(ally)
 
 		else:
 			await get_tree().create_timer(1.0).timeout # Necessary for this pausing loop, otherwise will freeze up game. Need to refactor for better way
@@ -132,18 +131,34 @@ func auto_battle() -> void:
 
 
 func _do_turn(creature: Creature) -> void:
+	if not (combat_on and not enemy.dead and not ally.dead):
+		return
+		
 	await get_tree().create_timer(1.0).timeout
 	
-	var combat_text = "{0} Does {1} [color=orange][b]DAMAGE[/b][/color]".format(
-		[creature.name, creature.damage]
-	)
+	var is_crit := creature == ally and randf() < ally.damage * 0.01
+	
+	var damage = roundi(randf_range(creature.damage * (1.0 - DAMAGE_VARIANCE), creature.damage * (1.0 + DAMAGE_VARIANCE)))
+	if is_crit:
+		damage *= 2
+	
+	var combat_text: String
+	if is_crit and creature == ally:
+		combat_text = "{0} crits for [color=orange][b]{1}[/b][/color]".format(
+			[creature.name, damage]
+		)
+	else:	
+		combat_text = "{0} hits for [color=orange]{1}[/color]".format(
+			[creature.name, damage]
+		)
 	combat_log.append_text(combat_text)
 	combat_log.newline()
 	
 	if creature == enemy:
-		ally.health -= enemy.damage
+		ally.health -= damage
 	else:
-		enemy.health -= ally.damage
+		enemy.health -= damage
+
 
 
 func _on_ally_died() -> void:

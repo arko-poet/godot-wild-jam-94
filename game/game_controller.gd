@@ -33,8 +33,8 @@ func _ready() -> void:
 
 
 func _initiate_mutation():
-	if ProjectMusicController.music_stream_player.stream != AUTOBATTLE_MUSIC:
-		ProjectMusicController.play_stream(MUTATION_MUSIC)
+	autobattler.win_screen.visible = false
+	ProjectMusicController.play_stream(MUTATION_MUSIC)
 
 	autobattler.switch_scene(false)
 	mutation_screen.switch_scene(true)
@@ -46,7 +46,6 @@ func _initiate_mutation():
 
 func _initiate_autobattler():
 	ProjectMusicController.play_stream(AUTOBATTLE_MUSIC)
-	
 	mutation_screen.switch_scene(false)
 	autobattler.switch_scene(true)
 	
@@ -55,6 +54,7 @@ func _initiate_autobattler():
 	# TODO replace placeholder with enemy progression
 	enemy = Creatures.get_enemy(level)
 	autobattler.set_creatures(archibald, enemy)
+	autobattler.ally.health = autobattler.ally.max_health	
 	autobattler.auto_battle()
 
 
@@ -63,6 +63,7 @@ func _on_mutation_screen_mutation_finished() -> void:
 
 
 func _on_autobattler_player_lost() -> void:
+	autobattler.win_screen.visible = false
 	ProjectMusicController.music_stream_player.stream_paused = true
 	lose_stringer_player.play()
 	await lose_stringer_player.finished

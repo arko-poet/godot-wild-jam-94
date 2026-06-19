@@ -28,6 +28,8 @@ var combat_on := false
 @onready var ui: Control = $Overlay/UI
 
 @onready var title_bar: TitleBar = %TitleBar
+@onready var win_screen: CanvasLayer = %WinScreen
+@onready var combat_result_label = %CombatResultLabel
 
 
 func set_creatures(p_ally: Creature, p_enemy: Creature) -> void:
@@ -147,6 +149,10 @@ func _on_ally_died() -> void:
 	
 	_log_death(ally)
 
+	combat_result_label.text = "YOU LOSE!"	
+	win_screen.visible = true
+	await get_tree().create_timer(3.0).timeout # give enough time for the player to see the lost screen
+	print("lost")
 	player_lost.emit()
 	
 
@@ -158,6 +164,8 @@ func _on_enemy_died() -> void:
 	
 	_log_death(enemy)
 	
+	combat_result_label.text = "YOU WIN!"	
+	win_screen.visible = true
 	player_won.emit()
 
 

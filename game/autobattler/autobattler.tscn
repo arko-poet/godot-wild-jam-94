@@ -111,6 +111,7 @@ grow_vertical = 2
 theme_override_font_sizes/normal_font_size = 11
 bbcode_enabled = true
 scroll_active = false
+scroll_following = true
 horizontal_alignment = 1
 
 [node name="AllyStats" parent="Overlay/UI" unique_id=869396702 instance=ExtResource("4_dyrrl")]
@@ -145,3 +146,29 @@ modulate = Color(1, 1, 1, 0.47058824)
 texture = ExtResource("9_w0o5f")
 centered = false
 metadata/_edit_lock_ = true
+
+[node name="WinScreen" type="CanvasLayer" parent="." unique_id=1930866798]
+unique_name_in_owner = true
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="WinScreen" unique_id=435040580]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.78514224, 0.836457, 0.18163249, 0.4627451)
+
+[node name="CombatResultLabel" type="Label" parent="WinScreen" unique_id=1014064720]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -8.0
+offset_right = 20.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2

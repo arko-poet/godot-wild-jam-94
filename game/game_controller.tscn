@@ -28,6 +28,7 @@ stream = ExtResource("5_4kcpm")
 stream = ExtResource("6_rmbjm")
 
 [node name="PauseMenuController" type="Node" parent="." unique_id=1065194986]
+unique_name_in_owner = true
 script = ExtResource("8_hqccd")
 pause_menu_packed = ExtResource("9_pkav0")
 

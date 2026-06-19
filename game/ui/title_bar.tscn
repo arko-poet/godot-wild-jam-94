@@ -13,7 +13,6 @@ script = ExtResource("1_dtvaf")
 title = "TITLE"
 
 [node name="TimeControls" type="HBoxContainer" parent="." unique_id=1363188190]
-visible = false
 custom_minimum_size = Vector2(0, 40)
 layout_direction = 2
 layout_mode = 0
@@ -55,16 +54,14 @@ text = "TITLE"
 horizontal_alignment = 1
 autowrap_trim_flags = 0
 
-[node name="MenuButton" type="Label" parent="." unique_id=228624753]
+[node name="MenuButton" type="Button" parent="." unique_id=945854146]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -240.0
-offset_bottom = 12.0
+offset_left = -96.0
+offset_bottom = 48.0
 grow_horizontal = 0
-theme_override_font_sizes/font_size = 12
-text = "Press `Esc` for menu"
-horizontal_alignment = 2
-vertical_alignment = 1
+theme_override_font_sizes/font_size = 16
+text = "menu"

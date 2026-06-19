@@ -15,11 +15,14 @@ var level := 1
 
 @onready var win_stringer_player: AudioStreamPlayer = $WinStringerPlayer
 @onready var lose_stringer_player: AudioStreamPlayer = $LoseStringerPlayer
+@onready var pause_menu_controller = %PauseMenuController
 
 
 func _ready() -> void:
 	archibald = Creature.new("Archibald", DNAStrand.new(), Creature.Species.TURTLE0)
 	mutation_screen.stats.creature = archibald
+	autobattler.title_bar.main_menu.connect(pause_menu_controller.pause)
+	mutation_screen.title_bar.main_menu.connect(pause_menu_controller.pause)
 	
 	print(autobattler.ui)
 	_initiate_autobattler()

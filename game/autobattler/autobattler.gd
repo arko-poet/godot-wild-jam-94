@@ -85,11 +85,13 @@ func auto_battle() -> void:
 		print(get_tree().paused)
 		if not get_tree().paused:
 			if ally.speed > enemy.speed:
-				await _do_turn(ally)
+				for i in ceil(float(ally.speed) / float(enemy.speed)):
+					await _do_turn(ally)
 				if combat_on:
 					await _do_turn(enemy)
 			else:
-				await _do_turn(enemy)
+				for i in ceil(float(enemy.speed) / float(ally.speed)):
+					await _do_turn(enemy)
 				if combat_on:
 					await _do_turn(ally)
 
@@ -164,7 +166,7 @@ func _on_enemy_died() -> void:
 	
 	_log_death(enemy)
 	
-	combat_result_label.text = "YOU WIN!"	
+	combat_result_label.text = "YOU WIN!"
 	win_screen.visible = true
 	player_won.emit()
 

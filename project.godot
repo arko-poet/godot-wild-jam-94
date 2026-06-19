@@ -43,7 +43,9 @@ enabled=PackedStringArray("res://addons/maaacks_game_template/plugin.cfg")
 
 folder_colors={
 "res://assets/": "teal",
-"res://game/": "red"
+"res://game/": "red",
+"res://game/autobattler/": "orange",
+"res://game/dna/": "yellow"
 }
 
 [gui]

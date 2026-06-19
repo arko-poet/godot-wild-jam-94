@@ -6,8 +6,19 @@ signal died
 
 ## used for loading appropariate textures/animations
 enum Species {
-	TURTLE,
-	SALAMANDER
+	TURTLE0,
+	TURTLE1,
+	TURTLE2,
+	TURTLE3,
+	TURTLE4,
+	TURTLE5,
+	TURTLE6,
+	TURTLE7,
+	TURTLE8,
+	BYAKA,
+	FLYGRUB,
+	SALAMANDER,
+	FLESHMANCER
 }
 
 var name: String

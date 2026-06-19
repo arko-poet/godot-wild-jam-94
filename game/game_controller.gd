@@ -12,6 +12,7 @@ var level := 1
 
 @onready var autobattler: Autobattler = $Autobattler
 @onready var mutation_screen: MutationScreen = %MutationScreen
+@onready var turtle_name_scene: Control = $TurtleNameScene
 
 @onready var win_stringer_player: AudioStreamPlayer = $WinStringerPlayer
 @onready var lose_stringer_player: AudioStreamPlayer = $LoseStringerPlayer
@@ -24,9 +25,11 @@ func _ready() -> void:
 	autobattler.title_bar.main_menu.connect(pause_menu_controller.pause)
 	mutation_screen.title_bar.main_menu.connect(pause_menu_controller.pause)
 	
+	autobattler.switch_scene(false)
+	mutation_screen.switch_scene(false)
+	
 	print(autobattler.ui)
 	print(get_tree().paused)
-	_initiate_autobattler()
 
 
 func _initiate_mutation():
@@ -73,3 +76,9 @@ func _on_autobattler_player_won() -> void:
 	await win_stringer_player.finished
 	_initiate_mutation()
 	level += 1
+
+
+func _on_turtle_name_scene_name_chosen(turtle_name: String) -> void:
+	archibald = Creature.new(turtle_name, DNAStrand.new(), Creature.Species.TURTLE0)
+	turtle_name_scene.hide()
+	_initiate_autobattler()

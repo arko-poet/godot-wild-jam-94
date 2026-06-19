@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://f6xl71xi08us"]
 
 [ext_resource type="Script" uid="uid://bkwopoaotwutv" path="res://game/dna/mutation_screen/mutation_screen.gd" id="1_wpbrl"]
+[ext_resource type="AudioStream" uid="uid://bcieuff0plfsq" path="res://assets/sfx/aaron/Battle Tick.wav" id="2_ed4yt"]
 [ext_resource type="Texture2D" uid="uid://1m23pleb14vw" path="res://assets/art/AssetsDNAScreen_x2/DNAScreenBackground.png" id="2_mq6fl"]
 [ext_resource type="PackedScene" uid="uid://criksgr4si05m" path="res://game/dna/dna_strand_drawing/dna_strand_drawing.tscn" id="3_cneda"]
+[ext_resource type="AudioStream" uid="uid://cgh0yws640ktg" path="res://assets/sfx/cat/buttoinhover.wav" id="3_hcndt"]
 [ext_resource type="Texture2D" uid="uid://dneihqdyyv2sb" path="res://assets/art/AssetsDNAScreen_x2/DNAScreenExample.png" id="3_kxiwm"]
 [ext_resource type="Texture2D" uid="uid://d0c3oei755jvb" path="res://assets/art/AssetsArchibald_x2/ArchibaldStand.png" id="3_t0w3q"]
 [ext_resource type="Texture2D" uid="uid://bafs47ipwdqis" path="res://assets/art/AssetsSalamander_x2/SalamanderStand.png" id="4_4vgib"]
@@ -16,6 +18,14 @@
 
 [node name="MutationScreen" type="Node" unique_id=825821701]
 script = ExtResource("1_wpbrl")
+
+[node name="MutationShiftClickedPlayer" type="AudioStreamPlayer" parent="." unique_id=702778838]
+stream = ExtResource("2_ed4yt")
+bus = &"SFX"
+
+[node name="MutationShiftHoverPlayer" type="AudioStreamPlayer" parent="." unique_id=649412456]
+stream = ExtResource("3_hcndt")
+bus = &"SFX"
 
 [node name="World" type="Node2D" parent="." unique_id=807716502]
 
@@ -53,11 +63,8 @@ metadata/_edit_lock_ = true
 [node name="TitleBar" parent="UILayer/UI" unique_id=93397008 instance=ExtResource("5_gh0k7")]
 unique_name_in_owner = true
 layout_mode = 1
-offset_left = 12.0
-offset_top = 16.0
-offset_right = -12.0
-offset_bottom = 41.0
 title = "MUTATION"
+speed_buttons = false
 
 [node name="ShiftStrandUpButton" type="TextureButton" parent="UILayer/UI" unique_id=1447901884]
 layout_mode = 0
@@ -286,7 +293,27 @@ layout_mode = 2
 label_settings = SubResource("LabelSettings_530fl")
 horizontal_alignment = 1
 
+[node name="Label9" type="Label" parent="UILayer/UI/MutationHints" unique_id=992966900]
+layout_mode = 2
+
+[node name="Label10" type="Label" parent="UILayer/UI/MutationHints" unique_id=1518849938]
+layout_mode = 2
+
+[node name="Label11" type="Label" parent="UILayer/UI/MutationHints" unique_id=778815109]
+layout_mode = 2
+
+[node name="Label12" type="Label" parent="UILayer/UI/MutationHints" unique_id=135556541]
+layout_mode = 2
+
+[node name="Label13" type="Label" parent="UILayer/UI/MutationHints" unique_id=76753243]
+layout_mode = 2
+
+[node name="Label14" type="Label" parent="UILayer/UI/MutationHints" unique_id=845947752]
+layout_mode = 2
+
+[connection signal="mouse_entered" from="UILayer/UI/ShiftStrandUpButton" to="." method="_on_shift_strand_button_mouse_entered"]
 [connection signal="pressed" from="UILayer/UI/ShiftStrandUpButton" to="." method="_on_shift_strand_up_button_pressed"]
+[connection signal="mouse_entered" from="UILayer/UI/ShiftStrandDownButton" to="." method="_on_shift_strand_button_mouse_entered"]
 [connection signal="pressed" from="UILayer/UI/ShiftStrandDownButton" to="." method="_on_shift_strand_down_button_pressed"]
 [connection signal="pressed" from="UILayer/UI/NextBattleButton" to="." method="_on_next_battle_button_pressed"]
 [connection signal="pressed" from="UILayer/UI/MutationHBox/ConfirmMutationButton" to="." method="_on_confirm_mutation_button_pressed"]

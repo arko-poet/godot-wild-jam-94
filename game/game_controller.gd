@@ -2,6 +2,7 @@ class_name GameController extends Node
 
 const MUTATION_MUSIC := preload("res://assets/music/DnaScreen_BPM110_L58B_LOOP.mp3")
 const AUTOBATTLE_MUSIC := preload("res://assets/music/DnaScreenPhase2_WO_Xylophone.mp3")
+const BOSS_MUSIC := preload("res://assets/music/Bossfight(NoIntro)_BPM120_L50B.mp3")
 
 const AutobattlerScene := preload("res://game/autobattler/autobattler.tscn")
 
@@ -45,7 +46,10 @@ func _initiate_mutation():
 
 
 func _initiate_autobattler():
-	ProjectMusicController.play_stream(AUTOBATTLE_MUSIC)
+	if level == 7:
+		ProjectMusicController.play_stream(BOSS_MUSIC)
+	else:
+		ProjectMusicController.play_stream(AUTOBATTLE_MUSIC)
 	mutation_screen.switch_scene(false)
 	autobattler.switch_scene(true)
 	
@@ -80,5 +84,6 @@ func _on_autobattler_player_won() -> void:
 
 func _on_turtle_name_scene_name_chosen(turtle_name: String) -> void:
 	archibald = Creature.new(turtle_name, DNAStrand.new(), Creature.Species.TURTLE0)
+	#archibald.damage = 100
 	turtle_name_scene.hide()
 	_initiate_autobattler()

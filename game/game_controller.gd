@@ -30,6 +30,7 @@ func _ready() -> void:
 
 
 func _initiate_mutation():
+	autobattler.win_screen.visible = false
 	ProjectMusicController.play_stream(MUTATION_MUSIC)
 
 	autobattler.switch_scene(false)

@@ -29,6 +29,8 @@ var mutation_hints: Array[Label] = []
 @onready var corpse_dna_label: Label = $UILayer/UI/CorpseDNALabel
 @onready var title_bar = %TitleBar
 
+@onready var mutation_shift_clicked_player: AudioStreamPlayer = $MutationShiftClickedPlayer
+@onready var mutation_shift_hover_player: AudioStreamPlayer = $MutationShiftHoverPlayer
 
 var ally: Creature
 var enemy: Creature
@@ -89,11 +91,13 @@ func _on_skip_mutation_button_pressed() -> void:
 
 
 func _on_shift_strand_up_button_pressed() -> void:
+	mutation_shift_clicked_player.play()
 	right_strand_drawing.shift -= 1
 	left_strand.combine_strands(right_strand, right_strand_drawing.shift, true, mutation_hints)
 
 
 func _on_shift_strand_down_button_pressed() -> void:
+	mutation_shift_clicked_player.play()
 	right_strand_drawing.shift = min(right_strand_drawing.shift + 1, left_strand.bases.size())
 	left_strand.combine_strands(right_strand, right_strand_drawing.shift, true, mutation_hints)
 
@@ -105,3 +109,7 @@ func _on_next_battle_button_pressed() -> void:
 
 func _on_species_changed() -> void:
 	player_creature.texture = Creatures.get_creature_texture(ally)
+
+
+func _on_shift_strand_button_mouse_entered() -> void:
+	mutation_shift_hover_player.play()

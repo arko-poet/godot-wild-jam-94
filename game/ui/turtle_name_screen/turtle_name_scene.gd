@@ -4,6 +4,8 @@ signal name_chosen(turtle_name: String)
 
 const DEFAULT_NAME := "Archibald"
 
+@onready var turtle_noises: AudioStreamPlayer = $TurtleNoises
+
 @onready var line_edit: LineEdit = %LineEdit
 
 
@@ -12,9 +14,5 @@ func _on_button_pressed() -> void:
 	name_chosen.emit(turtle_name)
 
 
-func _on_name_chosen(turtle_name: String) -> void:
-	print(turtle_name)
-
-
 func _on_turtle_pressed() -> void:
-	pass # Replace with function body.
+	turtle_noises.play()

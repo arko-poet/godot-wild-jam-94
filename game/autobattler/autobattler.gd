@@ -151,6 +151,8 @@ func _on_ally_died() -> void:
 
 	combat_result_label.text = "YOU LOSE!"	
 	win_screen.visible = true
+	await get_tree().create_timer(3.0).timeout # give enough time for the player to see the lost screen
+	print("lost")
 	player_lost.emit()
 	
 

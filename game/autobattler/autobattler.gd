@@ -146,6 +146,9 @@ func _on_ally_died() -> void:
 func _on_enemy_died() -> void:
 	combat_on = false
 	
+	print(enemy.dead)
+	enemy_sprite.texture = Creatures.get_creature_texture(enemy)
+	
 	_log_death(enemy)
 	
 	player_won.emit()

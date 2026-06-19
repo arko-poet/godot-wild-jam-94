@@ -139,23 +139,59 @@ autowrap_mode = 2
 
 [node name="CreatureDNALabel" type="Label" parent="UILayer/UI" unique_id=889126279]
 layout_mode = 0
-offset_left = 316.0
-offset_top = 67.0
-offset_right = 448.0
-offset_bottom = 94.0
+offset_left = 297.0
+offset_top = 71.0
+offset_right = 477.0
+offset_bottom = 83.0
 theme_override_font_sizes/font_size = 12
-text = "Archibald's
-DNA Strand"
+text = "Archibald's"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="UILayer/UI/CreatureDNALabel" unique_id=2142620937]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.0
+offset_top = 9.0
+offset_right = 12.0
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 12
+text = "DNA"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="CorpseDNALabel" type="Label" parent="UILayer/UI" unique_id=713229461]
 layout_mode = 0
-offset_left = 506.0
-offset_top = 66.0
-offset_right = 650.0
-offset_bottom = 93.0
+offset_left = 488.0
+offset_top = 69.0
+offset_right = 680.0
+offset_bottom = 81.0
 theme_override_font_sizes/font_size = 12
-text = "Salamander's
-DNA Strand"
+text = "Salamander's"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="UILayer/UI/CorpseDNALabel" unique_id=1513671998]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.0
+offset_top = 9.0
+offset_right = 12.0
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 12
+text = "DNA"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="NextBattleButton" type="Button" parent="UILayer/UI" unique_id=531829360]
 visible = false

@@ -3,6 +3,7 @@ class_name Creature extends RefCounted
 signal health_changed
 signal stats_changed
 signal died
+signal species_changed
 
 ## used for loading appropariate textures/animations
 enum Species {
@@ -22,7 +23,10 @@ enum Species {
 }
 
 var name: String
-var species: Species
+var species: Species:
+	set(value):
+		species = value
+		species_changed.emit()
 
 var dna_strand: DNAStrand
 
@@ -42,9 +46,10 @@ var health: int:
 			dead = true
 var dead := false:
 	set(value):
-		if not dead and value:
-			died.emit()
+		var death = not dead and value
 		dead = value
+		if death:
+			died.emit()
 
 
 var _base_health: int
@@ -70,9 +75,16 @@ func _init(p_name: String, p_dna_strand: DNAStrand, p_species := Species.SALAMAN
 func _on_strand_mutated() -> void:
 	_update_stats()
 	stats_changed.emit()
+	
+	_evolve_turtle()
 
 
 func _update_stats() -> void:
 	max_health = _base_health + dna_strand.get_attribute_sum(DNABase.Attribute.HEALTH)
 	damage = _base_damage + dna_strand.get_attribute_sum(DNABase.Attribute.DAMAGE)
 	speed = _base_speed + dna_strand.get_attribute_sum(DNABase.Attribute.SPEED)
+
+
+func _evolve_turtle() -> void:
+	if species < Creature.Species.TURTLE7:
+		species = (species + 1) as Species

@@ -21,16 +21,22 @@ signal mutation_finished
 @onready var next_battle_button: Button = $UILayer/UI/NextBattleButton
 
 @onready var stats: StatsContainer = $UILayer/UI/Stats
-
+var mutation_hints: Array[Label] = []
 
 var left_strand: DNAStrand
 var right_strand: DNAStrand
+
+func _ready() -> void:
+	mutation_hints.assign(%MutationHints.find_children("Label?", "Label"))
+
 
 
 ## TODO change parameters to get creature objects - for adding sprites etc.
 ## p_left_strand -> player creature's strand that will change
 ## p_right_strand -> slain creature strand that will affect strandA
 func load_dna_strands(p_left_strand: DNAStrand, p_right_strand: DNAStrand) -> void:
+	for label in mutation_hints:
+		label.text = ""
 	left_strand = p_left_strand
 	right_strand = p_right_strand
 	
@@ -40,6 +46,7 @@ func load_dna_strands(p_left_strand: DNAStrand, p_right_strand: DNAStrand) -> vo
 	
 	next_battle_button.hide()
 	mutation_h_box.show()
+	left_strand.combine_strands(right_strand, right_strand_drawing.shift, true, mutation_hints)
 
 
 ## shows/hides scene
@@ -65,10 +72,12 @@ func _on_skip_mutation_button_pressed() -> void:
 
 func _on_shift_strand_up_button_pressed() -> void:
 	right_strand_drawing.shift -= 1
+	left_strand.combine_strands(right_strand, right_strand_drawing.shift, true, mutation_hints)
 
 
 func _on_shift_strand_down_button_pressed() -> void:
 	right_strand_drawing.shift = min(right_strand_drawing.shift + 1, left_strand.bases.size())
+	left_strand.combine_strands(right_strand, right_strand_drawing.shift, true, mutation_hints)
 
 
 func _on_next_battle_button_pressed() -> void:

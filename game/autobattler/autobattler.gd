@@ -147,11 +147,11 @@ func _do_turn(creature: Creature) -> void:
 
 	var combat_text: String
 	if is_crit:
-		combat_text = "{0} crits for {1} [color=orange][b]DAMAGE[/b][/color]".format(
+		combat_text = "{0} crits for [color=orange][b]{1}[/b][/color]".format(
 			[creature.name, creature.damage * 2]
 		)
 	else:	
-		combat_text = "{0} hits for {1} [color=orange][b]DAMAGE[/b][/color]".format(
+		combat_text = "{0} hits for [color=orange]{1}[/color]".format(
 			[creature.name, creature.damage]
 		)
 	combat_log.append_text(combat_text)

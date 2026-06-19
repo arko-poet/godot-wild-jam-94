@@ -17,7 +17,7 @@ var level := 1
 
 
 func _ready() -> void:
-	archibald = Creature.new("Archibald", DNAStrand.new(), Creature.Species.TURTLE)
+	archibald = Creature.new("Archibald", DNAStrand.new(), Creature.Species.TURTLE0)
 	mutation_screen.stats.creature = archibald
 	
 	print(autobattler.ui)

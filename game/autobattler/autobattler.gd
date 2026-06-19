@@ -4,7 +4,7 @@ signal player_won
 signal player_lost
 
 const CREATURE_SPRITES := {
-	Creature.Species.TURTLE: "res://assets/art/AssetsArchibald_x2/ArchibaldStand.png",
+	Creature.Species.TURTLE0: "res://assets/art/AssetsArchibald_x2/ArchibaldStand.png",
 	Creature.Species.SALAMANDER: "res://assets/art/AssetsSalamander_x2/SalamanderStand.png"
 }
 

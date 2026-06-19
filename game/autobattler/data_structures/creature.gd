@@ -39,7 +39,13 @@ var health: int:
 		health = max(0, value)
 		health_changed.emit()
 		if health == 0:
+			dead = true
+var dead := false:
+	set(value):
+		if not dead and value:
 			died.emit()
+		dead = value
+
 
 var _base_health: int
 var _base_damage: int

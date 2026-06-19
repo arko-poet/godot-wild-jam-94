@@ -26,9 +26,11 @@ stream = ExtResource("4_4kcpm")
 
 [node name="WinStringerPlayer" type="AudioStreamPlayer" parent="." unique_id=2115155579]
 stream = ExtResource("5_4kcpm")
+bus = &"Music"
 
 [node name="LoseStringerPlayer" type="AudioStreamPlayer" parent="." unique_id=1078021841]
 stream = ExtResource("6_rmbjm")
+bus = &"Music"
 
 [node name="PauseMenuController" type="Node" parent="." unique_id=1065194986]
 unique_name_in_owner = true

@@ -25,6 +25,7 @@ func _ready() -> void:
 	mutation_screen.title_bar.main_menu.connect(pause_menu_controller.pause)
 	
 	print(autobattler.ui)
+	print(get_tree().paused)
 	_initiate_autobattler()
 
 

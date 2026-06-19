@@ -87,13 +87,11 @@ func auto_battle() -> void:
 			if ally.speed > enemy.speed:
 				for i in ceil(float(ally.speed) / float(enemy.speed)):
 					await _do_turn(ally)
-				if combat_on:
-					await _do_turn(enemy)
+				await _do_turn(enemy)
 			else:
 				for i in ceil(float(enemy.speed) / float(ally.speed)):
 					await _do_turn(enemy)
-				if combat_on:
-					await _do_turn(ally)
+				await _do_turn(ally)
 
 		else:
 			await get_tree().create_timer(1.0).timeout # Necessary for this pausing loop, otherwise will freeze up game. Need to refactor for better way
@@ -132,19 +130,13 @@ func auto_battle() -> void:
 
 
 func _do_turn(creature: Creature) -> void:
+	if not (combat_on and not enemy.dead and not ally.dead):
+		return
+		
 	await get_tree().create_timer(1.0).timeout
 	
 	var is_crit := creature == ally and randf() < ally.damage * 0.01
 	
-	if creature == enemy:
-		ally.health -= enemy.damage
-	else:
-		
-		if is_crit:
-			enemy.health -= ally.damage * 2
-		else:
-			enemy.health -= ally.damage
-
 	var combat_text: String
 	if is_crit:
 		combat_text = "{0} crits for [color=orange][b]{1}[/b][/color]".format(
@@ -156,6 +148,15 @@ func _do_turn(creature: Creature) -> void:
 		)
 	combat_log.append_text(combat_text)
 	combat_log.newline()
+	
+	if creature == enemy:
+		ally.health -= enemy.damage
+	else:
+		if is_crit:
+			enemy.health -= ally.damage * 2
+		else:
+			enemy.health -= ally.damage
+
 
 func _on_ally_died() -> void:
 	combat_on = false

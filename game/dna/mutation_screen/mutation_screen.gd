@@ -27,6 +27,7 @@ var mutation_hints: Array[Label] = []
 
 @onready var creature_dna_label: Label = $UILayer/UI/CreatureDNALabel
 @onready var corpse_dna_label: Label = $UILayer/UI/CorpseDNALabel
+@onready var title_bar = %TitleBar
 
 
 var ally: Creature

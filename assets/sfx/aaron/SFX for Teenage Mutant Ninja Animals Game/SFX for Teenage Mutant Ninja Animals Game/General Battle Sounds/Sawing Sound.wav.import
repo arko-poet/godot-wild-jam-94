@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://338denavklvt"
+path="res://.godot/imported/Sawing Sound.wav-06a9331736069ec80cd22cd562c4ed35.sample"
+
+[deps]
+
+source_file="res://assets/sfx/aaron/SFX for Teenage Mutant Ninja Animals Game/SFX for Teenage Mutant Ninja Animals Game/General Battle Sounds/Sawing Sound.wav"
+dest_files=["res://.godot/imported/Sawing Sound.wav-06a9331736069ec80cd22cd562c4ed35.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

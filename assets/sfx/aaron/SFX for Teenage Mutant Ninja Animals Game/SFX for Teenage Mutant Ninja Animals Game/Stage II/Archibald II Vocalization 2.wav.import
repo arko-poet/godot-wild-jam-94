@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://csdo4oevli6w6"
+path="res://.godot/imported/Archibald II Vocalization 2.wav-11e02b2049f1da4472e18f3b0765d7ad.sample"
+
+[deps]
+
+source_file="res://assets/sfx/aaron/SFX for Teenage Mutant Ninja Animals Game/SFX for Teenage Mutant Ninja Animals Game/Stage II/Archibald II Vocalization 2.wav"
+dest_files=["res://.godot/imported/Archibald II Vocalization 2.wav-11e02b2049f1da4472e18f3b0765d7ad.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

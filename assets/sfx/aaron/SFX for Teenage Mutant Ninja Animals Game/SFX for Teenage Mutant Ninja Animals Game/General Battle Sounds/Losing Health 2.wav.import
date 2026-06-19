@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dngntryt4djfr"
+path="res://.godot/imported/Losing Health 2.wav-2fecffb0c5f1769a5848b7e858e0a962.sample"
+
+[deps]
+
+source_file="res://assets/sfx/aaron/SFX for Teenage Mutant Ninja Animals Game/SFX for Teenage Mutant Ninja Animals Game/General Battle Sounds/Losing Health 2.wav"
+dest_files=["res://.godot/imported/Losing Health 2.wav-2fecffb0c5f1769a5848b7e858e0a962.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

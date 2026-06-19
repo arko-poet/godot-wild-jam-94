@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ba2xc2fp0ebvb"
+path="res://.godot/imported/Hard Hit 1.wav-550770d5273eb64f785287bbb52b3f94.sample"
+
+[deps]
+
+source_file="res://assets/sfx/aaron/SFX for Teenage Mutant Ninja Animals Game/SFX for Teenage Mutant Ninja Animals Game/General Battle Sounds/Hard Hit 1.wav"
+dest_files=["res://.godot/imported/Hard Hit 1.wav-550770d5273eb64f785287bbb52b3f94.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

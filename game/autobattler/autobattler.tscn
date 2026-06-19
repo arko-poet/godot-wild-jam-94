@@ -111,6 +111,7 @@ grow_vertical = 2
 theme_override_font_sizes/normal_font_size = 11
 bbcode_enabled = true
 scroll_active = false
+scroll_following = true
 horizontal_alignment = 1
 
 [node name="AllyStats" parent="Overlay/UI" unique_id=869396702 instance=ExtResource("4_dyrrl")]

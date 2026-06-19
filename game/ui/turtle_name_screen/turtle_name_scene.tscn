@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://bgdm2fuwydqqe"]
+
+[ext_resource type="Script" uid="uid://t35stg6h3usu" path="res://game/ui/turtle_name_screen/turtle_name_scene.gd" id="1_bueu1"]
+[ext_resource type="Texture2D" uid="uid://1m23pleb14vw" path="res://assets/art/AssetsDNAScreen_x2/DNAScreenBackground.png" id="1_e184j"]
+[ext_resource type="Texture2D" uid="uid://bkkjjhqyvhl1r" path="res://assets/art/AssetsArchibald_x2/ArchibaldMutation_0/idle/frame0000.png" id="2_bdnel"]
+[ext_resource type="PackedScene" uid="uid://b2st48hbyrc6u" path="res://game/ui/title_bar.tscn" id="2_uxv0j"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bueu1"]
+atlas = ExtResource("2_bdnel")
+region = Rect2(106, 104, 105, 108.45459)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uxv0j"]
+atlas = SubResource("AtlasTexture_bueu1")
+
+[node name="TurtleNameScene" type="Control" unique_id=1863265155]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bueu1")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=468600439]
+
+[node name="Background" type="TextureRect" parent="." unique_id=1719519438]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_e184j")
+
+[node name="TitleBar" parent="." unique_id=93397008 instance=ExtResource("2_uxv0j")]
+layout_mode = 1
+title = "CHOOSE NAME"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=380549484]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -88.0
+offset_top = -22.0
+offset_right = 88.0
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Turtle" type="TextureButton" parent="VBoxContainer" unique_id=1809489548]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = SubResource("AtlasTexture_uxv0j")
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1399361044]
+layout_mode = 2
+text = "Turtle Name:"
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer" unique_id=1957342413]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Archibald"
+alignment = 1
+max_length = 12
+
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=966172091]
+layout_mode = 2
+text = "START GAME"
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]

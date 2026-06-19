@@ -255,7 +255,7 @@ anchor_bottom = 1.0
 offset_left = 465.0
 offset_top = 111.0
 offset_right = -455.0
-offset_bottom = 55.0
+offset_bottom = -161.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 20
@@ -285,24 +285,6 @@ layout_mode = 2
 layout_mode = 2
 label_settings = SubResource("LabelSettings_530fl")
 horizontal_alignment = 1
-
-[node name="Label9" type="Label" parent="UILayer/UI/MutationHints" unique_id=992966900]
-layout_mode = 2
-
-[node name="Label10" type="Label" parent="UILayer/UI/MutationHints" unique_id=1518849938]
-layout_mode = 2
-
-[node name="Label11" type="Label" parent="UILayer/UI/MutationHints" unique_id=778815109]
-layout_mode = 2
-
-[node name="Label12" type="Label" parent="UILayer/UI/MutationHints" unique_id=135556541]
-layout_mode = 2
-
-[node name="Label13" type="Label" parent="UILayer/UI/MutationHints" unique_id=76753243]
-layout_mode = 2
-
-[node name="Label14" type="Label" parent="UILayer/UI/MutationHints" unique_id=845947752]
-layout_mode = 2
 
 [connection signal="pressed" from="UILayer/UI/ShiftStrandUpButton" to="." method="_on_shift_strand_up_button_pressed"]
 [connection signal="pressed" from="UILayer/UI/ShiftStrandDownButton" to="." method="_on_shift_strand_down_button_pressed"]

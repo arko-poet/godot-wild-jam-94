@@ -4,7 +4,7 @@ signal player_won
 signal player_lost
 
 const CREATURE_SPRITES := {
-	Creature.Species.TURTLE: "res://assets/art/AssetsArchibald_x2/ArchibaldStand.png",
+	Creature.Species.TURTLE0: "res://assets/art/AssetsArchibald_x2/ArchibaldStand.png",
 	Creature.Species.SALAMANDER: "res://assets/art/AssetsSalamander_x2/SalamanderStand.png"
 }
 
@@ -39,8 +39,8 @@ func set_creatures(p_ally: Creature, p_enemy: Creature) -> void:
 	if not enemy.died.is_connected(_on_ally_died):
 		enemy.died.connect(_on_enemy_died)
 	
-	ally_sprite.texture = load(CREATURE_SPRITES[ally.species])
-	enemy_sprite.texture = load(CREATURE_SPRITES[enemy.species])
+	ally_sprite.texture = Creatures.get_creature_texture(ally)
+	enemy_sprite.texture = Creatures.get_creature_texture(enemy)
 	
 	ally_stats.creature = ally
 	enemy_stats.creature = enemy
@@ -145,6 +145,9 @@ func _on_ally_died() -> void:
 
 func _on_enemy_died() -> void:
 	combat_on = false
+	
+	print(enemy.dead)
+	enemy_sprite.texture = Creatures.get_creature_texture(enemy)
 	
 	_log_death(enemy)
 	

@@ -26,3 +26,8 @@ static func get_creature_texture(creature: Creature) -> Texture2D:
 	var creature_sprite_path: String = CREATURE_SPRITE_PATHS[creature.species]
 	var sub_directory := DEAD_DIRECTORY if creature.dead else IDLE_DIRECTORY
 	return load(SPRITE_PATH % [creature_sprite_path, sub_directory])
+
+
+static func get_demo_creature(level: int) -> Creature:
+	var species := 9 + randi() % 4
+	return Creature.new("Salamander", DNAStrand.new(), species, 45 + level * 5 , 5 + level, 3 + level)

@@ -39,8 +39,8 @@ func set_creatures(p_ally: Creature, p_enemy: Creature) -> void:
 	if not enemy.died.is_connected(_on_ally_died):
 		enemy.died.connect(_on_enemy_died)
 	
-	ally_sprite.texture = load(CREATURE_SPRITES[ally.species])
-	enemy_sprite.texture = load(CREATURE_SPRITES[enemy.species])
+	ally_sprite.texture = Creatures.get_creature_texture(ally)
+	enemy_sprite.texture = Creatures.get_creature_texture(enemy)
 	
 	ally_stats.creature = ally
 	enemy_stats.creature = enemy

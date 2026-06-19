@@ -46,7 +46,7 @@ func _initiate_autobattler():
 	autobattler.title_bar.title = "BATTLE #%s" % level
 
 	# TODO replace placeholder with enemy progression
-	var placeholder_enemy := Creature.new("Salamander", DNAStrand.new(), Creature.Species.SALAMANDER, 45 + level * 5 , 5 + level, 3 + level)
+	var placeholder_enemy := Creatures.get_demo_creature(level)
 	autobattler.set_creatures(archibald, placeholder_enemy)
 	autobattler.auto_battle()
 

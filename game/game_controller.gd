@@ -6,6 +6,7 @@ const AUTOBATTLE_MUSIC := preload("res://assets/music/DnaScreenPhase2_WO_Xylopho
 const AutobattlerScene := preload("res://game/autobattler/autobattler.tscn")
 
 var archibald: Creature
+var enemy: Creature
 
 var level := 1
 
@@ -17,7 +18,7 @@ var level := 1
 
 
 func _ready() -> void:
-	archibald = Creature.new("Archibald", DNAStrand.new(), Creature.Species.TURTLE)
+	archibald = Creature.new("Archibald", DNAStrand.new(), Creature.Species.TURTLE0)
 	mutation_screen.stats.creature = archibald
 	
 	print(autobattler.ui)
@@ -30,9 +31,7 @@ func _initiate_mutation():
 	autobattler.switch_scene(false)
 	mutation_screen.switch_scene(true)
 	
-	mutation_screen.load_dna_strands(
-		archibald.dna_strand, Strands.get_demo_strand(level)
-	)
+	mutation_screen.set_creatures(archibald, enemy, level)
 
 	mutation_screen.switch_scene(true)
 
@@ -46,8 +45,8 @@ func _initiate_autobattler():
 	autobattler.title_bar.title = "BATTLE #%s" % level
 
 	# TODO replace placeholder with enemy progression
-	var placeholder_enemy := Creature.new("Salamander", DNAStrand.new(), Creature.Species.SALAMANDER, 45 + level * 5 , 5 + level, 3 + level)
-	autobattler.set_creatures(archibald, placeholder_enemy)
+	enemy = Creatures.get_enemy(level)
+	autobattler.set_creatures(archibald, enemy)
 	autobattler.auto_battle()
 
 

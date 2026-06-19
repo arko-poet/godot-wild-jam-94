@@ -7,6 +7,7 @@ const CREATURE_SPRITES := {
 	Creature.Species.TURTLE0: "res://assets/art/AssetsArchibald_x2/ArchibaldStand.png",
 	Creature.Species.SALAMANDER: "res://assets/art/AssetsSalamander_x2/SalamanderStand.png"
 }
+const DAMAGE_VARIANCE := 0.2
 
 var ally: Creature
 var enemy: Creature
@@ -137,25 +138,27 @@ func _do_turn(creature: Creature) -> void:
 	
 	var is_crit := creature == ally and randf() < ally.damage * 0.01
 	
-	var combat_text: String
+	var damage = roundi(randf_range(creature.damage * (1.0 - DAMAGE_VARIANCE), creature.damage * (1.0 + DAMAGE_VARIANCE)))
 	if is_crit:
+		damage *= 2
+	
+	var combat_text: String
+	if is_crit and creature == ally:
 		combat_text = "{0} crits for [color=orange][b]{1}[/b][/color]".format(
-			[creature.name, creature.damage * 2]
+			[creature.name, damage]
 		)
 	else:	
 		combat_text = "{0} hits for [color=orange]{1}[/color]".format(
-			[creature.name, creature.damage]
+			[creature.name, damage]
 		)
 	combat_log.append_text(combat_text)
 	combat_log.newline()
 	
 	if creature == enemy:
-		ally.health -= enemy.damage
+		ally.health -= damage
 	else:
-		if is_crit:
-			enemy.health -= ally.damage * 2
-		else:
-			enemy.health -= ally.damage
+		enemy.health -= damage
+
 
 
 func _on_ally_died() -> void:

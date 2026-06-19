@@ -134,17 +134,28 @@ func auto_battle() -> void:
 func _do_turn(creature: Creature) -> void:
 	await get_tree().create_timer(1.0).timeout
 	
-	var combat_text = "{0} Does {1} [color=orange][b]DAMAGE[/b][/color]".format(
-		[creature.name, creature.damage]
-	)
-	combat_log.append_text(combat_text)
-	combat_log.newline()
+	var is_crit := creature == ally and randf() < ally.damage * 0.01
 	
 	if creature == enemy:
 		ally.health -= enemy.damage
 	else:
-		enemy.health -= ally.damage
+		
+		if is_crit:
+			enemy.health -= ally.damage * 2
+		else:
+			enemy.health -= ally.damage
 
+	var combat_text: String
+	if is_crit:
+		combat_text = "{0} crits for {1} [color=orange][b]DAMAGE[/b][/color]".format(
+			[creature.name, creature.damage * 2]
+		)
+	else:	
+		combat_text = "{0} hits for {1} [color=orange][b]DAMAGE[/b][/color]".format(
+			[creature.name, creature.damage]
+		)
+	combat_log.append_text(combat_text)
+	combat_log.newline()
 
 func _on_ally_died() -> void:
 	combat_on = false

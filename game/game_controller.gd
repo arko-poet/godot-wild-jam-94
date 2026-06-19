@@ -42,7 +42,6 @@ func _initiate_mutation():
 
 func _initiate_autobattler():
 	ProjectMusicController.play_stream(AUTOBATTLE_MUSIC)
-	
 	mutation_screen.switch_scene(false)
 	autobattler.switch_scene(true)
 	
@@ -51,6 +50,7 @@ func _initiate_autobattler():
 	# TODO replace placeholder with enemy progression
 	enemy = Creatures.get_enemy(level)
 	autobattler.set_creatures(archibald, enemy)
+	autobattler.ally.health = autobattler.ally.max_health	
 	autobattler.auto_battle()
 
 

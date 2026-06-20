@@ -153,6 +153,8 @@ bus = &"SFX"
 
 [node name="EnemyIntroSoundPlayer" type="AudioStreamPlayer" parent="." unique_id=2099621503]
 
+[node name="AllyIntroSoundPlayer" type="AudioStreamPlayer" parent="." unique_id=1395021065]
+
 [node name="World" type="Node2D" parent="." unique_id=1847079979]
 
 [node name="Background" type="Sprite2D" parent="World" unique_id=1174231645]

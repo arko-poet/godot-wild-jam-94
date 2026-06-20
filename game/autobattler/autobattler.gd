@@ -39,6 +39,7 @@ var combat_on := false
 
 @onready var attack_sound_player: AudioStreamPlayer = $AttackSoundPlayer
 @onready var enemy_intro_sound_player: AudioStreamPlayer = $EnemyIntroSoundPlayer
+@onready var ally_intro_sound_player: AudioStreamPlayer = $AllyIntroSoundPlayer
 
 
 func set_creatures(p_ally: Creature, p_enemy: Creature) -> void:
@@ -53,6 +54,7 @@ func set_creatures(p_ally: Creature, p_enemy: Creature) -> void:
 	ally_sprite.texture = Creatures.get_creature_texture(ally)
 	enemy_sprite.texture = Creatures.get_creature_texture(enemy)
 
+	ally_intro_sound_player.stream = Creatures.get_creature_audio(ally)
 	enemy_intro_sound_player.stream = Creatures.get_creature_audio(enemy)
 	
 	ally_stats.creature = ally
@@ -92,6 +94,10 @@ func switch_scene(on := true) -> void:
 
 func auto_battle() -> void:
 	await get_tree().create_timer(0.5).timeout # So the intro sound doesn't play immediately
+	ally_intro_sound_player.play()
+	while ally_intro_sound_player.playing:
+		await get_tree().create_timer(0.05).timeout
+	await get_tree().create_timer(0.1).timeout
 	enemy_intro_sound_player.play()
 	await get_tree().create_timer(0.07).timeout 
 	combat_on = true

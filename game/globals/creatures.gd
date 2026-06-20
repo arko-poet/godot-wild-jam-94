@@ -28,6 +28,15 @@ const CREATURE_NAMES := {
 	Creature.Species.FLESHMANCER: "Fleshmancer"
 }
 const CREATURE_AUDIO_PATHS := {
+	Creature.Species.TURTLE0: "Stage I/Archibald I Roar 1.wav",
+	Creature.Species.TURTLE1: "Stage I/Archibald I Roar 1.wav",
+	Creature.Species.TURTLE2: "Stage II/Archibald II Roar 1.wav",
+	Creature.Species.TURTLE3: "Stage II/Archibald II Roar 1.wav",
+	Creature.Species.TURTLE4: "Stage II/Archibald II Roar 1.wav",
+	Creature.Species.TURTLE5: "Stage IV/Archibald IV Roar 2.wav",
+	Creature.Species.TURTLE6: "Stage IV/Archibald IV Roar 2.wav",
+	Creature.Species.TURTLE7: "Stage IV/Archibald IV Roar 2.wav",
+	Creature.Species.TURTLE8: "Stage IV/Archibald IV Roar 2.wav",
 	Creature.Species.BYAKA: "Stage I/Enemy I Vocalization 3.wav",
 	Creature.Species.FLYGRUB: "Stage II/Enemy II Buzz.wav",
 	Creature.Species.SALAMANDER: "Stage III/Salamander Sound 1.wav",

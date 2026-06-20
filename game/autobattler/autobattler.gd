@@ -32,6 +32,13 @@ var combat_on := false
 @onready var win_screen: CanvasLayer = %WinScreen
 @onready var combat_result_label = %CombatResultLabel
 
+@onready var archibald_attack: AnimatedSprite2D = $World/ArchibaldAttack
+@onready var archibald_hit: AnimatedSprite2D = $World/ArchibaldHit
+@onready var enemy_attack: AnimatedSprite2D = $World/EnemyAttack
+@onready var enemy_hit: AnimatedSprite2D = $World/EnemyHit
+
+@onready var attack_sound_player: AudioStreamPlayer = $AttackSoundPlayer
+
 
 func set_creatures(p_ally: Creature, p_enemy: Creature) -> void:
 	ally = p_ally
@@ -136,6 +143,23 @@ func _do_turn(creature: Creature) -> void:
 		
 	await get_tree().create_timer(1.0).timeout
 	
+	attack_sound_player.play()
+	
+	if creature == ally:
+		archibald_attack.show()
+		archibald_attack.play()
+		await _animate_attack(ally_sprite, true)
+		enemy_hit.show()
+		enemy_hit.play()
+		_animate_knockback(enemy_sprite, false)
+	else:
+		enemy_attack.show()
+		enemy_attack.play()
+		await _animate_attack(enemy_sprite, false)
+		archibald_hit.show()
+		archibald_hit.play()
+		_animate_knockback(ally_sprite, true)
+	
 	var is_crit := creature == ally and randf() < ally.damage * 0.01
 	
 	var damage = roundi(randf_range(creature.damage * (1.0 - DAMAGE_VARIANCE), creature.damage * (1.0 + DAMAGE_VARIANCE)))
@@ -189,3 +213,36 @@ func _on_enemy_died() -> void:
 func _log_death(creature: Creature) -> void:
 	combat_log.append_text("{0} [color=red][b]DIES[/b][/color]".format([creature.name]))
 	combat_log.newline()
+
+
+func _on_archibald_attack_animation_finished() -> void:
+	archibald_attack.hide()
+
+
+func _on_archibald_hit_animation_finished() -> void:
+	archibald_hit.hide()
+
+
+func _on_enemy_attack_animation_finished() -> void:
+	enemy_attack.hide()
+
+
+func _on_enemy_hit_animation_finished() -> void:
+	enemy_hit.hide()
+
+
+func _animate_knockback(sprite: Sprite2D, is_ally: bool) -> void:
+	var tween := create_tween()
+	var initial_position = sprite.position
+	var direction := 1 if is_ally else -1
+	tween.tween_property(sprite, ^"position:x", sprite.position.x + 10 * direction, 0.1)
+	tween.tween_property(sprite, ^"position:y", sprite.position.y - 8, 0.1)
+	tween.tween_property(sprite, ^"position", initial_position, 0.1)
+	
+
+func _animate_attack(sprite: Sprite2D, is_ally: bool) -> void:
+	var tween := create_tween()
+	var initial_position = sprite.position
+	var direction := 1 if is_ally else -1
+	tween.tween_property(sprite, ^"position:x", sprite.position.x + 10 * direction, 0.1)
+	await tween.tween_property(sprite, ^"position:x", initial_position.x, 0.1)

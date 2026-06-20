@@ -56,7 +56,10 @@ func combine_strands(
 					if randf() < 0.5:
 						base.attribute = incoming_base.attribute
 					var value_difference = abs(base.value - incoming_base.value)
-					base.value = min(base.value, incoming_base.value) + randi() % value_difference
+					var bonus_value := 0
+					if value_difference != 0:
+						bonus_value = randi() % value_difference
+					base.value = min(base.value, incoming_base.value) + bonus_value
 		if preview_labels.is_empty():
 			new_bases.append(base)
 	

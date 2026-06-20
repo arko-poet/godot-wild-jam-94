@@ -5,6 +5,7 @@ class_name Creatures extends RefCounted
 const DEAD_DIRECTORY := "dead"
 const IDLE_DIRECTORY := "idle"
 const SPRITE_PATH := "res://assets/art/Assets%s/%s/frame0000.png"
+const AUDIO_PATH := "res://assets/sfx/aaron/SFX for Teenage Mutant Ninja Animals Game/SFX for Teenage Mutant Ninja Animals Game/%s"
 const CREATURE_SPRITE_PATHS := {
 	Creature.Species.TURTLE0: "Archibald_x2/ArchibaldMutation_0",
 	Creature.Species.TURTLE1: "Archibald_x2/ArchibaldMutation_1",
@@ -26,6 +27,21 @@ const CREATURE_NAMES := {
 	Creature.Species.SALAMANDER: "Salamander",
 	Creature.Species.FLESHMANCER: "Fleshmancer"
 }
+const CREATURE_AUDIO_PATHS := {
+	Creature.Species.TURTLE0: "Stage I/Archibald I Roar 1.wav",
+	Creature.Species.TURTLE1: "Stage I/Archibald I Roar 1.wav",
+	Creature.Species.TURTLE2: "Stage II/Archibald II Roar 1.wav",
+	Creature.Species.TURTLE3: "Stage II/Archibald II Roar 1.wav",
+	Creature.Species.TURTLE4: "Stage II/Archibald II Roar 1.wav",
+	Creature.Species.TURTLE5: "Stage IV/Archibald IV Roar 2.wav",
+	Creature.Species.TURTLE6: "Stage IV/Archibald IV Roar 2.wav",
+	Creature.Species.TURTLE7: "Stage IV/Archibald IV Roar 2.wav",
+	Creature.Species.TURTLE8: "Stage IV/Archibald IV Roar 2.wav",
+	Creature.Species.BYAKA: "Stage I/Enemy I Vocalization 3.wav",
+	Creature.Species.FLYGRUB: "Stage II/Enemy II Buzz.wav",
+	Creature.Species.SALAMANDER: "Stage III/Salamander Sound 1.wav",
+	Creature.Species.FLESHMANCER: "Stage IV/Enemy IV Growl 1.wav"
+	}
 
 
 static func get_creature_texture(creature: Creature) -> Texture2D:
@@ -33,6 +49,9 @@ static func get_creature_texture(creature: Creature) -> Texture2D:
 	var sub_directory := DEAD_DIRECTORY if creature.dead else IDLE_DIRECTORY
 	return load(SPRITE_PATH % [creature_sprite_path, sub_directory])
 
+static func get_creature_audio(creature: Creature) -> AudioStreamWAV:
+	var creature_audio_path: String = CREATURE_AUDIO_PATHS[creature.species]
+	return load(AUDIO_PATH % creature_audio_path)
 
 static func get_enemy(level: int) -> Creature:
 	if level <= 2:

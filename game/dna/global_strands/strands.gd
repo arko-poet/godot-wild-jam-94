@@ -23,7 +23,7 @@ static func get_demo_strand(level := 1) -> DNAStrand:
 	for i in level:
 		var shape := randi() % DNABase.Shape.size()
 		var attribute := randi() % DNABase.Attribute.size()
-		var value := 1 + randi() % 5
+		var value := level + randi() % level
 		strand.bases.append(DNABase.new(shape, attribute, value))
 		
 	return strand

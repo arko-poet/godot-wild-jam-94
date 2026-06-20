@@ -64,7 +64,7 @@ static func get_salamander(level: int) -> Creature:
 
 static func get_fleshmancer(level: int) -> Creature:
 	var species := Creature.Species.FLESHMANCER
-	return Creature.new(CREATURE_NAMES[species], DNAStrand.new(), species, 45 + level * 5 , 5 + level, 3 + level)
+	return Creature.new(CREATURE_NAMES[species], DNAStrand.new(), species, 666, 5 + level, 3 + level)
 
 
 static func get_random_enemy(level: int) -> Creature:

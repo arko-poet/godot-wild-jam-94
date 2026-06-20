@@ -52,10 +52,11 @@ func combine_strands(
 					print(base_index)
 				else:
 					if randf() < 0.5:
-						incoming_base.value -= base.value
-						base = incoming_base
-					else: # Conservation
-						base.value -= incoming_base.value
+						base.shape = incoming_base.shape
+					if randf() < 0.5:
+						base.attribute = incoming_base.attribute
+					var value_difference = abs(base.value - incoming_base.value)
+					base.value = min(base.value, incoming_base.value) + randi() % value_difference
 		if preview_labels.is_empty():
 			new_bases.append(base)
 	

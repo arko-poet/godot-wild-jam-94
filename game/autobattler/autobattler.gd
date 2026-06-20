@@ -46,7 +46,7 @@ func set_creatures(p_ally: Creature, p_enemy: Creature) -> void:
 	
 	if not ally.died.is_connected(_on_ally_died):
 		ally.died.connect(_on_ally_died)
-	if not enemy.died.is_connected(_on_ally_died):
+	if not enemy.died.is_connected(_on_enemy_died):
 		enemy.died.connect(_on_enemy_died)
 	
 	ally_sprite.texture = Creatures.get_creature_texture(ally)
@@ -196,9 +196,9 @@ func _on_ally_died() -> void:
 	
 	_log_death(ally)
 
-	combat_result_label.text = "YOU LOSE!"	
+	combat_result_label.text = "GAME OVER"	
 	win_screen.visible = true
-	await get_tree().create_timer(3.0).timeout # give enough time for the player to see the lost screen
+	#await get_tree().create_timer(3.0).timeout # give enough time for the player to see the lost screen
 	print("lost")
 	player_lost.emit()
 	
@@ -211,7 +211,7 @@ func _on_enemy_died() -> void:
 	
 	_log_death(enemy)
 	
-	combat_result_label.text = "YOU WIN!"
+	combat_result_label.text = "%s WON!" % ally.name
 	win_screen.visible = true
 	player_won.emit()
 

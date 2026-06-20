@@ -316,12 +316,18 @@ unique_name_in_owner = true
 visible = false
 
 [node name="ColorRect" type="ColorRect" parent="WinScreen" unique_id=435040580]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -480.0
+offset_top = -135.0
+offset_right = 480.0
+offset_bottom = 135.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.78514224, 0.836457, 0.18163249, 0.4627451)
+color = Color(0, 0, 0, 0.7529412)
 
 [node name="CombatResultLabel" type="Label" parent="WinScreen" unique_id=1014064720]
 unique_name_in_owner = true
@@ -336,6 +342,8 @@ offset_right = 20.0
 offset_bottom = 8.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_font_sizes/font_size = 64
+text = "Archibald Won!"
 
 [connection signal="animation_finished" from="World/ArchibaldAttack" to="." method="_on_archibald_attack_animation_finished"]
 [connection signal="animation_finished" from="World/ArchibaldHit" to="." method="_on_archibald_hit_animation_finished"]

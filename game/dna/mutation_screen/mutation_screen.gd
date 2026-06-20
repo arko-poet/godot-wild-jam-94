@@ -14,8 +14,7 @@ const DNA_LABEL_TEXT := "%s's"
 @onready var right_strand_drawing: DnaStrandDrawing = $World/RightStrandDrawing
 
 @onready var mutation_h_box: HBoxContainer = $UILayer/UI/MutationHBox
-@onready var confirm_mutation_button: Button = $UILayer/UI/MutationHBox/ConfirmMutationButton
-@onready var skip_mutation_button: Button = $UILayer/UI/MutationHBox/SkipMutationButton
+@onready var confirm_mutation_button: Button = $UILayer/UI/ConfirmMutationButton
 
 @onready var shift_strand_up_button: TextureButton = $UILayer/UI/ShiftStrandUpButton
 @onready var shift_strand_down_button: TextureButton = $UILayer/UI/ShiftStrandDownButton
@@ -67,7 +66,7 @@ func set_creatures(p_ally: Creature, p_enemy: Creature, level: int) -> void:
 	right_strand_drawing.shift = 0
 	
 	next_battle_button.hide()
-	mutation_h_box.show()
+	confirm_mutation_button.show()
 	left_strand.combine_strands(right_strand, right_strand_drawing.shift, true, mutation_hints)
 
 
@@ -83,7 +82,7 @@ func switch_scene(on := true) -> void:
 
 func _on_confirm_mutation_button_pressed() -> void:
 	left_strand.combine_strands(right_strand, right_strand_drawing.shift, true)
-	mutation_h_box.hide()
+	confirm_mutation_button.hide()
 	next_battle_button.show()
 
 

@@ -7,7 +7,15 @@
 [ext_resource type="PackedScene" uid="uid://bt6gyi2jqsqsr" path="res://game/autobattler/health_bar/health_bar.tscn" id="3_dyrrl"]
 [ext_resource type="PackedScene" uid="uid://b2st48hbyrc6u" path="res://game/ui/title_bar.tscn" id="4_5a0st"]
 [ext_resource type="PackedScene" uid="uid://cs45qvk88kylk" path="res://game/autobattler/stats_container/stats_container.tscn" id="4_dyrrl"]
+[ext_resource type="Texture2D" uid="uid://canc7ucbxns8n" path="res://assets/art/AssetsBattleScreen_x2/AttributesWindow.png" id="7_ulewg"]
 [ext_resource type="Texture2D" uid="uid://d0mw4hwanlf2x" path="res://assets/art/AssetsBattleScreen_x2/BattleScreenExampale.png" id="9_w0o5f"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pao8o"]
+texture = ExtResource("7_ulewg")
+texture_margin_left = 24.0
+texture_margin_top = 24.0
+texture_margin_right = 24.0
+texture_margin_bottom = 24.0
 
 [node name="Autobattler" type="Node" unique_id=698912908]
 script = ExtResource("1_jy7pd")
@@ -95,6 +103,7 @@ offset_left = 312.0
 offset_top = 332.0
 offset_right = 648.0
 offset_bottom = 524.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_pao8o")
 
 [node name="CombatLog" type="RichTextLabel" parent="Overlay/UI/CombatLogPanel" unique_id=148362637]
 unique_name_in_owner = true

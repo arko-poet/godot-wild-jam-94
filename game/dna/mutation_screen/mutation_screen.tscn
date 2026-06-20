@@ -13,6 +13,14 @@
 [ext_resource type="PackedScene" uid="uid://cs45qvk88kylk" path="res://game/autobattler/stats_container/stats_container.tscn" id="6_jn8ej"]
 [ext_resource type="Texture2D" uid="uid://csdwsagm4vtas" path="res://assets/art/AssetsDNAScreen_x2/ScrollBarButtonPressed.png" id="10_ed4yt"]
 [ext_resource type="Texture2D" uid="uid://dv062o56rxxee" path="res://assets/art/AssetsDNAScreen_x2/ScrollBarButtonHover.png" id="11_hcndt"]
+[ext_resource type="Texture2D" uid="uid://canc7ucbxns8n" path="res://assets/art/AssetsBattleScreen_x2/AttributesWindow.png" id="13_hcndt"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7tw86"]
+texture = ExtResource("13_hcndt")
+texture_margin_left = 24.0
+texture_margin_top = 24.0
+texture_margin_right = 24.0
+texture_margin_bottom = 24.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_530fl"]
 
@@ -112,6 +120,7 @@ offset_right = -40.0
 offset_bottom = -74.0
 grow_horizontal = 0
 grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_7tw86")
 
 [node name="Title" type="Label" parent="UILayer/UI/GeneticsPanel" unique_id=1126939969]
 layout_mode = 1
@@ -135,7 +144,6 @@ offset_top = 32.0
 offset_right = 4.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 12
 text = "DNA Base Color:
 *corresponds to stats

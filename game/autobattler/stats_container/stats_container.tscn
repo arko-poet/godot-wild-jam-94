@@ -2,10 +2,18 @@
 
 [ext_resource type="Texture2D" uid="uid://h33i48yu2t5j" path="res://assets/art/AssetsBattleScreen_x2/DNA_helix.png" id="1_3sce5"]
 [ext_resource type="Script" uid="uid://ikgd7i14t8sy" path="res://game/autobattler/stats_container/stats_container.gd" id="1_m7wcy"]
+[ext_resource type="Texture2D" uid="uid://canc7ucbxns8n" path="res://assets/art/AssetsBattleScreen_x2/AttributesWindow.png" id="1_q63ys"]
 [ext_resource type="Texture2D" uid="uid://cfxatmqav5t77" path="res://assets/art/AssetsBattleScreen_x2/OrangeSquare.png" id="2_8btsn"]
 [ext_resource type="Texture2D" uid="uid://d0mw4hwanlf2x" path="res://assets/art/AssetsBattleScreen_x2/BattleScreenExampale.png" id="3_1o7e5"]
 [ext_resource type="Texture2D" uid="uid://cvybh3qlt1c8p" path="res://assets/art/AssetsBattleScreen_x2/GreenSquare.png" id="3_q63ys"]
 [ext_resource type="Texture2D" uid="uid://ocelpem5u8xp" path="res://assets/art/AssetsBattleScreen_x2/BlueSquare.png" id="4_6i016"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6i016"]
+texture = ExtResource("1_q63ys")
+texture_margin_left = 24.0
+texture_margin_top = 24.0
+texture_margin_right = 24.0
+texture_margin_bottom = 24.0
 
 [node name="StatsPanel" type="Panel" unique_id=383901314]
 custom_minimum_size = Vector2(262, 192)
@@ -16,6 +24,7 @@ offset_right = -698.0
 offset_bottom = -348.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_6i016")
 script = ExtResource("1_m7wcy")
 
 [node name="DamageBackground" type="TextureRect" parent="." unique_id=1305791005]
@@ -95,7 +104,6 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="StatsContainer/VBoxContainer/HBoxContainer/VBoxContainer/DAMAGE" unique_id=1262123293]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "DAMAGE:"
 
 [node name="TextureRect" type="TextureRect" parent="StatsContainer/VBoxContainer/HBoxContainer/VBoxContainer/DAMAGE" unique_id=183201264]
@@ -114,7 +122,6 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="StatsContainer/VBoxContainer/HBoxContainer/VBoxContainer/HP" unique_id=119970023]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "HEALTH:"
 
 [node name="TextureRect" type="TextureRect" parent="StatsContainer/VBoxContainer/HBoxContainer/VBoxContainer/HP" unique_id=597545973]
@@ -133,7 +140,6 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="StatsContainer/VBoxContainer/HBoxContainer/VBoxContainer/SPEED" unique_id=92519039]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "SPEED:"
 
 [node name="TextureRect" type="TextureRect" parent="StatsContainer/VBoxContainer/HBoxContainer/VBoxContainer/SPEED" unique_id=1720779464]

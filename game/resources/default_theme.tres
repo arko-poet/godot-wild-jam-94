@@ -1,34 +1,23 @@
 [gd_resource type="Theme" format=3 uid="uid://bkmkuk4tw7y3d"]
 
-[ext_resource type="Texture2D" uid="uid://dv0vanjju7a14" path="res://assets/art/AssetsDNAScreen_x2/MenuButtonHover.png" id="1_0uyh7"]
-[ext_resource type="Texture2D" uid="uid://bic0o0s51d2cp" path="res://assets/art/AssetsDNAScreen_x2/MutationAndSkipButton.png" id="1_15wtr"]
+[ext_resource type="StyleBox" uid="uid://d13meg4bwliaq" path="res://game/resources/title_menu_button_hover.tres" id="1_klq0r"]
 [ext_resource type="Texture2D" uid="uid://d3jo8pvgwfp72" path="res://assets/art/AssetsDNAScreen_x2/AttributesWindow.png" id="2_1kr7f"]
-[ext_resource type="Texture2D" uid="uid://c8o6h2mqb2gqx" path="res://assets/art/AssetsDNAScreen_x2/MenuButtonPressed.png" id="3_xs52j"]
-[ext_resource type="Texture2D" uid="uid://g5ish2o67i2g" path="res://assets/art/AssetsBattleScreen_x2/MenuButtonPressed.png" id="4_xs52j"]
+[ext_resource type="StyleBox" uid="uid://dejpr0rd4r7bd" path="res://game/resources/title_menu_button_normal.tres" id="2_xs52j"]
+[ext_resource type="StyleBox" uid="uid://bq5jkntcxwrq4" path="res://game/resources/title_menu_button_pressed.tres" id="3_fae75"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0uyh7"]
-texture = ExtResource("1_0uyh7")
-texture_margin_left = 16.0
-texture_margin_top = 16.0
-texture_margin_right = 16.0
-texture_margin_bottom = 16.0
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1kr7f"]
-texture = ExtResource("1_15wtr")
-texture_margin_left = 16.0
-texture_margin_top = 16.0
-texture_margin_right = 16.0
-texture_margin_bottom = 16.0
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fae75"]
-texture = ExtResource("3_xs52j")
-texture_margin_left = 16.0
-texture_margin_top = 16.0
-texture_margin_right = 16.0
-texture_margin_bottom = 16.0
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tewnk"]
-texture = ExtResource("4_xs52j")
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0uyh7"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 1
+anti_aliasing = false
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_klq0r"]
 texture = ExtResource("2_1kr7f")
@@ -37,11 +26,44 @@ texture_margin_top = 24.0
 texture_margin_right = 24.0
 texture_margin_bottom = 24.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xs52j"]
+bg_color = Color(0.61960787, 0.54509807, 0.57254905, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 1
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fae75"]
+bg_color = Color(0.70980394, 0.7411765, 0.16862746, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 1
+anti_aliasing = false
+
 [resource]
 Button/colors/font_color = Color(1, 1, 1, 1)
 Button/colors/font_hover_color = Color(0, 0, 0, 1)
-Button/styles/hover = SubResource("StyleBoxTexture_0uyh7")
-Button/styles/normal = SubResource("StyleBoxTexture_1kr7f")
-Button/styles/pressed = SubResource("StyleBoxTexture_fae75")
-LineEdit/styles/normal = SubResource("StyleBoxTexture_tewnk")
+Button/colors/font_pressed_color = Color(1, 1, 1, 1)
+Button/styles/hover = ExtResource("1_klq0r")
+Button/styles/normal = ExtResource("2_xs52j")
+Button/styles/pressed = ExtResource("3_fae75")
+LineEdit/colors/caret_color = Color(0, 0, 0, 1)
+LineEdit/colors/font_color = Color(0, 0, 0, 1)
+LineEdit/styles/normal = SubResource("StyleBoxFlat_0uyh7")
 Panel/styles/panel = SubResource("StyleBoxTexture_klq0r")
+ProgressBar/styles/background = SubResource("StyleBoxFlat_xs52j")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_fae75")

@@ -1,4 +1,4 @@
-class_name CreatureDisplay extends TextureProgressBar
+class_name CreatureDisplay extends ProgressBar
 
 @onready var label: Label = $Label
 

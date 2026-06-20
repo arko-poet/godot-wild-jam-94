@@ -13,6 +13,17 @@
 [ext_resource type="PackedScene" uid="uid://cs45qvk88kylk" path="res://game/autobattler/stats_container/stats_container.tscn" id="6_jn8ej"]
 [ext_resource type="Texture2D" uid="uid://csdwsagm4vtas" path="res://assets/art/AssetsDNAScreen_x2/ScrollBarButtonPressed.png" id="10_ed4yt"]
 [ext_resource type="Texture2D" uid="uid://dv062o56rxxee" path="res://assets/art/AssetsDNAScreen_x2/ScrollBarButtonHover.png" id="11_hcndt"]
+[ext_resource type="Texture2D" uid="uid://canc7ucbxns8n" path="res://assets/art/AssetsBattleScreen_x2/AttributesWindow.png" id="13_hcndt"]
+[ext_resource type="Texture2D" uid="uid://ocelpem5u8xp" path="res://assets/art/AssetsBattleScreen_x2/BlueSquare.png" id="14_aasv0"]
+[ext_resource type="Texture2D" uid="uid://cfxatmqav5t77" path="res://assets/art/AssetsBattleScreen_x2/OrangeSquare.png" id="15_a7x5q"]
+[ext_resource type="Texture2D" uid="uid://cvybh3qlt1c8p" path="res://assets/art/AssetsBattleScreen_x2/GreenSquare.png" id="15_vth08"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7tw86"]
+texture = ExtResource("13_hcndt")
+texture_margin_left = 24.0
+texture_margin_top = 24.0
+texture_margin_right = 24.0
+texture_margin_bottom = 24.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_530fl"]
 
@@ -43,10 +54,10 @@ position = Vector2(774, 168)
 texture = ExtResource("4_4vgib")
 
 [node name="LeftStrandDrawing" parent="World" unique_id=1142906006 instance=ExtResource("3_cneda")]
-position = Vector2(380, 98)
+position = Vector2(379, 98)
 
 [node name="RightStrandDrawing" parent="World" unique_id=165283845 instance=ExtResource("3_cneda")]
-position = Vector2(576, 98)
+position = Vector2(577, 98)
 is_left = false
 
 [node name="UILayer" type="CanvasLayer" parent="." unique_id=474475790]
@@ -112,6 +123,7 @@ offset_right = -40.0
 offset_bottom = -74.0
 grow_horizontal = 0
 grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_7tw86")
 
 [node name="Title" type="Label" parent="UILayer/UI/GeneticsPanel" unique_id=1126939969]
 layout_mode = 1
@@ -135,17 +147,87 @@ offset_top = 32.0
 offset_right = 4.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+scale = Vector2(1, 0.99497354)
+theme_override_constants/line_spacing = 4
 theme_override_font_sizes/font_size = 12
-text = "DNA Base Color:
-*corresponds to stats
+text = "
 
-DNA Base Shape:
-*Match = add stats
-*Mismatch = ???
+Shape:
+match = + stats
+mismatch = ???
 
-1 DNA Base can be added in each mutation up to 8"
+grow strand = <-"
 autowrap_mode = 2
+
+[node name="SpeedBackground" type="TextureRect" parent="UILayer/UI/GeneticsPanel" unique_id=985916528]
+custom_minimum_size = Vector2(52, 0)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -60.0
+offset_top = 29.0
+offset_right = -8.0
+offset_bottom = 53.0
+grow_horizontal = 0
+texture = ExtResource("14_aasv0")
+
+[node name="Label" type="Label" parent="UILayer/UI/GeneticsPanel/SpeedBackground" unique_id=1309595582]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "SPD"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DamageBackground" type="TextureRect" parent="UILayer/UI/GeneticsPanel" unique_id=1760148196]
+custom_minimum_size = Vector2(52, 0)
+layout_mode = 1
+offset_left = 8.0
+offset_top = 29.0
+offset_right = 60.0
+offset_bottom = 53.0
+scale = Vector2(0.91999996, 1)
+texture = ExtResource("15_a7x5q")
+
+[node name="Label" type="Label" parent="UILayer/UI/GeneticsPanel/DamageBackground" unique_id=1389163656]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "DMG"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HealthBackground" type="TextureRect" parent="UILayer/UI/GeneticsPanel" unique_id=1220618846]
+custom_minimum_size = Vector2(52, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -26.0
+offset_top = 30.0
+offset_right = 26.0
+offset_bottom = 54.0
+grow_horizontal = 2
+scale = Vector2(1.0084233, 1)
+texture = ExtResource("15_vth08")
+
+[node name="Label" type="Label" parent="UILayer/UI/GeneticsPanel/HealthBackground" unique_id=1017396175]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "HP"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="CreatureDNALabel" type="Label" parent="UILayer/UI" unique_id=889126279]
 layout_mode = 0
@@ -212,39 +294,27 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -92.0
-offset_top = -48.0
+offset_top = -80.0
 offset_right = 92.0
-offset_bottom = -8.0
+offset_bottom = -28.0
 grow_horizontal = 2
 grow_vertical = 0
-text = "NEXT BATTLE"
+text = "BATTLE"
 
-[node name="MutationHBox" type="HBoxContainer" parent="UILayer/UI" unique_id=1453292408]
+[node name="ConfirmMutationButton" type="Button" parent="UILayer/UI" unique_id=133493580]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -152.0
+offset_left = -64.5
 offset_top = -80.0
-offset_right = 126.0
+offset_right = 64.5
 offset_bottom = -28.0
 grow_horizontal = 2
 grow_vertical = 0
-alignment = 1
-
-[node name="ConfirmMutationButton" type="Button" parent="UILayer/UI/MutationHBox" unique_id=133493580]
-layout_mode = 2
 text = "MUTATE"
-
-[node name="ORLabel" type="Label" parent="UILayer/UI/MutationHBox" unique_id=630784673]
-layout_mode = 2
-text = "OR"
-
-[node name="SkipMutationButton" type="Button" parent="UILayer/UI/MutationHBox" unique_id=778146235]
-layout_mode = 2
-text = "SKIP"
 
 [node name="Mockup" type="Sprite2D" parent="UILayer/UI" unique_id=1429357353]
 visible = false
@@ -317,5 +387,4 @@ layout_mode = 2
 [connection signal="mouse_entered" from="UILayer/UI/ShiftStrandDownButton" to="." method="_on_shift_strand_button_mouse_entered"]
 [connection signal="pressed" from="UILayer/UI/ShiftStrandDownButton" to="." method="_on_shift_strand_down_button_pressed"]
 [connection signal="pressed" from="UILayer/UI/NextBattleButton" to="." method="_on_next_battle_button_pressed"]
-[connection signal="pressed" from="UILayer/UI/MutationHBox/ConfirmMutationButton" to="." method="_on_confirm_mutation_button_pressed"]
-[connection signal="pressed" from="UILayer/UI/MutationHBox/SkipMutationButton" to="." method="_on_skip_mutation_button_pressed"]
+[connection signal="pressed" from="UILayer/UI/ConfirmMutationButton" to="." method="_on_confirm_mutation_button_pressed"]

@@ -67,11 +67,11 @@ func _on_mutation_screen_mutation_finished() -> void:
 
 
 func _on_autobattler_player_lost() -> void:
-	autobattler.win_screen.visible = false
+	#autobattler.win_screen.visible = false
 	ProjectMusicController.music_stream_player.stream_paused = true
 	lose_stringer_player.play()
 	await lose_stringer_player.finished
-	get_tree().reload_current_scene()
+	SceneLoader.load_scene("res://template/scenes/menus/main_menu/main_menu_with_animations.tscn")
 
 
 func _on_autobattler_player_won() -> void:

@@ -68,24 +68,25 @@ static func get_enemy(level: int) -> Creature:
 
 static func get_byaka(level: int) -> Creature:
 	var species := Creature.Species.BYAKA
-	return Creature.new(CREATURE_NAMES[species], DNAStrand.new(), species, 45 + level * 5 , 5 + level, 3 + level)
+	return Creature.new(CREATURE_NAMES[species], DNAStrand.new(), species, 5 + level, 5 + level, 3 + level)
 
 
 static func get_flygrub(level: int) -> Creature:
 	var species := Creature.Species.FLYGRUB
-	return Creature.new(CREATURE_NAMES[species], DNAStrand.new(), species, 45 + level * 5 , 5 + level, 3 + level)
+	return Creature.new(CREATURE_NAMES[species], DNAStrand.new(), species, 5 + level, 5 + level, 3 + level)
 
 
 static func get_salamander(level: int) -> Creature:
 	var species := Creature.Species.SALAMANDER
-	return Creature.new(CREATURE_NAMES[species], DNAStrand.new(), species, 45 + level * 5 , 5 + level, 3 + level)
+	return Creature.new(CREATURE_NAMES[species], DNAStrand.new(), species, 5 + level, 5 + level, 3 + level)
 
 
 static func get_fleshmancer(level: int) -> Creature:
 	var species := Creature.Species.FLESHMANCER
-	return Creature.new(CREATURE_NAMES[species], DNAStrand.new(), species, 45 + level * 5 , 5 + level, 3 + level)
-
+	var creature := Creature.new(CREATURE_NAMES[species], DNAStrand.new(), species, 666, 5 + level, 3 + level)
+	creature.max_health = 666
+	return creature
 
 static func get_random_enemy(level: int) -> Creature:
 	var species := 9 + randi() % 4
-	return Creature.new(CREATURE_NAMES[species], DNAStrand.new(), species, 45 + level * 5 , 5 + level, 3 + level)
+	return Creature.new(CREATURE_NAMES[species], DNAStrand.new(), species,  5 + level, 5 + level, 3 + level)

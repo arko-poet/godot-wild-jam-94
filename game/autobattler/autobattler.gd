@@ -48,7 +48,7 @@ func set_creatures(p_ally: Creature, p_enemy: Creature) -> void:
 	
 	if not ally.died.is_connected(_on_ally_died):
 		ally.died.connect(_on_ally_died)
-	if not enemy.died.is_connected(_on_ally_died):
+	if not enemy.died.is_connected(_on_enemy_died):
 		enemy.died.connect(_on_enemy_died)
 	
 	ally_sprite.texture = Creatures.get_creature_texture(ally)
@@ -105,12 +105,18 @@ func auto_battle() -> void:
 		print(get_tree().paused)
 		if not get_tree().paused:
 			if ally.speed > enemy.speed:
-				for i in ceil(float(ally.speed) / float(enemy.speed)):
+				print((ally.speed % enemy.speed) * 0.1)
+				print(randf())
+				for i in floor(float(ally.speed) / float(enemy.speed)):
+					await _do_turn(ally)
+				if (ally.speed % enemy.speed) * 0.1 > randf():
 					await _do_turn(ally)
 				await _do_turn(enemy)
 			else:
-				for i in ceil(float(enemy.speed) / float(ally.speed)):
+				for i in floor(float(enemy.speed) / float(ally.speed)):
 					await _do_turn(enemy)
+				if (enemy.speed % ally.speed) * 0.1 > randf():
+					await _do_turn(ally)
 				await _do_turn(ally)
 
 		else:
@@ -202,9 +208,9 @@ func _on_ally_died() -> void:
 	
 	_log_death(ally)
 
-	combat_result_label.text = "YOU LOSE!"	
+	combat_result_label.text = "GAME OVER"	
 	win_screen.visible = true
-	await get_tree().create_timer(3.0).timeout # give enough time for the player to see the lost screen
+	#await get_tree().create_timer(3.0).timeout # give enough time for the player to see the lost screen
 	print("lost")
 	player_lost.emit()
 	
@@ -217,7 +223,7 @@ func _on_enemy_died() -> void:
 	
 	_log_death(enemy)
 	
-	combat_result_label.text = "YOU WIN!"
+	combat_result_label.text = "%s WON!" % ally.name
 	win_screen.visible = true
 	player_won.emit()
 

@@ -29,17 +29,17 @@ script = ExtResource("1_m7wcy")
 
 [node name="DamageBackground" type="TextureRect" parent="." unique_id=1305791005]
 layout_mode = 0
-offset_left = 128.0
+offset_left = 112.0
 offset_top = 38.0
-offset_right = 183.0
+offset_right = 167.0
 offset_bottom = 62.0
 texture = ExtResource("2_8btsn")
 
 [node name="HealthBackground" type="TextureRect" parent="." unique_id=1223347425]
 layout_mode = 0
-offset_left = 127.0
+offset_left = 112.0
 offset_top = 86.0
-offset_right = 183.0
+offset_right = 168.0
 offset_bottom = 110.0
 texture = ExtResource("3_q63ys")
 
@@ -104,7 +104,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="StatsContainer/VBoxContainer/HBoxContainer/VBoxContainer/DAMAGE" unique_id=1262123293]
 layout_mode = 2
-text = "DAMAGE:"
+text = "DMG:  "
 
 [node name="TextureRect" type="TextureRect" parent="StatsContainer/VBoxContainer/HBoxContainer/VBoxContainer/DAMAGE" unique_id=183201264]
 layout_mode = 2
@@ -122,7 +122,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="StatsContainer/VBoxContainer/HBoxContainer/VBoxContainer/HP" unique_id=119970023]
 layout_mode = 2
-text = "HEALTH:"
+text = "VIT:  "
 
 [node name="TextureRect" type="TextureRect" parent="StatsContainer/VBoxContainer/HBoxContainer/VBoxContainer/HP" unique_id=597545973]
 layout_mode = 2
@@ -140,7 +140,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="StatsContainer/VBoxContainer/HBoxContainer/VBoxContainer/SPEED" unique_id=92519039]
 layout_mode = 2
-text = "SPEED:"
+text = "SPD:  "
 
 [node name="TextureRect" type="TextureRect" parent="StatsContainer/VBoxContainer/HBoxContainer/VBoxContainer/SPEED" unique_id=1720779464]
 layout_mode = 2

@@ -225,7 +225,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "HP"
+text = "VIT"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -340,24 +340,31 @@ theme_override_constants/separation = 20
 
 [node name="Label1" type="Label" parent="UILayer/UI/MutationHints" unique_id=501506022]
 layout_mode = 2
+horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="UILayer/UI/MutationHints" unique_id=1854298273]
 layout_mode = 2
+horizontal_alignment = 1
 
 [node name="Label3" type="Label" parent="UILayer/UI/MutationHints" unique_id=1773339084]
 layout_mode = 2
+horizontal_alignment = 1
 
 [node name="Label4" type="Label" parent="UILayer/UI/MutationHints" unique_id=668053459]
 layout_mode = 2
+horizontal_alignment = 1
 
 [node name="Label5" type="Label" parent="UILayer/UI/MutationHints" unique_id=1475111114]
 layout_mode = 2
+horizontal_alignment = 1
 
 [node name="Label6" type="Label" parent="UILayer/UI/MutationHints" unique_id=1668963590]
 layout_mode = 2
+horizontal_alignment = 1
 
 [node name="Label7" type="Label" parent="UILayer/UI/MutationHints" unique_id=979458105]
 layout_mode = 2
+horizontal_alignment = 1
 
 [node name="Label8" type="Label" parent="UILayer/UI/MutationHints" unique_id=518985209]
 layout_mode = 2
@@ -366,21 +373,27 @@ horizontal_alignment = 1
 
 [node name="Label9" type="Label" parent="UILayer/UI/MutationHints" unique_id=992966900]
 layout_mode = 2
+horizontal_alignment = 1
 
 [node name="Label10" type="Label" parent="UILayer/UI/MutationHints" unique_id=1518849938]
 layout_mode = 2
+horizontal_alignment = 1
 
 [node name="Label11" type="Label" parent="UILayer/UI/MutationHints" unique_id=778815109]
 layout_mode = 2
+horizontal_alignment = 1
 
 [node name="Label12" type="Label" parent="UILayer/UI/MutationHints" unique_id=135556541]
 layout_mode = 2
+horizontal_alignment = 1
 
 [node name="Label13" type="Label" parent="UILayer/UI/MutationHints" unique_id=76753243]
 layout_mode = 2
+horizontal_alignment = 1
 
 [node name="Label14" type="Label" parent="UILayer/UI/MutationHints" unique_id=845947752]
 layout_mode = 2
+horizontal_alignment = 1
 
 [connection signal="mouse_entered" from="UILayer/UI/ShiftStrandUpButton" to="." method="_on_shift_strand_button_mouse_entered"]
 [connection signal="pressed" from="UILayer/UI/ShiftStrandUpButton" to="." method="_on_shift_strand_up_button_pressed"]

@@ -17,7 +17,7 @@ var creature: Creature:
 func _update_stats() -> void:
 	NameLabel.text = creature.name
 	DamageValueLabel.text = str(creature.damage)
-	HPValueLabel.text = str(creature.max_health)
+	HPValueLabel.text = str(creature.max_health / 10)
 	SpeedValueLabel.text = str(creature.speed)
 
 

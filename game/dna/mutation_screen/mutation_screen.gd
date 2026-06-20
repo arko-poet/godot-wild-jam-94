@@ -48,6 +48,8 @@ func set_creatures(p_ally: Creature, p_enemy: Creature, level: int) -> void:
 	ally = p_ally
 	enemy = p_enemy
 	
+	stats.creature = p_ally
+	
 	player_creature.texture = Creatures.get_creature_texture(ally)
 	corpse.texture = Creatures.get_creature_texture(enemy)
 	

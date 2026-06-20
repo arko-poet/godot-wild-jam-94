@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bqytevqmhx3sh" path="res://template/scenes/windows/main_menu_credits_window.tscn" id="4_b321b"]
 [ext_resource type="PackedScene" uid="uid://cwt4p3bufkke5" path="res://addons/maaacks_game_template/base/nodes/windows/confirmation_overlaid_window.tscn" id="5_dm2ih"]
 [ext_resource type="AudioStream" uid="uid://bgv1ibv0adar" path="res://assets/music/MainMenu_BPM70_L35B_LOOP.mp3" id="5_p7afn"]
+[ext_resource type="Texture2D" uid="uid://ss34sfwjoqyv" path="res://assets/art/AssersTitleMenu_x2/MenuScreen.png" id="5_tsej0"]
 
 [sub_resource type="Animation" id="1"]
 resource_name = "Intro"
@@ -322,15 +323,22 @@ confirm_new_game = true
 options_packed_scene = ExtResource("3_tsej0")
 credits_packed_scene = ExtResource("4_b321b")
 
-[node name="MenuAnimationPlayer" type="AnimationPlayer" parent="." index="1" unique_id=1492532975]
+[node name="ColorRect" type="TextureRect" parent="." index="0" unique_id=751970104]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+texture = ExtResource("5_tsej0")
+
+[node name="MenuAnimationPlayer" type="AnimationPlayer" parent="." index="2" unique_id=1492532975]
 libraries/ = SubResource("AnimationLibrary_2kqig")
 
-[node name="MenuAnimationTree" type="AnimationTree" parent="." index="2" unique_id=1630488919]
+[node name="MenuAnimationTree" type="AnimationTree" parent="." index="3" unique_id=1630488919]
 tree_root = SubResource("AnimationNodeStateMachine_vikuh")
 anim_player = NodePath("../MenuAnimationPlayer")
 parameters/conditions/intro_done = false
 
-[node name="BackgroundMusicPlayer" parent="." index="3" unique_id=1141822549]
+[node name="BackgroundMusicPlayer" parent="." index="4" unique_id=1141822549]
 stream = ExtResource("5_p7afn")
 
 [node name="TitleContainer" parent="MenuContainer/TitleMargin" parent_id_path=PackedInt32Array(2112060331) index="0" unique_id=556427956]
@@ -363,7 +371,10 @@ text = "Level Select"
 [node name="VersionContainer" parent="VersionMargin" parent_id_path=PackedInt32Array(1732528471) index="0" unique_id=1603969262]
 modulate = Color(1, 1, 1, 0)
 
-[node name="NewGameConfirmation" parent="." index="7" unique_id=1747133399 instance=ExtResource("5_dm2ih")]
+[node name="VersionLabel" parent="VersionMargin/VersionContainer" index="0" unique_id=793266470]
+text = "v0.1.0"
+
+[node name="NewGameConfirmation" parent="." index="8" unique_id=1747133399 instance=ExtResource("5_dm2ih")]
 unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(420, 200)
@@ -377,7 +388,7 @@ text = "Are you sure you want to start a new game?
 All progress in the current game will be lost."
 title = "New Game"
 
-[node name="MouseFilter" type="Control" parent="." index="8" unique_id=33285267]
+[node name="MouseFilter" type="Control" parent="." index="9" unique_id=33285267]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

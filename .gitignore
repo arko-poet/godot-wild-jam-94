@@ -19,3 +19,4 @@ mono_crash.*.json
 
 #
 !data_structures/
+.vscode/settings.json

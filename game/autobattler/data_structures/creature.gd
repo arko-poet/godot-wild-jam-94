@@ -52,20 +52,20 @@ var dead := false:
 			died.emit()
 
 
-var _base_health: int
+var _base_vitality: int
 var _base_damage: int
 var _base_speed: int
 
 
 func _init(p_name: String, p_dna_strand: DNAStrand, p_species := Species.SALAMANDER,
-		p_base_health := 100, p_base_damage := 10, p_base_speed := 5) -> void:
+		p_base_vitality := 10, p_base_damage := 10, p_base_speed := 5) -> void:
 	name = p_name
 	species = p_species
 	
 	dna_strand = p_dna_strand
 	dna_strand.strand_mutated.connect(_on_strand_mutated)
 	
-	_base_health = p_base_health
+	_base_vitality = p_base_vitality
 	_base_damage = p_base_damage
 	_base_speed = p_base_speed
 	
@@ -80,7 +80,7 @@ func _on_strand_mutated() -> void:
 
 
 func _update_stats() -> void:
-	max_health = _base_health + dna_strand.get_attribute_sum(DNABase.Attribute.HEALTH)
+	max_health = (_base_vitality + dna_strand.get_attribute_sum(DNABase.Attribute.HEALTH)) * 10
 	damage = _base_damage + dna_strand.get_attribute_sum(DNABase.Attribute.DAMAGE)
 	speed = _base_speed + dna_strand.get_attribute_sum(DNABase.Attribute.SPEED)
 

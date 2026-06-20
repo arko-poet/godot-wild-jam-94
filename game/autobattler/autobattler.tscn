@@ -59,6 +59,7 @@ anchor_bottom = 0.0
 offset_bottom = 29.0
 grow_vertical = 1
 title = "BATTLE"
+speed_buttons = false
 
 [node name="AllyHealthBar" parent="Overlay/UI" unique_id=2131367494 instance=ExtResource("3_dyrrl")]
 unique_name_in_owner = true
@@ -69,7 +70,7 @@ anchor_bottom = 0.5
 offset_left = 116.0
 offset_top = 16.0
 offset_right = 372.0
-offset_bottom = 66.0
+offset_bottom = 48.0
 grow_vertical = 2
 
 [node name="EnemyHealthBar" parent="Overlay/UI" unique_id=2045444748 instance=ExtResource("3_dyrrl")]
@@ -83,7 +84,7 @@ anchor_bottom = 0.5
 offset_left = -359.0
 offset_top = 16.0
 offset_right = -103.0
-offset_bottom = 66.0
+offset_bottom = 48.0
 grow_horizontal = 0
 grow_vertical = 2
 

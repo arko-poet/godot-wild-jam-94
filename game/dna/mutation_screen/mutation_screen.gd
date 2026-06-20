@@ -13,7 +13,7 @@ const DNA_LABEL_TEXT := "%s's"
 @onready var left_strand_drawing: DnaStrandDrawing = $World/LeftStrandDrawing
 @onready var right_strand_drawing: DnaStrandDrawing = $World/RightStrandDrawing
 
-@onready var mutation_h_box: HBoxContainer = $UILayer/UI/MutationHBox
+#@onready var mutation_h_box: HBoxContainer = $UILayer/UI/MutationHBox
 @onready var confirm_mutation_button: Button = $UILayer/UI/ConfirmMutationButton
 
 @onready var shift_strand_up_button: TextureButton = $UILayer/UI/ShiftStrandUpButton
@@ -86,9 +86,9 @@ func _on_confirm_mutation_button_pressed() -> void:
 	next_battle_button.show()
 
 
-func _on_skip_mutation_button_pressed() -> void:
-	mutation_h_box.hide()
-	next_battle_button.show()
+#func _on_skip_mutation_button_pressed() -> void:
+	#mutation_h_box.hide()
+	#next_battle_button.show()
 
 
 func _on_shift_strand_up_button_pressed() -> void:

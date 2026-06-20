@@ -45,7 +45,7 @@ texture = ExtResource("1_e184j")
 
 [node name="TitleBar" parent="." unique_id=93397008 instance=ExtResource("2_uxv0j")]
 layout_mode = 1
-title = "TURTLE NAME"
+title = "NAME YOUR TURTLE"
 speed_buttons = false
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=380549484]
@@ -76,12 +76,14 @@ horizontal_alignment = 1
 
 [node name="LineEdit" type="LineEdit" parent="VBoxContainer" unique_id=1957342413]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 text = "Archibald"
 alignment = 1
 max_length = 10
 
 [node name="Button" type="Button" parent="VBoxContainer" unique_id=966172091]
+custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
 text = "START GAME"
 

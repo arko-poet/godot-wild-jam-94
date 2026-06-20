@@ -2,38 +2,22 @@
 
 [ext_resource type="StyleBox" uid="uid://d13meg4bwliaq" path="res://game/resources/title_menu_button_hover.tres" id="1_klq0r"]
 [ext_resource type="Texture2D" uid="uid://d3jo8pvgwfp72" path="res://assets/art/AssetsDNAScreen_x2/AttributesWindow.png" id="2_1kr7f"]
-[ext_resource type="Texture2D" uid="uid://g5ish2o67i2g" path="res://assets/art/AssetsBattleScreen_x2/MenuButtonPressed.png" id="4_xs52j"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1kr7f"]
-bg_color = Color(0.5058824, 0.5372549, 0.011764706, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
-corner_detail = 1
-anti_aliasing = false
+[ext_resource type="StyleBox" uid="uid://dejpr0rd4r7bd" path="res://game/resources/title_menu_button_normal.tres" id="2_xs52j"]
+[ext_resource type="StyleBox" uid="uid://bq5jkntcxwrq4" path="res://game/resources/title_menu_button_pressed.tres" id="3_fae75"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0uyh7"]
-bg_color = Color(0.26170665, 0.28, 0.0055999947, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(1, 1, 1, 1)
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 corner_detail = 1
 anti_aliasing = false
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tewnk"]
-texture = ExtResource("4_xs52j")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_klq0r"]
 texture = ExtResource("2_1kr7f")
@@ -47,7 +31,9 @@ Button/colors/font_color = Color(1, 1, 1, 1)
 Button/colors/font_hover_color = Color(0, 0, 0, 1)
 Button/colors/font_pressed_color = Color(1, 1, 1, 1)
 Button/styles/hover = ExtResource("1_klq0r")
-Button/styles/normal = SubResource("StyleBoxFlat_1kr7f")
-Button/styles/pressed = SubResource("StyleBoxFlat_0uyh7")
-LineEdit/styles/normal = SubResource("StyleBoxTexture_tewnk")
+Button/styles/normal = ExtResource("2_xs52j")
+Button/styles/pressed = ExtResource("3_fae75")
+LineEdit/colors/caret_color = Color(0, 0, 0, 1)
+LineEdit/colors/font_color = Color(0, 0, 0, 1)
+LineEdit/styles/normal = SubResource("StyleBoxFlat_0uyh7")
 Panel/styles/panel = SubResource("StyleBoxTexture_klq0r")

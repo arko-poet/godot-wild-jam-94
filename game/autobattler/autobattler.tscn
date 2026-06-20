@@ -7,8 +7,120 @@
 [ext_resource type="PackedScene" uid="uid://bt6gyi2jqsqsr" path="res://game/autobattler/health_bar/health_bar.tscn" id="3_dyrrl"]
 [ext_resource type="PackedScene" uid="uid://b2st48hbyrc6u" path="res://game/ui/title_bar.tscn" id="4_5a0st"]
 [ext_resource type="PackedScene" uid="uid://cs45qvk88kylk" path="res://game/autobattler/stats_container/stats_container.tscn" id="4_dyrrl"]
+[ext_resource type="Texture2D" uid="uid://dh8sxqlh3fp5o" path="res://assets/art/AnimationArchibald_x2/attack/frame0000.png" id="5_j3s6h"]
+[ext_resource type="Texture2D" uid="uid://c3s0u61ipsflm" path="res://assets/art/AnimationArchibald_x2/attack/frame0001.png" id="6_27223"]
+[ext_resource type="Texture2D" uid="uid://c6c4a0smjsbn3" path="res://assets/art/AnimationArchibald_x2/attack/frame0002.png" id="7_p1y3l"]
 [ext_resource type="Texture2D" uid="uid://canc7ucbxns8n" path="res://assets/art/AssetsBattleScreen_x2/AttributesWindow.png" id="7_ulewg"]
+[ext_resource type="Texture2D" uid="uid://1lugry5l13ig" path="res://assets/art/AnimationArchibald_x2/attack/frame0003.png" id="8_vn4ia"]
+[ext_resource type="Texture2D" uid="uid://qdpshjthkl3d" path="res://assets/art/AnimationArchibald_x2/hit/frame0000.png" id="9_bnyl4"]
 [ext_resource type="Texture2D" uid="uid://d0mw4hwanlf2x" path="res://assets/art/AssetsBattleScreen_x2/BattleScreenExampale.png" id="9_w0o5f"]
+[ext_resource type="Texture2D" uid="uid://bw1bk8mei6tn7" path="res://assets/art/AnimationArchibald_x2/hit/frame0001.png" id="10_4mrxv"]
+[ext_resource type="Texture2D" uid="uid://cvjpya80cy0p5" path="res://assets/art/AnimationArchibald_x2/hit/frame0002.png" id="11_sulk6"]
+[ext_resource type="Texture2D" uid="uid://d3jf5lpshpa6e" path="res://assets/art/AnimationArchibald_x2/hit/frame0003.png" id="12_8vdd4"]
+[ext_resource type="Texture2D" uid="uid://u76nwsftqpp5" path="res://assets/art/AnimationArchibald_x2/hit/frame0004.png" id="13_f81gw"]
+[ext_resource type="Texture2D" uid="uid://cfklso6p0xsrp" path="res://assets/art/AnimationCreatures_x2/attack/frame0000.png" id="14_ibsk2"]
+[ext_resource type="Texture2D" uid="uid://bardphnovii0e" path="res://assets/art/AnimationCreatures_x2/attack/frame0001.png" id="15_16160"]
+[ext_resource type="Texture2D" uid="uid://btyw5x1ku0hfn" path="res://assets/art/AnimationCreatures_x2/attack/frame0002.png" id="16_3gj5k"]
+[ext_resource type="Texture2D" uid="uid://nogqjxvt3t0l" path="res://assets/art/AnimationCreatures_x2/attack/frame0003.png" id="17_xgmx1"]
+[ext_resource type="Texture2D" uid="uid://cpjtnpb4pu8mr" path="res://assets/art/AnimationCreatures_x2/attack/frame0004.png" id="18_e4dcg"]
+[ext_resource type="Texture2D" uid="uid://c3bfnpv658iq0" path="res://assets/art/AnimationCreatures_x2/attack/frame0005.png" id="19_e3vd6"]
+[ext_resource type="Texture2D" uid="uid://bhncqj0gxqaxp" path="res://assets/art/AnimationCreatures_x2/hit/frame0000.png" id="20_hcfkq"]
+[ext_resource type="Texture2D" uid="uid://dx1x66iwlha1o" path="res://assets/art/AnimationCreatures_x2/hit/frame0001.png" id="21_dkqt1"]
+[ext_resource type="Texture2D" uid="uid://di2tmy5yf5arm" path="res://assets/art/AnimationCreatures_x2/hit/frame0002.png" id="22_byc2u"]
+[ext_resource type="Texture2D" uid="uid://bosc0x82xlbge" path="res://assets/art/AnimationCreatures_x2/hit/frame0003.png" id="23_474r5"]
+[ext_resource type="Texture2D" uid="uid://cermb0mcbpuex" path="res://assets/art/AnimationCreatures_x2/hit/frame0004.png" id="24_jrbk2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qpdnq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_j3s6h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_27223")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_p1y3l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_vn4ia")
+}],
+"loop": false,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ww8jq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_bnyl4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_4mrxv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_sulk6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_8vdd4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_f81gw")
+}],
+"loop": false,
+"name": &"default",
+"speed": 15.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6cblp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_ibsk2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_16160")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_3gj5k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_xgmx1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_e4dcg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_e3vd6")
+}],
+"loop": false,
+"name": &"default",
+"speed": 15.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ulewg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("20_hcfkq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_dkqt1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_byc2u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_474r5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_jrbk2")
+}],
+"loop": false,
+"name": &"default",
+"speed": 15.0
+}]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pao8o"]
 texture = ExtResource("7_ulewg")
@@ -33,10 +145,31 @@ unique_name_in_owner = true
 position = Vector2(242, 205)
 texture = ExtResource("2_l5a88")
 
+[node name="ArchibaldAttack" type="AnimatedSprite2D" parent="World/AllySprite" unique_id=2024236332]
+visible = false
+position = Vector2(154, 17)
+sprite_frames = SubResource("SpriteFrames_qpdnq")
+frame_progress = 0.757334
+
+[node name="ArchibaldHit" type="AnimatedSprite2D" parent="World/AllySprite" unique_id=1854539144]
+visible = false
+position = Vector2(-9, 8)
+sprite_frames = SubResource("SpriteFrames_ww8jq")
+
 [node name="EnemySprite" type="Sprite2D" parent="World" unique_id=1020363359]
 unique_name_in_owner = true
 position = Vector2(724, 184)
 texture = ExtResource("3_acxmb")
+
+[node name="EnemyAttack" type="AnimatedSprite2D" parent="World/EnemySprite" unique_id=434077021]
+visible = false
+position = Vector2(-207, 26)
+sprite_frames = SubResource("SpriteFrames_6cblp")
+
+[node name="EnemyHit" type="AnimatedSprite2D" parent="World/EnemySprite" unique_id=1044892587]
+visible = false
+position = Vector2(-9, 23)
+sprite_frames = SubResource("SpriteFrames_ulewg")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=864222603]
 
@@ -184,3 +317,8 @@ offset_right = 20.0
 offset_bottom = 8.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[connection signal="animation_finished" from="World/AllySprite/ArchibaldAttack" to="." method="_on_archibald_attack_animation_finished"]
+[connection signal="animation_finished" from="World/AllySprite/ArchibaldHit" to="." method="_on_archibald_hit_animation_finished"]
+[connection signal="animation_finished" from="World/EnemySprite/EnemyAttack" to="." method="_on_enemy_attack_animation_finished"]
+[connection signal="animation_finished" from="World/EnemySprite/EnemyHit" to="." method="_on_enemy_hit_animation_finished"]

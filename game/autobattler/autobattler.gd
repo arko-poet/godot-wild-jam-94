@@ -32,6 +32,10 @@ var combat_on := false
 @onready var win_screen: CanvasLayer = %WinScreen
 @onready var combat_result_label = %CombatResultLabel
 
+@onready var archibald_attack: AnimatedSprite2D = $World/AllySprite/ArchibaldAttack
+@onready var archibald_hit: AnimatedSprite2D = $World/AllySprite/ArchibaldHit
+@onready var enemy_attack: AnimatedSprite2D = $World/EnemySprite/EnemyAttack
+@onready var enemy_hit: AnimatedSprite2D = $World/EnemySprite/EnemyHit
 
 func set_creatures(p_ally: Creature, p_enemy: Creature) -> void:
 	ally = p_ally
@@ -135,6 +139,16 @@ func _do_turn(creature: Creature) -> void:
 		return
 		
 	await get_tree().create_timer(1.0).timeout
+	if creature == ally:
+		archibald_attack.show()
+		archibald_attack.play()
+		enemy_hit.show()
+		enemy_hit.play()
+	else:
+		enemy_attack.show()
+		enemy_attack.play()
+		archibald_hit.show()
+		archibald_hit.play()
 	
 	var is_crit := creature == ally and randf() < ally.damage * 0.01
 	
@@ -189,3 +203,19 @@ func _on_enemy_died() -> void:
 func _log_death(creature: Creature) -> void:
 	combat_log.append_text("{0} [color=red][b]DIES[/b][/color]".format([creature.name]))
 	combat_log.newline()
+
+
+func _on_archibald_attack_animation_finished() -> void:
+	archibald_attack.hide()
+
+
+func _on_archibald_hit_animation_finished() -> void:
+	archibald_hit.hide()
+
+
+func _on_enemy_attack_animation_finished() -> void:
+	enemy_attack.hide()
+
+
+func _on_enemy_hit_animation_finished() -> void:
+	enemy_hit.hide()

@@ -1,14 +1,19 @@
 [gd_scene format=3 uid="uid://xbyb0yn562sc"]
 
 [ext_resource type="Script" uid="uid://mdkjx4ml57oa" path="res://game/autobattler/autobattler.gd" id="1_jy7pd"]
+[ext_resource type="AudioStream" uid="uid://clkqpmccmjlp3" path="res://assets/sfx/aaron/SFX for Teenage Mutant Ninja Animals Game/SFX for Teenage Mutant Ninja Animals Game/General Battle Sounds/Hard Hit 2.wav" id="2_4mrxv"]
 [ext_resource type="Texture2D" uid="uid://jieiat134ace" path="res://assets/icons/archibald.png" id="2_l5a88"]
 [ext_resource type="Texture2D" uid="uid://de7nyq7d7p17x" path="res://assets/art/AssetsBattleScreen_x2/BattleScreenBackground.png" id="2_ulewg"]
 [ext_resource type="Texture2D" uid="uid://bafs47ipwdqis" path="res://assets/art/AssetsSalamander_x2/SalamanderStand.png" id="3_acxmb"]
 [ext_resource type="PackedScene" uid="uid://bt6gyi2jqsqsr" path="res://game/autobattler/health_bar/health_bar.tscn" id="3_dyrrl"]
+[ext_resource type="AudioStream" uid="uid://dj4lm8sxqvtit" path="res://assets/sfx/aaron/SFX for Teenage Mutant Ninja Animals Game/SFX for Teenage Mutant Ninja Animals Game/General Battle Sounds/Hard Hit 3.wav" id="3_sulk6"]
 [ext_resource type="PackedScene" uid="uid://b2st48hbyrc6u" path="res://game/ui/title_bar.tscn" id="4_5a0st"]
+[ext_resource type="AudioStream" uid="uid://dgksjsobdi235" path="res://assets/sfx/aaron/SFX for Teenage Mutant Ninja Animals Game/SFX for Teenage Mutant Ninja Animals Game/General Battle Sounds/Hard Hit 4.wav" id="4_8vdd4"]
 [ext_resource type="PackedScene" uid="uid://cs45qvk88kylk" path="res://game/autobattler/stats_container/stats_container.tscn" id="4_dyrrl"]
+[ext_resource type="AudioStream" uid="uid://2qygchynw2bp" path="res://assets/sfx/aaron/SFX for Teenage Mutant Ninja Animals Game/SFX for Teenage Mutant Ninja Animals Game/General Battle Sounds/Hard Hit 5.wav" id="5_f81gw"]
 [ext_resource type="Texture2D" uid="uid://dh8sxqlh3fp5o" path="res://assets/art/AnimationArchibald_x2/attack/frame0000.png" id="5_j3s6h"]
 [ext_resource type="Texture2D" uid="uid://c3s0u61ipsflm" path="res://assets/art/AnimationArchibald_x2/attack/frame0001.png" id="6_27223"]
+[ext_resource type="AudioStream" uid="uid://ttkxqjv0gdgt" path="res://assets/sfx/aaron/SFX for Teenage Mutant Ninja Animals Game/SFX for Teenage Mutant Ninja Animals Game/General Battle Sounds/Hard Hit 6.wav" id="6_ibsk2"]
 [ext_resource type="Texture2D" uid="uid://c6c4a0smjsbn3" path="res://assets/art/AnimationArchibald_x2/attack/frame0002.png" id="7_p1y3l"]
 [ext_resource type="Texture2D" uid="uid://canc7ucbxns8n" path="res://assets/art/AssetsBattleScreen_x2/AttributesWindow.png" id="7_ulewg"]
 [ext_resource type="Texture2D" uid="uid://1lugry5l13ig" path="res://assets/art/AnimationArchibald_x2/attack/frame0003.png" id="8_vn4ia"]
@@ -29,6 +34,14 @@
 [ext_resource type="Texture2D" uid="uid://di2tmy5yf5arm" path="res://assets/art/AnimationCreatures_x2/hit/frame0002.png" id="22_byc2u"]
 [ext_resource type="Texture2D" uid="uid://bosc0x82xlbge" path="res://assets/art/AnimationCreatures_x2/hit/frame0003.png" id="23_474r5"]
 [ext_resource type="Texture2D" uid="uid://cermb0mcbpuex" path="res://assets/art/AnimationCreatures_x2/hit/frame0004.png" id="24_jrbk2"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_bnyl4"]
+streams_count = 6
+stream_0/stream = ExtResource("2_4mrxv")
+stream_1/stream = ExtResource("3_sulk6")
+stream_2/stream = ExtResource("4_8vdd4")
+stream_3/stream = ExtResource("5_f81gw")
+stream_5/stream = ExtResource("6_ibsk2")
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qpdnq"]
 animations = [{
@@ -133,6 +146,10 @@ texture_margin_bottom = 24.0
 script = ExtResource("1_jy7pd")
 metadata/_custom_type_script = "uid://mdkjx4ml57oa"
 metadata/_edit_horizontal_guides_ = [320.0]
+
+[node name="AttackSoundPlayer" type="AudioStreamPlayer" parent="." unique_id=1951025242]
+stream = SubResource("AudioStreamRandomizer_bnyl4")
+bus = &"SFX"
 
 [node name="World" type="Node2D" parent="." unique_id=1847079979]
 

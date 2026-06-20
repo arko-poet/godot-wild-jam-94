@@ -37,6 +37,9 @@ var combat_on := false
 @onready var enemy_attack: AnimatedSprite2D = $World/EnemyAttack
 @onready var enemy_hit: AnimatedSprite2D = $World/EnemyHit
 
+@onready var attack_sound_player: AudioStreamPlayer = $AttackSoundPlayer
+
+
 func set_creatures(p_ally: Creature, p_enemy: Creature) -> void:
 	ally = p_ally
 	enemy = p_enemy
@@ -139,6 +142,9 @@ func _do_turn(creature: Creature) -> void:
 		return
 		
 	await get_tree().create_timer(1.0).timeout
+	
+	attack_sound_player.play()
+	
 	if creature == ally:
 		archibald_attack.show()
 		archibald_attack.play()

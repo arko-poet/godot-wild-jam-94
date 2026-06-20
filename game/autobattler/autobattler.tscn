@@ -1,18 +1,159 @@
 [gd_scene format=3 uid="uid://xbyb0yn562sc"]
 
 [ext_resource type="Script" uid="uid://mdkjx4ml57oa" path="res://game/autobattler/autobattler.gd" id="1_jy7pd"]
+[ext_resource type="AudioStream" uid="uid://clkqpmccmjlp3" path="res://assets/sfx/aaron/SFX for Teenage Mutant Ninja Animals Game/SFX for Teenage Mutant Ninja Animals Game/General Battle Sounds/Hard Hit 2.wav" id="2_4mrxv"]
 [ext_resource type="Texture2D" uid="uid://jieiat134ace" path="res://assets/icons/archibald.png" id="2_l5a88"]
 [ext_resource type="Texture2D" uid="uid://de7nyq7d7p17x" path="res://assets/art/AssetsBattleScreen_x2/BattleScreenBackground.png" id="2_ulewg"]
-[ext_resource type="Texture2D" uid="uid://bafs47ipwdqis" path="res://assets/art/AssetsSalamander_x2/SalamanderStand.png" id="3_acxmb"]
 [ext_resource type="PackedScene" uid="uid://bt6gyi2jqsqsr" path="res://game/autobattler/health_bar/health_bar.tscn" id="3_dyrrl"]
+[ext_resource type="AudioStream" uid="uid://dj4lm8sxqvtit" path="res://assets/sfx/aaron/SFX for Teenage Mutant Ninja Animals Game/SFX for Teenage Mutant Ninja Animals Game/General Battle Sounds/Hard Hit 3.wav" id="3_sulk6"]
 [ext_resource type="PackedScene" uid="uid://b2st48hbyrc6u" path="res://game/ui/title_bar.tscn" id="4_5a0st"]
+[ext_resource type="AudioStream" uid="uid://dgksjsobdi235" path="res://assets/sfx/aaron/SFX for Teenage Mutant Ninja Animals Game/SFX for Teenage Mutant Ninja Animals Game/General Battle Sounds/Hard Hit 4.wav" id="4_8vdd4"]
 [ext_resource type="PackedScene" uid="uid://cs45qvk88kylk" path="res://game/autobattler/stats_container/stats_container.tscn" id="4_dyrrl"]
+[ext_resource type="AudioStream" uid="uid://2qygchynw2bp" path="res://assets/sfx/aaron/SFX for Teenage Mutant Ninja Animals Game/SFX for Teenage Mutant Ninja Animals Game/General Battle Sounds/Hard Hit 5.wav" id="5_f81gw"]
+[ext_resource type="Texture2D" uid="uid://dh8sxqlh3fp5o" path="res://assets/art/AnimationArchibald_x2/attack/frame0000.png" id="5_j3s6h"]
+[ext_resource type="Texture2D" uid="uid://c3s0u61ipsflm" path="res://assets/art/AnimationArchibald_x2/attack/frame0001.png" id="6_27223"]
+[ext_resource type="AudioStream" uid="uid://ttkxqjv0gdgt" path="res://assets/sfx/aaron/SFX for Teenage Mutant Ninja Animals Game/SFX for Teenage Mutant Ninja Animals Game/General Battle Sounds/Hard Hit 6.wav" id="6_ibsk2"]
+[ext_resource type="Texture2D" uid="uid://c6c4a0smjsbn3" path="res://assets/art/AnimationArchibald_x2/attack/frame0002.png" id="7_p1y3l"]
+[ext_resource type="Texture2D" uid="uid://canc7ucbxns8n" path="res://assets/art/AssetsBattleScreen_x2/AttributesWindow.png" id="7_ulewg"]
+[ext_resource type="Texture2D" uid="uid://1lugry5l13ig" path="res://assets/art/AnimationArchibald_x2/attack/frame0003.png" id="8_vn4ia"]
+[ext_resource type="Texture2D" uid="uid://qdpshjthkl3d" path="res://assets/art/AnimationArchibald_x2/hit/frame0000.png" id="9_bnyl4"]
+[ext_resource type="Texture2D" uid="uid://c2dxjrd0emik8" path="res://assets/art/AssetsByaka_x2/idle/frame0000.png" id="9_ibsk2"]
 [ext_resource type="Texture2D" uid="uid://d0mw4hwanlf2x" path="res://assets/art/AssetsBattleScreen_x2/BattleScreenExampale.png" id="9_w0o5f"]
+[ext_resource type="Texture2D" uid="uid://bw1bk8mei6tn7" path="res://assets/art/AnimationArchibald_x2/hit/frame0001.png" id="10_4mrxv"]
+[ext_resource type="Texture2D" uid="uid://cvjpya80cy0p5" path="res://assets/art/AnimationArchibald_x2/hit/frame0002.png" id="11_sulk6"]
+[ext_resource type="Texture2D" uid="uid://d3jf5lpshpa6e" path="res://assets/art/AnimationArchibald_x2/hit/frame0003.png" id="12_8vdd4"]
+[ext_resource type="Texture2D" uid="uid://u76nwsftqpp5" path="res://assets/art/AnimationArchibald_x2/hit/frame0004.png" id="13_f81gw"]
+[ext_resource type="Texture2D" uid="uid://cfklso6p0xsrp" path="res://assets/art/AnimationCreatures_x2/attack/frame0000.png" id="14_ibsk2"]
+[ext_resource type="Texture2D" uid="uid://bardphnovii0e" path="res://assets/art/AnimationCreatures_x2/attack/frame0001.png" id="15_16160"]
+[ext_resource type="Texture2D" uid="uid://btyw5x1ku0hfn" path="res://assets/art/AnimationCreatures_x2/attack/frame0002.png" id="16_3gj5k"]
+[ext_resource type="Texture2D" uid="uid://nogqjxvt3t0l" path="res://assets/art/AnimationCreatures_x2/attack/frame0003.png" id="17_xgmx1"]
+[ext_resource type="Texture2D" uid="uid://cpjtnpb4pu8mr" path="res://assets/art/AnimationCreatures_x2/attack/frame0004.png" id="18_e4dcg"]
+[ext_resource type="Texture2D" uid="uid://c3bfnpv658iq0" path="res://assets/art/AnimationCreatures_x2/attack/frame0005.png" id="19_e3vd6"]
+[ext_resource type="Texture2D" uid="uid://bhncqj0gxqaxp" path="res://assets/art/AnimationCreatures_x2/hit/frame0000.png" id="20_hcfkq"]
+[ext_resource type="Texture2D" uid="uid://dx1x66iwlha1o" path="res://assets/art/AnimationCreatures_x2/hit/frame0001.png" id="21_dkqt1"]
+[ext_resource type="Texture2D" uid="uid://di2tmy5yf5arm" path="res://assets/art/AnimationCreatures_x2/hit/frame0002.png" id="22_byc2u"]
+[ext_resource type="Texture2D" uid="uid://bosc0x82xlbge" path="res://assets/art/AnimationCreatures_x2/hit/frame0003.png" id="23_474r5"]
+[ext_resource type="Texture2D" uid="uid://cermb0mcbpuex" path="res://assets/art/AnimationCreatures_x2/hit/frame0004.png" id="24_jrbk2"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_bnyl4"]
+streams_count = 6
+stream_0/stream = ExtResource("2_4mrxv")
+stream_1/stream = ExtResource("3_sulk6")
+stream_2/stream = ExtResource("4_8vdd4")
+stream_3/stream = ExtResource("5_f81gw")
+stream_5/stream = ExtResource("6_ibsk2")
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qpdnq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_j3s6h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_27223")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_p1y3l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_vn4ia")
+}],
+"loop": false,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ww8jq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_bnyl4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_4mrxv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_sulk6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_8vdd4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_f81gw")
+}],
+"loop": false,
+"name": &"default",
+"speed": 15.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6cblp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_ibsk2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_16160")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_3gj5k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_xgmx1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_e4dcg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_e3vd6")
+}],
+"loop": false,
+"name": &"default",
+"speed": 15.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ulewg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("20_hcfkq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_dkqt1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_byc2u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_474r5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_jrbk2")
+}],
+"loop": false,
+"name": &"default",
+"speed": 15.0
+}]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pao8o"]
+texture = ExtResource("7_ulewg")
+texture_margin_left = 24.0
+texture_margin_top = 24.0
+texture_margin_right = 24.0
+texture_margin_bottom = 24.0
 
 [node name="Autobattler" type="Node" unique_id=698912908]
 script = ExtResource("1_jy7pd")
 metadata/_custom_type_script = "uid://mdkjx4ml57oa"
-metadata/_edit_horizontal_guides_ = [320.0]
+metadata/_edit_horizontal_guides_ = [260.0]
+
+[node name="AttackSoundPlayer" type="AudioStreamPlayer" parent="." unique_id=1951025242]
+stream = SubResource("AudioStreamRandomizer_bnyl4")
+bus = &"SFX"
+
+[node name="EnemyIntroSoundPlayer" type="AudioStreamPlayer" parent="." unique_id=2099621503]
+
+[node name="AllyIntroSoundPlayer" type="AudioStreamPlayer" parent="." unique_id=1395021065]
 
 [node name="World" type="Node2D" parent="." unique_id=1847079979]
 
@@ -27,8 +168,31 @@ texture = ExtResource("2_l5a88")
 
 [node name="EnemySprite" type="Sprite2D" parent="World" unique_id=1020363359]
 unique_name_in_owner = true
-position = Vector2(724, 184)
-texture = ExtResource("3_acxmb")
+position = Vector2(724, 210)
+texture = ExtResource("9_ibsk2")
+
+[node name="ArchibaldAttack" type="AnimatedSprite2D" parent="World" unique_id=2024236332]
+visible = false
+position = Vector2(396, 222)
+sprite_frames = SubResource("SpriteFrames_qpdnq")
+frame_progress = 0.757334
+
+[node name="ArchibaldHit" type="AnimatedSprite2D" parent="World" unique_id=1854539144]
+visible = false
+position = Vector2(233, 213)
+sprite_frames = SubResource("SpriteFrames_ww8jq")
+
+[node name="EnemyAttack" type="AnimatedSprite2D" parent="World" unique_id=434077021]
+visible = false
+position = Vector2(517, 210)
+sprite_frames = SubResource("SpriteFrames_6cblp")
+frame = 5
+frame_progress = 1.0
+
+[node name="EnemyHit" type="AnimatedSprite2D" parent="World" unique_id=1044892587]
+visible = false
+position = Vector2(715, 207)
+sprite_frames = SubResource("SpriteFrames_ulewg")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=864222603]
 
@@ -44,12 +208,15 @@ grow_vertical = 2
 metadata/_edit_lock_ = true
 
 [node name="TitleBar" parent="Overlay/UI" unique_id=93397008 instance=ExtResource("4_5a0st")]
+unique_name_in_owner = true
 layout_mode = 1
-offset_left = 10.0
-offset_top = 16.0
-offset_right = -11.0
-offset_bottom = 41.0
+anchors_preset = 10
+anchor_bottom = 0.0
+offset_bottom = 29.0
+grow_vertical = 1
+mouse_filter = 0
 title = "BATTLE"
+speed_buttons = false
 
 [node name="AllyHealthBar" parent="Overlay/UI" unique_id=2131367494 instance=ExtResource("3_dyrrl")]
 unique_name_in_owner = true
@@ -60,7 +227,7 @@ anchor_bottom = 0.5
 offset_left = 116.0
 offset_top = 16.0
 offset_right = 372.0
-offset_bottom = 66.0
+offset_bottom = 48.0
 grow_vertical = 2
 
 [node name="EnemyHealthBar" parent="Overlay/UI" unique_id=2045444748 instance=ExtResource("3_dyrrl")]
@@ -74,7 +241,7 @@ anchor_bottom = 0.5
 offset_left = -359.0
 offset_top = 16.0
 offset_right = -103.0
-offset_bottom = 66.0
+offset_bottom = 48.0
 grow_horizontal = 0
 grow_vertical = 2
 
@@ -94,6 +261,7 @@ offset_left = 312.0
 offset_top = 332.0
 offset_right = 648.0
 offset_bottom = 524.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_pao8o")
 
 [node name="CombatLog" type="RichTextLabel" parent="Overlay/UI/CombatLogPanel" unique_id=148362637]
 unique_name_in_owner = true
@@ -107,9 +275,12 @@ offset_right = -15.0
 offset_bottom = -13.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/normal_font_size = 11
+theme_override_constants/line_separation = 8
+theme_override_font_sizes/normal_font_size = 14
+theme_override_font_sizes/bold_font_size = 14
 bbcode_enabled = true
 scroll_active = false
+scroll_following = true
 horizontal_alignment = 1
 
 [node name="AllyStats" parent="Overlay/UI" unique_id=869396702 instance=ExtResource("4_dyrrl")]
@@ -144,3 +315,42 @@ modulate = Color(1, 1, 1, 0.47058824)
 texture = ExtResource("9_w0o5f")
 centered = false
 metadata/_edit_lock_ = true
+
+[node name="WinScreen" type="CanvasLayer" parent="." unique_id=1930866798]
+unique_name_in_owner = true
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="WinScreen" unique_id=435040580]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -480.0
+offset_top = -135.0
+offset_right = 480.0
+offset_bottom = 135.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.7529412)
+
+[node name="CombatResultLabel" type="Label" parent="WinScreen" unique_id=1014064720]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -8.0
+offset_right = 20.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 64
+text = "Archibald Won!"
+
+[connection signal="animation_finished" from="World/ArchibaldAttack" to="." method="_on_archibald_attack_animation_finished"]
+[connection signal="animation_finished" from="World/ArchibaldHit" to="." method="_on_archibald_hit_animation_finished"]
+[connection signal="animation_finished" from="World/EnemyAttack" to="." method="_on_enemy_attack_animation_finished"]
+[connection signal="animation_finished" from="World/EnemyHit" to="." method="_on_enemy_hit_animation_finished"]

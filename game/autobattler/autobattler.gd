@@ -4,9 +4,10 @@ signal player_won
 signal player_lost
 
 const CREATURE_SPRITES := {
-	Creature.Species.TURTLE: "res://assets/art/AssetsArchibald_x2/ArchibaldStand.png",
+	Creature.Species.TURTLE0: "res://assets/art/AssetsArchibald_x2/ArchibaldStand.png",
 	Creature.Species.SALAMANDER: "res://assets/art/AssetsSalamander_x2/SalamanderStand.png"
 }
+const DAMAGE_VARIANCE := 0.2
 
 var ally: Creature
 var enemy: Creature
@@ -27,7 +28,18 @@ var combat_on := false
 @onready var world: Node2D = $World
 @onready var ui: Control = $Overlay/UI
 
-@onready var title_bar: TitleBar = $Overlay/UI/TitleBar
+@onready var title_bar: TitleBar = %TitleBar
+@onready var win_screen: CanvasLayer = %WinScreen
+@onready var combat_result_label = %CombatResultLabel
+
+@onready var archibald_attack: AnimatedSprite2D = $World/ArchibaldAttack
+@onready var archibald_hit: AnimatedSprite2D = $World/ArchibaldHit
+@onready var enemy_attack: AnimatedSprite2D = $World/EnemyAttack
+@onready var enemy_hit: AnimatedSprite2D = $World/EnemyHit
+
+@onready var attack_sound_player: AudioStreamPlayer = $AttackSoundPlayer
+@onready var enemy_intro_sound_player: AudioStreamPlayer = $EnemyIntroSoundPlayer
+@onready var ally_intro_sound_player: AudioStreamPlayer = $AllyIntroSoundPlayer
 
 
 func set_creatures(p_ally: Creature, p_enemy: Creature) -> void:
@@ -36,11 +48,14 @@ func set_creatures(p_ally: Creature, p_enemy: Creature) -> void:
 	
 	if not ally.died.is_connected(_on_ally_died):
 		ally.died.connect(_on_ally_died)
-	if not enemy.died.is_connected(_on_ally_died):
+	if not enemy.died.is_connected(_on_enemy_died):
 		enemy.died.connect(_on_enemy_died)
 	
-	ally_sprite.texture = load(CREATURE_SPRITES[ally.species])
-	enemy_sprite.texture = load(CREATURE_SPRITES[enemy.species])
+	ally_sprite.texture = Creatures.get_creature_texture(ally)
+	enemy_sprite.texture = Creatures.get_creature_texture(enemy)
+
+	ally_intro_sound_player.stream = Creatures.get_creature_audio(ally)
+	enemy_intro_sound_player.stream = Creatures.get_creature_audio(enemy)
 	
 	ally_stats.creature = ally
 	enemy_stats.creature = enemy
@@ -78,16 +93,36 @@ func switch_scene(on := true) -> void:
 
 
 func auto_battle() -> void:
+	await get_tree().create_timer(0.5).timeout # So the intro sound doesn't play immediately
+	ally_intro_sound_player.play()
+	while ally_intro_sound_player.playing:
+		await get_tree().create_timer(0.05).timeout
+	await get_tree().create_timer(0.1).timeout
+	enemy_intro_sound_player.play()
+	await get_tree().create_timer(0.07).timeout 
 	combat_on = true
 	while combat_on:
-		if ally.speed > enemy.speed:
-			await _do_turn(ally)
-			if combat_on:
+		print(get_tree().paused)
+		if not get_tree().paused:
+			if ally.speed > enemy.speed:
+				print((ally.speed % enemy.speed) * 0.1)
+				print(randf())
+				for i in floor(float(ally.speed) / float(enemy.speed)):
+					await _do_turn(ally)
+				if (ally.speed % enemy.speed) * 0.1 > randf():
+					await _do_turn(ally)
 				await _do_turn(enemy)
-		else:
-			await _do_turn(enemy)
-			if combat_on:
+			else:
+				for i in floor(float(enemy.speed) / float(ally.speed)):
+					await _do_turn(enemy)
+				if (enemy.speed % ally.speed) * 0.1 > randf():
+					await _do_turn(ally)
 				await _do_turn(ally)
+
+		else:
+			await get_tree().create_timer(1.0).timeout # Necessary for this pausing loop, otherwise will freeze up game. Need to refactor for better way
+
+
 
 
 #func auto_battle() -> void:
@@ -121,18 +156,51 @@ func auto_battle() -> void:
 
 
 func _do_turn(creature: Creature) -> void:
+	if not (combat_on and not enemy.dead and not ally.dead):
+		return
+		
 	await get_tree().create_timer(1.0).timeout
 	
-	var combat_text = "{0} Does {1} [color=orange][b]DAMAGE[/b][/color]".format(
-		[creature.name, creature.damage]
-	)
+	attack_sound_player.play()
+	
+	if creature == ally:
+		archibald_attack.show()
+		archibald_attack.play()
+		await _animate_attack(ally_sprite, true)
+		enemy_hit.show()
+		enemy_hit.play()
+		_animate_knockback(enemy_sprite, false)
+	else:
+		enemy_attack.show()
+		enemy_attack.play()
+		await _animate_attack(enemy_sprite, false)
+		archibald_hit.show()
+		archibald_hit.play()
+		_animate_knockback(ally_sprite, true)
+	
+	var is_crit := creature == ally and randf() < ally.damage * 0.01
+	
+	var damage = roundi(randf_range(creature.damage * (1.0 - DAMAGE_VARIANCE), creature.damage * (1.0 + DAMAGE_VARIANCE)))
+	if is_crit:
+		damage *= 2
+	
+	var combat_text: String
+	if is_crit and creature == ally:
+		combat_text = "{0} crits for [color=orange][b]{1}[/b][/color]".format(
+			[creature.name, damage]
+		)
+	else:	
+		combat_text = "{0} hits for [color=orange]{1}[/color]".format(
+			[creature.name, damage]
+		)
 	combat_log.append_text(combat_text)
 	combat_log.newline()
 	
 	if creature == enemy:
-		ally.health -= enemy.damage
+		ally.health -= damage
 	else:
-		enemy.health -= ally.damage
+		enemy.health -= damage
+
 
 
 func _on_ally_died() -> void:
@@ -140,17 +208,59 @@ func _on_ally_died() -> void:
 	
 	_log_death(ally)
 
+	combat_result_label.text = "GAME OVER"	
+	win_screen.visible = true
+	#await get_tree().create_timer(3.0).timeout # give enough time for the player to see the lost screen
+	print("lost")
 	player_lost.emit()
 	
 
 func _on_enemy_died() -> void:
 	combat_on = false
 	
+	print(enemy.dead)
+	enemy_sprite.texture = Creatures.get_creature_texture(enemy)
+	
 	_log_death(enemy)
 	
+	combat_result_label.text = "%s WON!" % ally.name
+	win_screen.visible = true
 	player_won.emit()
 
 
 func _log_death(creature: Creature) -> void:
 	combat_log.append_text("{0} [color=red][b]DIES[/b][/color]".format([creature.name]))
 	combat_log.newline()
+
+
+func _on_archibald_attack_animation_finished() -> void:
+	archibald_attack.hide()
+
+
+func _on_archibald_hit_animation_finished() -> void:
+	archibald_hit.hide()
+
+
+func _on_enemy_attack_animation_finished() -> void:
+	enemy_attack.hide()
+
+
+func _on_enemy_hit_animation_finished() -> void:
+	enemy_hit.hide()
+
+
+func _animate_knockback(sprite: Sprite2D, is_ally: bool) -> void:
+	var tween := create_tween()
+	var initial_position = sprite.position
+	var direction := 1 if is_ally else -1
+	tween.tween_property(sprite, ^"position:x", sprite.position.x + 10 * direction, 0.1)
+	tween.tween_property(sprite, ^"position:y", sprite.position.y - 8, 0.1)
+	tween.tween_property(sprite, ^"position", initial_position, 0.1)
+	
+
+func _animate_attack(sprite: Sprite2D, is_ally: bool) -> void:
+	var tween := create_tween()
+	var initial_position = sprite.position
+	var direction := 1 if is_ally else -1
+	tween.tween_property(sprite, ^"position:x", sprite.position.x + 10 * direction, 0.1)
+	await tween.tween_property(sprite, ^"position:x", initial_position.x, 0.1)

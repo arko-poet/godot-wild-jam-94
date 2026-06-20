@@ -2,52 +2,63 @@ class_name GameController extends Node
 
 const MUTATION_MUSIC := preload("res://assets/music/DnaScreen_BPM110_L58B_LOOP.mp3")
 const AUTOBATTLE_MUSIC := preload("res://assets/music/DnaScreenPhase2_WO_Xylophone.mp3")
+const BOSS_MUSIC := preload("res://assets/music/Bossfight(NoIntro)_BPM120_L50B.mp3")
 
 const AutobattlerScene := preload("res://game/autobattler/autobattler.tscn")
 
 var archibald: Creature
+var enemy: Creature
 
 var level := 1
 
 @onready var autobattler: Autobattler = $Autobattler
 @onready var mutation_screen: MutationScreen = %MutationScreen
+@onready var turtle_name_scene: Control = $TurtleNameScene
 
 @onready var win_stringer_player: AudioStreamPlayer = $WinStringerPlayer
 @onready var lose_stringer_player: AudioStreamPlayer = $LoseStringerPlayer
+@onready var pause_menu_controller = %PauseMenuController
 
 
 func _ready() -> void:
-	archibald = Creature.new("Archibald", DNAStrand.new(), Creature.Species.TURTLE)
+	archibald = Creature.new("Archibald", DNAStrand.new(), Creature.Species.TURTLE0)
 	mutation_screen.stats.creature = archibald
+	autobattler.title_bar.main_menu.connect(pause_menu_controller.pause)
+	mutation_screen.title_bar.main_menu.connect(pause_menu_controller.pause)
+	
+	autobattler.switch_scene(false)
+	mutation_screen.switch_scene(false)
 	
 	print(autobattler.ui)
-	_initiate_autobattler()
+	print(get_tree().paused)
 
 
 func _initiate_mutation():
+	autobattler.win_screen.visible = false
 	ProjectMusicController.play_stream(MUTATION_MUSIC)
 
 	autobattler.switch_scene(false)
 	mutation_screen.switch_scene(true)
 	
-	mutation_screen.load_dna_strands(
-		archibald.dna_strand, Strands.get_demo_strand(level)
-	)
+	mutation_screen.set_creatures(archibald, enemy, level)
 
 	mutation_screen.switch_scene(true)
 
 
 func _initiate_autobattler():
-	ProjectMusicController.play_stream(AUTOBATTLE_MUSIC)
-	
+	if level == 7:
+		ProjectMusicController.play_stream(BOSS_MUSIC)
+	else:
+		ProjectMusicController.play_stream(AUTOBATTLE_MUSIC)
 	mutation_screen.switch_scene(false)
 	autobattler.switch_scene(true)
 	
 	autobattler.title_bar.title = "BATTLE #%s" % level
 
 	# TODO replace placeholder with enemy progression
-	var placeholder_enemy := Creature.new("Salamander", DNAStrand.new(), Creature.Species.SALAMANDER, 45 + level * 5 , 5 + level, 3 + level)
-	autobattler.set_creatures(archibald, placeholder_enemy)
+	enemy = Creatures.get_enemy(level)
+	autobattler.set_creatures(archibald, enemy)
+	autobattler.ally.health = autobattler.ally.max_health	
 	autobattler.auto_battle()
 
 
@@ -56,10 +67,11 @@ func _on_mutation_screen_mutation_finished() -> void:
 
 
 func _on_autobattler_player_lost() -> void:
+	#autobattler.win_screen.visible = false
 	ProjectMusicController.music_stream_player.stream_paused = true
 	lose_stringer_player.play()
 	await lose_stringer_player.finished
-	get_tree().reload_current_scene()
+	SceneLoader.load_scene("res://template/scenes/menus/main_menu/main_menu_with_animations.tscn")
 
 
 func _on_autobattler_player_won() -> void:
@@ -68,3 +80,10 @@ func _on_autobattler_player_won() -> void:
 	await win_stringer_player.finished
 	_initiate_mutation()
 	level += 1
+
+
+func _on_turtle_name_scene_name_chosen(turtle_name: String) -> void:
+	archibald = Creature.new(turtle_name, DNAStrand.new(), Creature.Species.TURTLE0)
+	#archibald.damage = 100
+	turtle_name_scene.hide()
+	_initiate_autobattler()

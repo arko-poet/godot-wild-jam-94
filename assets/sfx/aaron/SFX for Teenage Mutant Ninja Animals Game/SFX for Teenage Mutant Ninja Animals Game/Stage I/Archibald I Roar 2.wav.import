@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://v1uf7e4gv1i5"
+path="res://.godot/imported/Archibald I Roar 2.wav-79d4c407e574ecf4ff8281b65dbc3f9c.sample"
+
+[deps]
+
+source_file="res://assets/sfx/aaron/SFX for Teenage Mutant Ninja Animals Game/SFX for Teenage Mutant Ninja Animals Game/Stage I/Archibald I Roar 2.wav"
+dest_files=["res://.godot/imported/Archibald I Roar 2.wav-79d4c407e574ecf4ff8281b65dbc3f9c.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

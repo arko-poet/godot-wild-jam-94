@@ -59,10 +59,10 @@ func _create_bases() -> void:
 
 func _draw_bases() -> void:
 	var base_position := (
-		Vector2(STRAND_WIDTH, shift * (DNA_BASE_HEIGHT + DNA_STRAND_SPACING) + DNA_STRAND_SPACING)
+		Vector2(STRAND_WIDTH -2, shift * (DNA_BASE_HEIGHT + DNA_STRAND_SPACING) + DNA_STRAND_SPACING)
 	)
 	if not is_left:
-		base_position.x = base_position.x * -1 - DNA_BASE_SHAPE.x
+		base_position.x = base_position.x * -1 - DNA_BASE_SHAPE.x -1
 	for base_index in strand_base_drawings.size():
 		var base := strand_base_drawings[base_index]
 		base.set_alignement(is_left)

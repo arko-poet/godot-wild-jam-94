@@ -1,4 +1,4 @@
-class_name CreatureDisplay extends TextureProgressBar
+class_name CreatureDisplay extends ProgressBar
 
 @onready var label: Label = $Label
 
@@ -12,5 +12,7 @@ var creature: Creature:
 
 func _update_health() -> void:
 	max_value = creature.max_health
-	value = creature.health
+	#value = creature.health
+	var tween = create_tween()
+	tween.tween_property(self, ^"value", creature.health, 0.2)
 	label.text = "%s/%s" % [creature.health, creature.max_health]

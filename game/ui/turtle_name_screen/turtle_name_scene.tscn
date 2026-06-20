@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://bgdm2fuwydqqe"]
+
+[ext_resource type="Script" uid="uid://t35stg6h3usu" path="res://game/ui/turtle_name_screen/turtle_name_scene.gd" id="1_bueu1"]
+[ext_resource type="Texture2D" uid="uid://1m23pleb14vw" path="res://assets/art/AssetsDNAScreen_x2/DNAScreenBackground.png" id="1_e184j"]
+[ext_resource type="AudioStream" uid="uid://v1uf7e4gv1i5" path="res://assets/sfx/aaron/SFX for Teenage Mutant Ninja Animals Game/SFX for Teenage Mutant Ninja Animals Game/Stage I/Archibald I Roar 2.wav" id="2_abifx"]
+[ext_resource type="Texture2D" uid="uid://bkkjjhqyvhl1r" path="res://assets/art/AssetsArchibald_x2/ArchibaldMutation_0/idle/frame0000.png" id="2_bdnel"]
+[ext_resource type="AudioStream" uid="uid://by0romjtn8bay" path="res://assets/sfx/aaron/SFX for Teenage Mutant Ninja Animals Game/SFX for Teenage Mutant Ninja Animals Game/Stage I/Archibald I Roar 1.wav" id="2_lemse"]
+[ext_resource type="PackedScene" uid="uid://b2st48hbyrc6u" path="res://game/ui/title_bar.tscn" id="2_uxv0j"]
+[ext_resource type="AudioStream" uid="uid://dywejcgi8jwk5" path="res://assets/sfx/aaron/SFX for Teenage Mutant Ninja Animals Game/SFX for Teenage Mutant Ninja Animals Game/Stage I/Archibald I Vocalization 1.wav" id="4_cintt"]
+[ext_resource type="AudioStream" uid="uid://d4i6ab4wglfnq" path="res://assets/sfx/aaron/SFX for Teenage Mutant Ninja Animals Game/SFX for Teenage Mutant Ninja Animals Game/Stage I/Archibald I Vocalization 2.wav" id="5_xxhpp"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_4ml3l"]
+streams_count = 4
+stream_0/stream = ExtResource("2_lemse")
+stream_1/stream = ExtResource("2_abifx")
+stream_2/stream = ExtResource("4_cintt")
+stream_3/stream = ExtResource("5_xxhpp")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bueu1"]
+atlas = ExtResource("2_bdnel")
+region = Rect2(106, 104, 105, 108.45459)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uxv0j"]
+atlas = SubResource("AtlasTexture_bueu1")
+
+[node name="TurtleNameScene" type="Control" unique_id=1863265155]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bueu1")
+
+[node name="TurtleNoises" type="AudioStreamPlayer" parent="." unique_id=468600439]
+stream = SubResource("AudioStreamRandomizer_4ml3l")
+volume_db = -16.0
+bus = &"SFX"
+
+[node name="Background" type="TextureRect" parent="." unique_id=1719519438]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_e184j")
+
+[node name="TitleBar" parent="." unique_id=93397008 instance=ExtResource("2_uxv0j")]
+layout_mode = 1
+title = "NAME YOUR TURTLE"
+speed_buttons = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=380549484]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -88.0
+offset_top = -22.0
+offset_right = 88.0
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="Turtle" type="TextureButton" parent="VBoxContainer" unique_id=1809489548]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = SubResource("AtlasTexture_uxv0j")
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1399361044]
+layout_mode = 2
+text = "Name:"
+horizontal_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer" unique_id=1957342413]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+text = "Archibald"
+alignment = 1
+max_length = 10
+
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=966172091]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+text = "START GAME"
+
+[connection signal="pressed" from="VBoxContainer/Turtle" to="." method="_on_turtle_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]

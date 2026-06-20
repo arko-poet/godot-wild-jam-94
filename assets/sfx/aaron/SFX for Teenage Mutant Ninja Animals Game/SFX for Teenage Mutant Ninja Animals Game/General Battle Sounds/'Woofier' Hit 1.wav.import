@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dccngpae22vw5"
+path="res://.godot/imported/'Woofier' Hit 1.wav-9a952240bfc4b92ea51d5fa5e0bb41f8.sample"
+
+[deps]
+
+source_file="res://assets/sfx/aaron/SFX for Teenage Mutant Ninja Animals Game/SFX for Teenage Mutant Ninja Animals Game/General Battle Sounds/'Woofier' Hit 1.wav"
+dest_files=["res://.godot/imported/'Woofier' Hit 1.wav-9a952240bfc4b92ea51d5fa5e0bb41f8.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -142,15 +142,17 @@ func _do_turn(creature: Creature) -> void:
 	if creature == ally:
 		archibald_attack.show()
 		archibald_attack.play()
-		_animate_attack(ally_sprite, true)
+		await _animate_attack(ally_sprite, true)
 		enemy_hit.show()
 		enemy_hit.play()
+		_animate_knockback(enemy_sprite, false)
 	else:
 		enemy_attack.show()
 		enemy_attack.play()
-		_animate_attack(enemy_sprite, false)
+		await _animate_attack(enemy_sprite, false)
 		archibald_hit.show()
 		archibald_hit.play()
+		_animate_knockback(ally_sprite, true)
 	
 	var is_crit := creature == ally and randf() < ally.damage * 0.01
 	
@@ -224,7 +226,12 @@ func _on_enemy_hit_animation_finished() -> void:
 
 
 func _animate_knockback(sprite: Sprite2D, is_ally: bool) -> void:
-	pass
+	var tween := create_tween()
+	var initial_position = sprite.position
+	var direction := 1 if is_ally else -1
+	tween.tween_property(sprite, ^"position:x", sprite.position.x + 10 * direction, 0.1)
+	tween.tween_property(sprite, ^"position:y", sprite.position.y - 8, 0.1)
+	tween.tween_property(sprite, ^"position", initial_position, 0.1)
 	
 
 func _animate_attack(sprite: Sprite2D, is_ally: bool) -> void:
@@ -232,4 +239,4 @@ func _animate_attack(sprite: Sprite2D, is_ally: bool) -> void:
 	var initial_position = sprite.position
 	var direction := 1 if is_ally else -1
 	tween.tween_property(sprite, ^"position:x", sprite.position.x + 10 * direction, 0.1)
-	tween.tween_property(sprite, ^"position:x", initial_position.x, 0.1)
+	await tween.tween_property(sprite, ^"position:x", initial_position.x, 0.1)

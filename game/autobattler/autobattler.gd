@@ -32,10 +32,10 @@ var combat_on := false
 @onready var win_screen: CanvasLayer = %WinScreen
 @onready var combat_result_label = %CombatResultLabel
 
-@onready var archibald_attack: AnimatedSprite2D = $World/AllySprite/ArchibaldAttack
-@onready var archibald_hit: AnimatedSprite2D = $World/AllySprite/ArchibaldHit
-@onready var enemy_attack: AnimatedSprite2D = $World/EnemySprite/EnemyAttack
-@onready var enemy_hit: AnimatedSprite2D = $World/EnemySprite/EnemyHit
+@onready var archibald_attack: AnimatedSprite2D = $World/ArchibaldAttack
+@onready var archibald_hit: AnimatedSprite2D = $World/ArchibaldHit
+@onready var enemy_attack: AnimatedSprite2D = $World/EnemyAttack
+@onready var enemy_hit: AnimatedSprite2D = $World/EnemyHit
 
 func set_creatures(p_ally: Creature, p_enemy: Creature) -> void:
 	ally = p_ally
@@ -142,11 +142,13 @@ func _do_turn(creature: Creature) -> void:
 	if creature == ally:
 		archibald_attack.show()
 		archibald_attack.play()
+		_animate_attack(ally_sprite, true)
 		enemy_hit.show()
 		enemy_hit.play()
 	else:
 		enemy_attack.show()
 		enemy_attack.play()
+		_animate_attack(enemy_sprite, false)
 		archibald_hit.show()
 		archibald_hit.play()
 	
@@ -219,3 +221,15 @@ func _on_enemy_attack_animation_finished() -> void:
 
 func _on_enemy_hit_animation_finished() -> void:
 	enemy_hit.hide()
+
+
+func _animate_knockback(sprite: Sprite2D, is_ally: bool) -> void:
+	pass
+	
+
+func _animate_attack(sprite: Sprite2D, is_ally: bool) -> void:
+	var tween := create_tween()
+	var initial_position = sprite.position
+	var direction := 1 if is_ally else -1
+	tween.tween_property(sprite, ^"position:x", sprite.position.x + 10 * direction, 0.1)
+	tween.tween_property(sprite, ^"position:x", initial_position.x, 0.1)

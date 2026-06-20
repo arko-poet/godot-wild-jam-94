@@ -36,23 +36,26 @@ func combine_strands(
 			var incoming_base = incoming_strand.bases[incoming_strand_index]
 			# Evolution
 			if base.is_matching(incoming_base):
-				base.value += incoming_base.value
 				if not preview_labels.is_empty():
 					print("matching")
 					print(base_index)
 					preview_labels[base_index].text = "+"
+				else:
+					base.value += incoming_base.value
 			# Mutation
 			elif mutation_allowed:
-				if randf() < 0.5:
-					incoming_base.value -= base.value
-					base = incoming_base
-				else: # Conservation
-					base.value -= incoming_base.value
+
 		
 				if not preview_labels.is_empty():
 					preview_labels[base_index].text = "?"
 					print("mutation_allowed")
 					print(base_index)
+				else:
+					if randf() < 0.5:
+						incoming_base.value -= base.value
+						base = incoming_base
+					else: # Conservation
+						base.value -= incoming_base.value
 		if preview_labels.is_empty():
 			new_bases.append(base)
 	
@@ -72,7 +75,6 @@ func combine_strands(
 	if preview_labels.is_empty():
 		bases = new_bases
 		strand_mutated.emit()
-
 
 
 func get_attribute_sum(attribute: DNABase.Attribute) -> int:

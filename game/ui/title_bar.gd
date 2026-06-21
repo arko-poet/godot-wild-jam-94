@@ -11,6 +11,9 @@ class_name TitleBar extends Control
 @onready var menu_button: Button = %MenuButton
 @onready var time_controls: HBoxContainer = $TimeControls
 
+@onready var _1_speed_button: Button = %"1SpeedButton"
+@onready var _2_speed_button: Button = %"2SpeedButton"
+@onready var _4_speed_button: Button = %"4SpeedButton"
 
 signal main_menu
 
@@ -26,3 +29,23 @@ func _ready() -> void:
 
 func _on_menu_button_pressed():
 	main_menu.emit()
+
+
+func _on_speed_button1_pressed() -> void:
+	Engine.time_scale = 1.0
+	_1_speed_button.disabled = true
+	_2_speed_button.disabled = false
+	_4_speed_button.disabled = false
+	
+func _on_speed_button2_pressed() -> void:
+	Engine.time_scale = 2.0
+	_1_speed_button.disabled = false
+	_2_speed_button.disabled = true
+	_4_speed_button.disabled = false
+
+
+func _on_speed_button4_pressed() -> void:
+	Engine.time_scale = 4.0
+	_1_speed_button.disabled = false
+	_2_speed_button.disabled = false
+	_4_speed_button.disabled = true

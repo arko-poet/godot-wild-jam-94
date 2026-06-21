@@ -30,6 +30,9 @@ var mutation_hints: Array[Label] = []
 
 @onready var mutation_shift_clicked_player: AudioStreamPlayer = $MutationShiftClickedPlayer
 @onready var mutation_shift_hover_player: AudioStreamPlayer = $MutationShiftHoverPlayer
+@onready var mutation_player: AudioStreamPlayer = $MutationPlayer
+
+@onready var mutation_hints_container: VBoxContainer = %MutationHints
 
 var ally: Creature
 var enemy: Creature
@@ -80,9 +83,22 @@ func switch_scene(on := true) -> void:
 		ui.hide()
 
 
+func switch_right_strand(on := true) -> void:
+	if on:
+		shift_strand_up_button.show()
+		shift_strand_down_button.show()
+		mutation_hints_container.show()
+	else:
+		shift_strand_up_button.hide()
+		shift_strand_down_button.hide()
+		mutation_hints_container.hide()
+
+
 func _on_confirm_mutation_button_pressed() -> void:
+	mutation_player.play()
 	left_strand.combine_strands(right_strand, right_strand_drawing.shift, true)
 	confirm_mutation_button.hide()
+	switch_right_strand(false)
 	next_battle_button.show()
 
 
@@ -104,6 +120,7 @@ func _on_shift_strand_down_button_pressed() -> void:
 
 
 func _on_next_battle_button_pressed() -> void:
+	switch_right_strand()
 	mutation_finished.emit()
 	print("MUTATION FINISHED, NEXT BATTLE REQUESTED")
 

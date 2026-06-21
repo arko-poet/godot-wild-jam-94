@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bwemashwws6sm" path="res://game/ui/title_bar.gd" id="1_dtvaf"]
 [ext_resource type="Texture2D" uid="uid://d0mw4hwanlf2x" path="res://assets/art/AssetsBattleScreen_x2/BattleScreenExampale.png" id="2_wc2ab"]
+[ext_resource type="Theme" uid="uid://cnaapa6iqaor4" path="res://game/resources/speed_buttons.tres" id="3_eh3q0"]
 [ext_resource type="Texture2D" uid="uid://df3glypja4rb4" path="res://assets/art/AssetsBattleScreen_x2/Menu_Button.png" id="3_wc2ab"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eh3q0"]
@@ -32,28 +33,35 @@ texture = ExtResource("2_wc2ab")
 [node name="TimeControls" type="HBoxContainer" parent="." unique_id=1363188190]
 layout_direction = 2
 layout_mode = 0
-offset_right = 316.0
-offset_bottom = 48.0
-
-[node name="PauseButton" type="Button" parent="TimeControls" unique_id=1280858297]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Pause"
+offset_left = 22.0
+offset_top = 9.0
+offset_right = 228.0
+offset_bottom = 39.0
 
 [node name="1SpeedButton" type="Button" parent="TimeControls" unique_id=372072723]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(38, 0)
 layout_mode = 2
-text = "1x"
+theme = ExtResource("3_eh3q0")
+theme_override_font_sizes/font_size = 14
+disabled = true
+text = "x1"
 
 [node name="2SpeedButton" type="Button" parent="TimeControls" unique_id=692242581]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(38, 0)
 layout_mode = 2
-text = "2x"
+theme = ExtResource("3_eh3q0")
+theme_override_font_sizes/font_size = 14
+text = "x2"
 
 [node name="4SpeedButton" type="Button" parent="TimeControls" unique_id=1049175039]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(38, 0)
 layout_mode = 2
-text = "4x"
+theme = ExtResource("3_eh3q0")
+theme_override_font_sizes/font_size = 14
+text = "x4"
 
 [node name="TitleLabel" type="Label" parent="." unique_id=1182743745]
 unique_name_in_owner = true
@@ -66,7 +74,6 @@ offset_top = 15.999999
 offset_right = 50.0
 offset_bottom = 32.0
 grow_horizontal = 2
-scale = Vector2(0.9979592, 0.98816514)
 text = "TITLE"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -84,6 +91,10 @@ offset_right = -24.0
 offset_bottom = 38.0
 grow_horizontal = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 14
 theme_override_styles/normal = SubResource("StyleBoxTexture_eh3q0")
 text = "Menu"
+
+[connection signal="pressed" from="TimeControls/1SpeedButton" to="." method="_on_speed_button1_pressed"]
+[connection signal="pressed" from="TimeControls/2SpeedButton" to="." method="_on_speed_button2_pressed"]
+[connection signal="pressed" from="TimeControls/4SpeedButton" to="." method="_on_speed_button4_pressed"]

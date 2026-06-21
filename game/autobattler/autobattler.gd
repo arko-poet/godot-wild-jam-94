@@ -53,6 +53,10 @@ func set_creatures(p_ally: Creature, p_enemy: Creature) -> void:
 	
 	ally_sprite.texture = Creatures.get_creature_texture(ally)
 	enemy_sprite.texture = Creatures.get_creature_texture(enemy)
+	if enemy.species == Creature.Species.TURTLE8:
+		enemy_sprite.flip_h = true
+	else:
+		enemy_sprite.flip_h = false
 
 	ally_intro_sound_player.stream = Creatures.get_creature_audio(ally)
 	enemy_intro_sound_player.stream = Creatures.get_creature_audio(enemy)
@@ -64,6 +68,9 @@ func set_creatures(p_ally: Creature, p_enemy: Creature) -> void:
 	enemy_health_bar.creature = enemy
 	
 	combat_log.clear()
+	
+	enemy_sprite.hide()
+	ally_sprite.hide()
 	
 
 ## shows/hides scene
@@ -94,10 +101,12 @@ func switch_scene(on := true) -> void:
 
 func auto_battle() -> void:
 	await get_tree().create_timer(0.5).timeout # So the intro sound doesn't play immediately
+	ally_sprite.show()
 	ally_intro_sound_player.play()
 	while ally_intro_sound_player.playing:
 		await get_tree().create_timer(0.05).timeout
 	await get_tree().create_timer(0.1).timeout
+	enemy_sprite.show()
 	enemy_intro_sound_player.play()
 	await get_tree().create_timer(0.07).timeout 
 	combat_on = true
@@ -116,7 +125,7 @@ func auto_battle() -> void:
 				for i in floor(float(enemy.speed) / float(ally.speed)):
 					await _do_turn(enemy)
 				if (enemy.speed % ally.speed) * 0.1 > randf():
-					await _do_turn(ally)
+					await _do_turn(enemy)
 				await _do_turn(ally)
 
 		else:
@@ -252,7 +261,7 @@ func _on_enemy_hit_animation_finished() -> void:
 func _animate_knockback(sprite: Sprite2D, is_ally: bool) -> void:
 	var tween := create_tween()
 	var initial_position = sprite.position
-	var direction := 1 if is_ally else -1
+	var direction := -1 if is_ally else 1
 	tween.tween_property(sprite, ^"position:x", sprite.position.x + 10 * direction, 0.1)
 	tween.tween_property(sprite, ^"position:y", sprite.position.y - 8, 0.1)
 	tween.tween_property(sprite, ^"position", initial_position, 0.1)

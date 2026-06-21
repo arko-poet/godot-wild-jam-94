@@ -1,5 +1,26 @@
 # Attribution
 ## Collaborators
+### Game Design
+[arko](https://arko-poet.itch.io/)
+
+### Pixel Art
+[Dedos Demos](https://dedos-demos.itch.io/)
+
+### Music Composition
+[ShootingCat](https://shootingcat.itch.io/)
+
+### Sound Design
+[Aaron Dickinson](https://aarondickinsonmusic.itch.io/)
+
+### Programming
+[MrInvis](https://intern.itch.io/)
+[arko](https://arko-poet.itch.io/)
+
+## Sourced
+### Font
+Author: [CodeMan38](https://fonts.google.com/?query=CodeMan38)  
+Source: [https://fonts.google.com/](https://fonts.google.com/)  
+License: [SIL Open Font License (OFL) 1.1](hhttps://fonts.google.com/specimen/Press+Start+2P/license?query=CodeMan38)
 
 ### Godot Game Template
 ![Maaack Plugin Icon](/addons/maaacks_game_template/assets/plugin_logo/logo.png)  

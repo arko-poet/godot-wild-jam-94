@@ -52,6 +52,7 @@ alignment = 1
 
 [node name="ResetButton" type="Button" parent="VBoxContainer/InputMappingContainer/HBoxContainer" unique_id=14998312]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 text = "Reset"
 
 [node name="KeyDeletionConfirmation" parent="." unique_id=1120617858 instance=ExtResource("7_5j1ya")]

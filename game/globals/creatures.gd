@@ -62,7 +62,7 @@ static func get_enemy(level: int) -> Creature:
 		return get_salamander(level)
 	elif level == 7:
 		return get_fleshmancer(level)
-	elif level == 20:
+	elif level == 30:
 		return get_secret_boss(level)
 	elif level % 10 == 0:
 		return get_infinite_fleshmancer(level)
@@ -108,7 +108,7 @@ static func get_random_enemy(level: int) -> Creature:
 
 static func get_secret_boss(level: int) -> Creature:
 	var species := Creature.Species.TURTLE8
-	var creature := Creature.new("John Archibald II", DNAStrand.new(), species, 213, 50, 50)
+	var creature := Creature.new("John Archibald II", DNAStrand.new(), species, 213, 67, 67)
 	creature.max_health = 2137
 	return creature
 

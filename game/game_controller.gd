@@ -57,7 +57,7 @@ func _initiate_mutation():
 
 func _initiate_autobattler():
 
-	if level == 20:
+	if level == 30:
 		ProjectMusicController.play_stream(SECRET_MUSIC)
 	elif level == 7 or (level > 7 and level % 10 == 0):
 		ProjectMusicController.play_stream(BOSS_MUSIC)

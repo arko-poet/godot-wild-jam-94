@@ -8,6 +8,8 @@ const DEFAULT_NAME := "Archibald"
 
 @onready var line_edit: LineEdit = %LineEdit
 
+@onready var title_bar: TitleBar = $TitleBar
+
 
 func _on_button_pressed() -> void:
 	var turtle_name = DEFAULT_NAME if line_edit.text.is_empty() else line_edit.text

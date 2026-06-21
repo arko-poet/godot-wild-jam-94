@@ -9,7 +9,7 @@ extends "res://template/scenes/credits/scrolling_credits.gd"
 @export var force_mouse_mode_visible : bool = false
 
 @onready var end_message_panel = %EndMessagePanel
-@onready var exit_button = %ExitButton
+@onready var continue_button = %ContinueButton
 @onready var menu_button = %MenuButton
 @onready var init_mouse_filter : MouseFilter = mouse_filter
 
@@ -43,7 +43,7 @@ func _ready() -> void:
 	if get_main_menu_scene_path().is_empty():
 		menu_button.hide()
 	if OS.has_feature("web"):
-		exit_button.hide()
+		continue_button.hide()
 	end_message_panel.hide()
 	super._ready()
 
@@ -59,3 +59,8 @@ func _on_exit_button_pressed():
 
 func _on_menu_button_pressed():
 	load_main_menu()
+
+
+func _on_continue_button_pressed() -> void:
+	pass # Replace with function body.
+

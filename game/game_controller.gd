@@ -27,6 +27,7 @@ func _ready() -> void:
 	autobattler.title_bar.main_menu.connect(pause_menu_controller.pause)
 	mutation_screen.title_bar.main_menu.connect(pause_menu_controller.pause)
 	turtle_name_scene.title_bar.main_menu.connect(pause_menu_controller.pause)
+	end_credits.continue_game.connect(_initiate_mutation)
 	
 	autobattler.switch_scene(false)
 	mutation_screen.switch_scene(false)
@@ -37,6 +38,7 @@ func _ready() -> void:
 
 
 func _initiate_mutation():
+	end_credits.hide()
 	autobattler.win_screen.visible = false
 	ProjectMusicController.play_stream(MUTATION_MUSIC)
 
@@ -74,9 +76,7 @@ func _on_autobattler_player_lost() -> void:
 	ProjectMusicController.music_stream_player.stream_paused = true
 	lose_stringer_player.play()
 	await lose_stringer_player.finished
-	autobattler.win_screen.visible = false
-	autobattler.switch_scene(false)
-	end_credits.show()
+	SceneLoader.load_scene("res://template/scenes/menus/main_menu/main_menu_with_animations.tscn")
 
 
 func _on_autobattler_player_won() -> void:
@@ -84,6 +84,7 @@ func _on_autobattler_player_won() -> void:
 	win_stringer_player.play()
 	await win_stringer_player.finished
 	if level == 7:
+		level += 1
 		autobattler.switch_scene(false)
 		autobattler.win_screen.visible = false
 		end_credits.show()

@@ -43,8 +43,6 @@ func _on_visibility_changed() -> void:
 func _ready() -> void:
 	if get_main_menu_scene_path().is_empty():
 		menu_button.hide()
-	if OS.has_feature("web"):
-		continue_button.hide()
 	end_message_panel.hide()
 	super._ready()
 

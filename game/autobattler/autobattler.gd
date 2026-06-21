@@ -252,7 +252,7 @@ func _on_enemy_hit_animation_finished() -> void:
 func _animate_knockback(sprite: Sprite2D, is_ally: bool) -> void:
 	var tween := create_tween()
 	var initial_position = sprite.position
-	var direction := 1 if is_ally else -1
+	var direction := -1 if is_ally else 1
 	tween.tween_property(sprite, ^"position:x", sprite.position.x + 10 * direction, 0.1)
 	tween.tween_property(sprite, ^"position:y", sprite.position.y - 8, 0.1)
 	tween.tween_property(sprite, ^"position", initial_position, 0.1)

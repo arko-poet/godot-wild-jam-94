@@ -393,7 +393,7 @@ custom_minimum_size = Vector2(128, 48)
 modulate = Color(1, 1, 1, 0)
 
 [node name="VersionLabel" parent="VersionMargin/VersionContainer" index="0" unique_id=793266470]
-text = "v0.1.0"
+text = "v0.2.1"
 
 [node name="NewGameConfirmation" parent="." index="8" unique_id=1747133399 instance=ExtResource("5_dm2ih")]
 unique_name_in_owner = true

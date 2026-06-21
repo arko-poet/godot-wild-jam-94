@@ -34,16 +34,16 @@ texture = ExtResource("2_wc2ab")
 layout_direction = 2
 layout_mode = 0
 offset_left = 22.0
-offset_top = 10.0
+offset_top = 9.0
 offset_right = 228.0
-offset_bottom = 38.0
+offset_bottom = 39.0
 
 [node name="1SpeedButton" type="Button" parent="TimeControls" unique_id=372072723]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(38, 0)
 layout_mode = 2
 theme = ExtResource("3_eh3q0")
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 14
 disabled = true
 text = "x1"
 
@@ -52,7 +52,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(38, 0)
 layout_mode = 2
 theme = ExtResource("3_eh3q0")
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 14
 text = "x2"
 
 [node name="4SpeedButton" type="Button" parent="TimeControls" unique_id=1049175039]
@@ -60,7 +60,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(38, 0)
 layout_mode = 2
 theme = ExtResource("3_eh3q0")
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 14
 text = "x4"
 
 [node name="TitleLabel" type="Label" parent="." unique_id=1182743745]
@@ -74,7 +74,6 @@ offset_top = 15.999999
 offset_right = 50.0
 offset_bottom = 32.0
 grow_horizontal = 2
-scale = Vector2(0.9979592, 0.98816514)
 text = "TITLE"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -92,7 +91,7 @@ offset_right = -24.0
 offset_bottom = 38.0
 grow_horizontal = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 14
 theme_override_styles/normal = SubResource("StyleBoxTexture_eh3q0")
 text = "Menu"
 

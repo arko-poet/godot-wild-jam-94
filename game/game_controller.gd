@@ -76,7 +76,9 @@ func _on_autobattler_player_lost() -> void:
 	ProjectMusicController.music_stream_player.stream_paused = true
 	lose_stringer_player.play()
 	await lose_stringer_player.finished
-	SceneLoader.load_scene("res://template/scenes/menus/main_menu/main_menu_with_animations.tscn")
+	autobattler.win_screen.visible = false
+	autobattler.switch_scene(false)
+	end_credits.show()
 
 
 func _on_autobattler_player_won() -> void:

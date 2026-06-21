@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/DnaScreenPhase2(NoIntro).mp3-5b678b31f417ad62
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

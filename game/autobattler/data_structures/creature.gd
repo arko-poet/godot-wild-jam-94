@@ -58,7 +58,7 @@ var _base_speed: int
 
 
 func _init(p_name: String, p_dna_strand: DNAStrand, p_species := Species.SALAMANDER,
-		p_base_vitality := 10, p_base_damage := 10, p_base_speed := 5) -> void:
+		p_base_vitality := 10, p_base_damage := 10, p_base_speed := 10) -> void:
 	name = p_name
 	species = p_species
 	

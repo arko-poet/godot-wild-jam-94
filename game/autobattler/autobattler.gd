@@ -53,6 +53,10 @@ func set_creatures(p_ally: Creature, p_enemy: Creature) -> void:
 	
 	ally_sprite.texture = Creatures.get_creature_texture(ally)
 	enemy_sprite.texture = Creatures.get_creature_texture(enemy)
+	if enemy.species == Creature.Species.TURTLE8:
+		enemy_sprite.flip_h = true
+	else:
+		enemy_sprite.flip_h = false
 
 	ally_intro_sound_player.stream = Creatures.get_creature_audio(ally)
 	enemy_intro_sound_player.stream = Creatures.get_creature_audio(enemy)

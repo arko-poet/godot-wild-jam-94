@@ -35,14 +35,10 @@ layout_mode = 0
 offset_right = 316.0
 offset_bottom = 48.0
 
-[node name="PauseButton" type="Button" parent="TimeControls" unique_id=1280858297]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Pause"
-
 [node name="1SpeedButton" type="Button" parent="TimeControls" unique_id=372072723]
 unique_name_in_owner = true
 layout_mode = 2
+disabled = true
 text = "1x"
 
 [node name="2SpeedButton" type="Button" parent="TimeControls" unique_id=692242581]
@@ -87,3 +83,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 12
 theme_override_styles/normal = SubResource("StyleBoxTexture_eh3q0")
 text = "Menu"
+
+[connection signal="pressed" from="TimeControls/1SpeedButton" to="." method="_on_speed_button1_pressed"]
+[connection signal="pressed" from="TimeControls/2SpeedButton" to="." method="_on_speed_button2_pressed"]
+[connection signal="pressed" from="TimeControls/4SpeedButton" to="." method="_on_speed_button4_pressed"]

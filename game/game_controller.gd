@@ -3,6 +3,7 @@ class_name GameController extends Node
 const MUTATION_MUSIC := preload("res://assets/music/DnaScreen_BPM110_L58B_LOOP.mp3")
 const AUTOBATTLE_MUSIC := preload("res://assets/music/DnaScreenPhase2(NoIntro).mp3")
 const BOSS_MUSIC := preload("res://assets/music/Bossfight(NoIntro)_BPM120_L50B.mp3")
+const SECRET_MUSIC := preload("res://assets/music/DnaScreenPhase4_BPM110_L58B_LOOP.mp3")
 
 const AutobattlerScene := preload("res://game/autobattler/autobattler.tscn")
 
@@ -47,7 +48,10 @@ func _initiate_mutation():
 
 
 func _initiate_autobattler():
-	if level == 7:
+
+	if level == 20:
+		ProjectMusicController.play_stream(SECRET_MUSIC)
+	elif level == 7 or (level > 7 and level % 10 == 0):
 		ProjectMusicController.play_stream(BOSS_MUSIC)
 	else:
 		ProjectMusicController.play_stream(AUTOBATTLE_MUSIC)

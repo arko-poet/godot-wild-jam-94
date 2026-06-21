@@ -118,13 +118,13 @@ func auto_battle() -> void:
 				print(randf())
 				for i in floor(float(ally.speed) / float(enemy.speed)):
 					await _do_turn(ally)
-				if (ally.speed % enemy.speed) * 0.1 > randf():
+				if (ally.speed % enemy.speed) / float(enemy.speed) > randf():
 					await _do_turn(ally)
 				await _do_turn(enemy)
 			else:
 				for i in floor(float(enemy.speed) / float(ally.speed)):
 					await _do_turn(enemy)
-				if (enemy.speed % ally.speed) * 0.1 > randf():
+				if (enemy.speed % ally.speed) / float(ally.speed) > randf():
 					await _do_turn(enemy)
 				await _do_turn(ally)
 

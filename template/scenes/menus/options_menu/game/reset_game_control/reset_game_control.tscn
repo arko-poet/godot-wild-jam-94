@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cif0s0j2ddiyk"]
 
-[ext_resource type="Script" path="res://template/scenes/menus/options_menu/game/reset_game_control/reset_game_control.gd" id="1_elxdg"]
+[ext_resource type="Script" uid="uid://07rs467ndbch" path="res://template/scenes/menus/options_menu/game/reset_game_control/reset_game_control.gd" id="1_elxdg"]
 
 [node name="ResetGameControl" type="HBoxContainer" unique_id=1147095030]
 custom_minimum_size = Vector2(0, 32)
@@ -17,7 +17,7 @@ text = "Reset Game :"
 
 [node name="ResetButton" type="Button" parent="." unique_id=846056487]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(72, 32)
+custom_minimum_size = Vector2(96, 32)
 layout_mode = 2
 text = "Reset"
 

@@ -13,10 +13,12 @@ close_button_text = "Cancel"
 vertical = false
 
 [node name="CloseButton" parent="ContentContainer/BoxContainer/MenuButtonsMargin/MenuButtons" index="0" unique_id=314526102]
+custom_minimum_size = Vector2(128, 32)
 text = "Cancel"
 
 [node name="ConfirmButton" type="Button" parent="ContentContainer/BoxContainer/MenuButtonsMargin/MenuButtons" index="1" unique_id=1052970550]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(128, 32)
 layout_mode = 2
 text = "Confirm"
 

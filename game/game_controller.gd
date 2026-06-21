@@ -26,6 +26,7 @@ var level := 1
 
 func _ready() -> void:
 	archibald = Creature.new("Archibald", DNAStrand.new(), Creature.Species.TURTLE0)
+	ProjectMusicController.play_stream(MUTATION_MUSIC)
 	mutation_screen.stats.creature = archibald
 	autobattler.title_bar.main_menu.connect(pause_menu_controller.pause)
 	mutation_screen.title_bar.main_menu.connect(pause_menu_controller.pause)

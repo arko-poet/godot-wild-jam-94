@@ -69,6 +69,9 @@ func set_creatures(p_ally: Creature, p_enemy: Creature) -> void:
 	
 	combat_log.clear()
 	
+	enemy_sprite.hide()
+	ally_sprite.hide()
+	
 
 ## shows/hides scene
 func switch_scene(on := true) -> void:
@@ -98,10 +101,12 @@ func switch_scene(on := true) -> void:
 
 func auto_battle() -> void:
 	await get_tree().create_timer(0.5).timeout # So the intro sound doesn't play immediately
+	ally_sprite.show()
 	ally_intro_sound_player.play()
 	while ally_intro_sound_player.playing:
 		await get_tree().create_timer(0.05).timeout
 	await get_tree().create_timer(0.1).timeout
+	enemy_sprite.show()
 	enemy_intro_sound_player.play()
 	await get_tree().create_timer(0.07).timeout 
 	combat_on = true

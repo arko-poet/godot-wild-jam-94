@@ -4,14 +4,15 @@
 [ext_resource type="Script" uid="uid://cbdnl5q5h72hu" path="res://template/scenes/end_credits/end_credits.gd" id="2_jh5yp"]
 [ext_resource type="PackedScene" uid="uid://bkcsjsk2ciff" path="res://addons/maaacks_game_template/base/nodes/music_players/background_music_player.tscn" id="3_fichv"]
 [ext_resource type="Script" uid="uid://1nf36h0gms3q" path="res://addons/maaacks_game_template/base/nodes/utilities/capture_focus.gd" id="4_4bbwp"]
+[ext_resource type="AudioStream" uid="uid://bgv1ibv0adar" path="res://assets/music/MainMenu_BPM70_L35B_LOOP.mp3" id="4_jh5yp"]
 
 [node name="EndCredits" unique_id=613298766 instance=ExtResource("1_dqbsw")]
 script = ExtResource("2_jh5yp")
 main_menu_scene_path = ""
 force_mouse_mode_visible = false
-scroll_paused = true
 
 [node name="BackgroundMusicPlayer" parent="." index="0" unique_id=1411252862 instance=ExtResource("3_fichv")]
+stream = ExtResource("4_jh5yp")
 
 [node name="BackgroundColor" type="ColorRect" parent="." index="1" unique_id=813188635]
 layout_mode = 1
@@ -33,7 +34,7 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="ScrollContainer" parent="." index="3" unique_id=1039720129]
-scroll_vertical = 1673
+scroll_vertical = 1211
 
 [node name="HeaderSpace" parent="ScrollContainer/VBoxContainer" parent_id_path=PackedInt32Array(2067921385) index="0" unique_id=1552560353]
 custom_minimum_size = Vector2(0, 540)
@@ -54,6 +55,7 @@ mouse_filter = 2
 
 [node name="EndMessagePanel" type="Panel" parent="CenterContainer" index="0" unique_id=680051131]
 unique_name_in_owner = true
+visible = false
 custom_minimum_size = Vector2(360, 120)
 layout_mode = 2
 

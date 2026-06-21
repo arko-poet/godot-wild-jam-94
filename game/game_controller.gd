@@ -96,6 +96,7 @@ func _on_autobattler_player_won() -> void:
 		autobattler.switch_scene(false)
 		autobattler.win_screen.visible = false
 		ProjectMusicController.play_stream(MAIN_MENU_MUSIC)
+		autobattler.title_bar._on_speed_button1_pressed()
 		end_credits.show()
 	else:
 		_initiate_mutation()

@@ -25,6 +25,7 @@ var level := 1
 
 
 func _ready() -> void:
+	Engine.time_scale = 1.0
 	archibald = Creature.new("Archibald", DNAStrand.new(), Creature.Species.TURTLE0)
 	ProjectMusicController.play_stream(MUTATION_MUSIC)
 	mutation_screen.stats.creature = archibald

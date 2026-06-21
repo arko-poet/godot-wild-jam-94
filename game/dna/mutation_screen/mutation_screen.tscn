@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dneihqdyyv2sb" path="res://assets/art/AssetsDNAScreen_x2/DNAScreenExample.png" id="3_kxiwm"]
 [ext_resource type="Texture2D" uid="uid://d0c3oei755jvb" path="res://assets/art/AssetsArchibald_x2/ArchibaldStand.png" id="3_t0w3q"]
 [ext_resource type="Texture2D" uid="uid://bafs47ipwdqis" path="res://assets/art/AssetsSalamander_x2/SalamanderStand.png" id="4_4vgib"]
+[ext_resource type="AudioStream" uid="uid://bijkkfys0kqne" path="res://assets/sfx/aaron/SFX for Teenage Mutant Ninja Animals Game/SFX for Teenage Mutant Ninja Animals Game/Triumphant Sound.wav" id="4_a7x5q"]
 [ext_resource type="Texture2D" uid="uid://dae4xywvlp37p" path="res://assets/art/AssetsDNAScreen_x2/ScrollBarButton.png" id="4_hqnmp"]
 [ext_resource type="PackedScene" uid="uid://b2st48hbyrc6u" path="res://game/ui/title_bar.tscn" id="5_gh0k7"]
 [ext_resource type="PackedScene" uid="uid://cs45qvk88kylk" path="res://game/autobattler/stats_container/stats_container.tscn" id="6_jn8ej"]
@@ -36,6 +37,10 @@ bus = &"SFX"
 
 [node name="MutationShiftHoverPlayer" type="AudioStreamPlayer" parent="." unique_id=649412456]
 stream = ExtResource("3_hcndt")
+bus = &"SFX"
+
+[node name="MutationPlayer" type="AudioStreamPlayer" parent="." unique_id=1605587769]
+stream = ExtResource("4_a7x5q")
 bus = &"SFX"
 
 [node name="World" type="Node2D" parent="." unique_id=807716502]

@@ -50,7 +50,6 @@ folder_colors={
 
 [gui]
 
-common/snap_controls_to_pixels=false
 theme/custom="uid://bkmkuk4tw7y3d"
 theme/custom_font="uid://7hyo8btaaxj4"
 

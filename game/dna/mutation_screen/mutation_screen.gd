@@ -30,6 +30,7 @@ var mutation_hints: Array[Label] = []
 
 @onready var mutation_shift_clicked_player: AudioStreamPlayer = $MutationShiftClickedPlayer
 @onready var mutation_shift_hover_player: AudioStreamPlayer = $MutationShiftHoverPlayer
+@onready var mutation_player: AudioStreamPlayer = $MutationPlayer
 
 @onready var mutation_hints_container: VBoxContainer = %MutationHints
 
@@ -94,6 +95,7 @@ func switch_right_strand(on := true) -> void:
 
 
 func _on_confirm_mutation_button_pressed() -> void:
+	mutation_player.play()
 	left_strand.combine_strands(right_strand, right_strand_drawing.shift, true)
 	confirm_mutation_button.hide()
 	switch_right_strand(false)

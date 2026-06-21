@@ -4,6 +4,8 @@ const MUTATION_MUSIC := preload("res://assets/music/DnaScreen_BPM110_L58B_LOOP.m
 const AUTOBATTLE_MUSIC := preload("res://assets/music/DnaScreenPhase2(NoIntro).mp3")
 const BOSS_MUSIC := preload("res://assets/music/Bossfight(NoIntro)_BPM120_L50B.mp3")
 const SECRET_MUSIC := preload("res://assets/music/DnaScreenPhase4_BPM110_L58B_LOOP.mp3")
+const MAIN_MENU_MUSIC := preload("res://assets/music/MainMenu_BPM70_L35B_LOOP.mp3")
+
 
 const AutobattlerScene := preload("res://game/autobattler/autobattler.tscn")
 
@@ -91,6 +93,7 @@ func _on_autobattler_player_won() -> void:
 		level += 1
 		autobattler.switch_scene(false)
 		autobattler.win_screen.visible = false
+		ProjectMusicController.play_stream(MAIN_MENU_MUSIC)
 		end_credits.show()
 	else:
 		_initiate_mutation()

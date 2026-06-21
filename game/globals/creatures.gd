@@ -62,31 +62,57 @@ static func get_enemy(level: int) -> Creature:
 		return get_salamander(level)
 	elif level == 7:
 		return get_fleshmancer(level)
+	#elif level == 20:
+		#return get_secret_boss(level)
+	elif level % 10 == 0:
+		return get_infinite_fleshmancer(level)
 	else:
 		return get_random_enemy(level)
 
 
 static func get_byaka(level: int) -> Creature:
 	var species := Creature.Species.BYAKA
-	return Creature.new(CREATURE_NAMES[species], DNAStrand.new(), species, 5 + level, 5 + level, 3 + level)
+	return Creature.new(CREATURE_NAMES[species], DNAStrand.new(), species, 5 + level, 5 + level, 5 + level)
 
 
 static func get_flygrub(level: int) -> Creature:
 	var species := Creature.Species.FLYGRUB
-	return Creature.new(CREATURE_NAMES[species], DNAStrand.new(), species, 5 + level, 5 + level, 3 + level)
+	return Creature.new(CREATURE_NAMES[species], DNAStrand.new(), species, 6 + level, 3 + level, 8 + level)
 
 
 static func get_salamander(level: int) -> Creature:
 	var species := Creature.Species.SALAMANDER
-	return Creature.new(CREATURE_NAMES[species], DNAStrand.new(), species, 5 + level, 5 + level, 3 + level)
+	return Creature.new(CREATURE_NAMES[species], DNAStrand.new(), species, 9 + level, 8 + level, 3 + level)
 
 
 static func get_fleshmancer(level: int) -> Creature:
 	var species := Creature.Species.FLESHMANCER
-	var creature := Creature.new(CREATURE_NAMES[species], DNAStrand.new(), species, 666, 5 + level, 3 + level)
+	var creature := Creature.new(CREATURE_NAMES[species], DNAStrand.new(), species, 66, 4 + level, 3 + level)
 	creature.max_health = 666
 	return creature
 
+
 static func get_random_enemy(level: int) -> Creature:
-	var species := 9 + randi() % 4
-	return Creature.new(CREATURE_NAMES[species], DNAStrand.new(), species,  5 + level, 5 + level, 3 + level)
+	var species := 9 + randi() % 3
+	match species:
+		Creature.Species.BYAKA: # equal stats
+			return Creature.new(CREATURE_NAMES[species], DNAStrand.new(), species,  level * 2, level * 2, level * 2)
+		Creature.Species.FLYGRUB: # fast, low damage
+			return Creature.new(CREATURE_NAMES[species], DNAStrand.new(), species,  level * 2, level, level * 3)
+		Creature.Species.SALAMANDER: # high damage, high hp, low speed
+			return Creature.new(CREATURE_NAMES[species], DNAStrand.new(), species,  level * 2, level * 3, level)
+		_:
+			return Creature.new("ERROR", DNAStrand.new(), species,  1, 1, 1)
+			push_error("Invalid Species")
+		
+
+		
+
+#static func get_secret_boss(level: int) -> Creature:
+	#var species := 9 + randi() % 4
+	#return Creature.new(CREATURE_NAMES[species], DNAStrand.new(), species,  5 + level, 5 + level, 3 + level)
+
+
+static func get_infinite_fleshmancer(level: int) -> Creature:
+	var species := Creature.Species.FLESHMANCER
+	return Creature.new(CREATURE_NAMES[species], DNAStrand.new(), species,  level * 8, 2 * level, 2 * level)

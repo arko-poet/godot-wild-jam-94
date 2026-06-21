@@ -87,7 +87,7 @@ static func get_salamander(level: int) -> Creature:
 
 static func get_fleshmancer(level: int) -> Creature:
 	var species := Creature.Species.FLESHMANCER
-	var creature := Creature.new(CREATURE_NAMES[species], DNAStrand.new(), species, 66, 4 + level, 3 + level)
+	var creature := Creature.new(CREATURE_NAMES[species], DNAStrand.new(), species, 66, 9, 9)
 	creature.max_health = 666
 	return creature
 

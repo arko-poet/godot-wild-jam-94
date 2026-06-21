@@ -32,7 +32,7 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="ScrollContainer" parent="." index="3" unique_id=1039720129]
-scroll_vertical = 40
+scroll_vertical = 1113
 
 [node name="HeaderSpace" parent="ScrollContainer/VBoxContainer" parent_id_path=PackedInt32Array(2067921385) index="0" unique_id=1552560353]
 custom_minimum_size = Vector2(0, 540)
@@ -132,6 +132,7 @@ script = ExtResource("4_4bbwp")
 
 [node name="ContinueButton" type="Button" parent="CenterContainer/EndMessagePanel/VBoxContainer/CenterContainer/HBoxContainer" index="0" unique_id=1382070624]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(96, 32)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -139,6 +140,7 @@ text = "Continue"
 
 [node name="MenuButton" type="Button" parent="CenterContainer/EndMessagePanel/VBoxContainer/CenterContainer/HBoxContainer" index="1" unique_id=1504498101]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(96, 32)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3

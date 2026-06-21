@@ -25,6 +25,7 @@ func _ready() -> void:
 	mutation_screen.stats.creature = archibald
 	autobattler.title_bar.main_menu.connect(pause_menu_controller.pause)
 	mutation_screen.title_bar.main_menu.connect(pause_menu_controller.pause)
+	turtle_name_scene.title_bar.main_menu.connect(pause_menu_controller.pause)
 	
 	autobattler.switch_scene(false)
 	mutation_screen.switch_scene(false)

@@ -344,9 +344,6 @@ stream = ExtResource("5_p7afn")
 [node name="TitleContainer" parent="MenuContainer/TitleMargin" parent_id_path=PackedInt32Array(2112060331) index="0" unique_id=556427956]
 modulate = Color(1, 1, 1, 0)
 
-[node name="TitleLabel" parent="MenuContainer/TitleMargin/TitleContainer" index="0" unique_id=359406872]
-text = "GTA VI"
-
 [node name="SubTitleContainer" parent="MenuContainer/SubTitleMargin" parent_id_path=PackedInt32Array(1510335937) index="0" unique_id=930520368]
 modulate = Color(1, 1, 1, 0)
 
@@ -365,17 +362,16 @@ lock = true
 
 [node name="NewGameButton" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer" index="0" unique_id=2044537792]
 custom_minimum_size = Vector2(128, 48)
+mouse_default_cursor_shape = 8
 
 [node name="ContinueGameButton" type="Button" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer" index="1" unique_id=1206401873]
 unique_name_in_owner = true
-visible = false
 custom_minimum_size = Vector2(128, 48)
 layout_mode = 2
 text = "Continue"
 
 [node name="LevelSelectButton" type="Button" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer" index="2" unique_id=78300098]
 unique_name_in_owner = true
-visible = false
 custom_minimum_size = Vector2(128, 48)
 layout_mode = 2
 text = "Level Select"
@@ -391,9 +387,6 @@ custom_minimum_size = Vector2(128, 48)
 
 [node name="VersionContainer" parent="VersionMargin" parent_id_path=PackedInt32Array(1732528471) index="0" unique_id=1603969262]
 modulate = Color(1, 1, 1, 0)
-
-[node name="VersionLabel" parent="VersionMargin/VersionContainer" index="0" unique_id=793266470]
-text = "v0.2.1"
 
 [node name="NewGameConfirmation" parent="." index="8" unique_id=1747133399 instance=ExtResource("5_dm2ih")]
 unique_name_in_owner = true

@@ -85,6 +85,7 @@ max_length = 10
 [node name="Button" type="Button" parent="VBoxContainer" unique_id=966172091]
 custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
+mouse_default_cursor_shape = 2
 text = "START GAME"
 
 [connection signal="pressed" from="VBoxContainer/Turtle" to="." method="_on_turtle_pressed"]

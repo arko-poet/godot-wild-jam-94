@@ -9,7 +9,6 @@
 script = ExtResource("2_jh5yp")
 main_menu_scene_path = ""
 force_mouse_mode_visible = false
-scroll_paused = true
 
 [node name="BackgroundMusicPlayer" parent="." index="0" unique_id=1411252862 instance=ExtResource("3_fichv")]
 
@@ -33,7 +32,7 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="ScrollContainer" parent="." index="3" unique_id=1039720129]
-scroll_vertical = 1673
+scroll_vertical = 630
 
 [node name="HeaderSpace" parent="ScrollContainer/VBoxContainer" parent_id_path=PackedInt32Array(2067921385) index="0" unique_id=1552560353]
 custom_minimum_size = Vector2(0, 540)
@@ -54,6 +53,7 @@ mouse_filter = 2
 
 [node name="EndMessagePanel" type="Panel" parent="CenterContainer" index="0" unique_id=680051131]
 unique_name_in_owner = true
+visible = false
 custom_minimum_size = Vector2(360, 120)
 layout_mode = 2
 
@@ -88,6 +88,7 @@ custom_minimum_size = Vector2(96, 32)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_default_cursor_shape = 2
 text = "Continue"
 
 [node name="MenuButton" type="Button" parent="CenterContainer/EndMessagePanel/VBoxContainer/CenterContainer/HBoxContainer" index="1" unique_id=1504498101]
@@ -96,6 +97,7 @@ custom_minimum_size = Vector2(96, 32)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_default_cursor_shape = 2
 text = "Menu"
 
 [connection signal="pressed" from="CenterContainer/EndMessagePanel/VBoxContainer/CenterContainer/HBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]

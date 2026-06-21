@@ -25,6 +25,7 @@ var level := 1
 
 
 func _ready() -> void:
+	Engine.time_scale = 1.0
 	archibald = Creature.new("Archibald", DNAStrand.new(), Creature.Species.TURTLE0)
 	ProjectMusicController.play_stream(MUTATION_MUSIC)
 	mutation_screen.stats.creature = archibald
@@ -56,7 +57,7 @@ func _initiate_mutation():
 
 func _initiate_autobattler():
 
-	if level == 20:
+	if level == 30:
 		ProjectMusicController.play_stream(SECRET_MUSIC)
 	elif level == 7 or (level > 7 and level % 10 == 0):
 		ProjectMusicController.play_stream(BOSS_MUSIC)
@@ -95,6 +96,7 @@ func _on_autobattler_player_won() -> void:
 		autobattler.switch_scene(false)
 		autobattler.win_screen.visible = false
 		ProjectMusicController.play_stream(MAIN_MENU_MUSIC)
+		autobattler.title_bar._on_speed_button1_pressed()
 		end_credits.show()
 	else:
 		_initiate_mutation()

@@ -5,6 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://cgn47xispxthp" path="res://assets/sfx/aaron/Battle Click.wav" id="4_r5ody"]
 
 [node name="ProjectUISoundController" type="Node" unique_id=1525696179]
+process_mode = 3
 script = ExtResource("1_dmagn")
 button_hovered = ExtResource("2_1bvi8")
 button_pressed = ExtResource("4_r5ody")

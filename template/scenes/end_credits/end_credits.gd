@@ -63,4 +63,3 @@ func _on_menu_button_pressed():
 func _on_continue_button_pressed() -> void:
 	continue_game.emit()
 	pass # Replace with function body.
-
